@@ -10,9 +10,9 @@ export interface ButtonStylingProps extends Partial<Record<ButtonClassKey, strin
    * override label(children) appled to done layer (even when not visible)
    */
   doneLabel?: string;
-    /**
-   * override label(children) when done is true
-   */
+  /**
+ * override label(children) when done is true
+ */
   doneLabelVisible?: string;
   /**
    * override root(button itself) when done is true
@@ -38,8 +38,8 @@ export interface ButtonProps extends MuiButtonProps {
    * callback fired once the done transition is completed
    */
   withIcon?: boolean;
-  
-  hasIconOnly ?: boolean;
+
+  hasIconOnly?: boolean;
 
   isFlushButton?: boolean;
 
