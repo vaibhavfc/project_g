@@ -1,0 +1,73 @@
+
+.root > * > * > *{
+  color: #97144D !important;
+  cursor: pointer;
+
+  &:hover {
+    color: #97144D;
+  }  
+
+  &:active {
+    color: #97144D;
+  }
+
+  &:focus {
+    outline: none;
+    text-decoration: underline;
+    text-underline-offset: 1px;
+    text-decoration-thickness: 2px;
+
+  }
+
+  &:disabled {
+    color: #B4B4B4;
+    pointer-events: none;
+  }
+
+  &:visited {
+    color: #9911ED;
+  }
+}
+
+.li > * {
+  background-color: transparent;
+
+  & > *:focus {
+    background: none;
+    text-decoration: underline 1px solid red;
+  }
+
+  &:focus {
+    // outline: none;
+    color: #97144D;
+    background-color: transparent;
+  }  
+
+  &:active {
+    color: #282828;
+    background-color: transparent;
+    text-decoration: underline;
+  }
+
+  &:focus {
+    outline: none;
+    background-color: transparent;
+    text-decoration: underline;
+    text-underline-offset: 1px;
+    text-decoration-thickness: 2px;
+
+  }
+
+  &:disabled {
+    color: #B4B4B4;
+    pointer-events: none;
+  }
+
+  &:visited {
+    color: #9911ED;
+  }
+}
+
+.active  {
+  color: #282828 !important;
+}
