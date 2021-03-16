@@ -1,14 +1,13 @@
-
-.root > * > * > *{
-  color: #97144D !important;
+.root > * > * > * {
+  color: #97144d !important;
   cursor: pointer;
 
   &:hover {
-    color: #97144D;
-  }  
+    color: #97144d;
+  }
 
   &:active {
-    color: #97144D;
+    color: #97144d;
   }
 
   &:focus {
@@ -16,58 +15,56 @@
     text-decoration: underline;
     text-underline-offset: 1px;
     text-decoration-thickness: 2px;
-
   }
 
   &:disabled {
-    color: #B4B4B4;
+    color: #b4b4b4;
     pointer-events: none;
   }
 
   &:visited {
-    color: #9911ED;
+    color: #9911ed;
   }
 }
 
-.li > * {
-  background-color: transparent;
+// .li > * {
+//   background-color: transparent;
 
-  & > *:focus {
-    background: none;
-    text-decoration: underline 1px solid red;
-  }
+//   & > *:focus {
+//     background: none;
+//     text-decoration: underline 2px;
+//   }
 
-  &:focus {
-    // outline: none;
-    color: #97144D;
-    background-color: transparent;
-  }  
+//   &:focus {
+//     // outline: none;
+//     color: #97144d;
+//     background-color: transparent;
+//   }
 
-  &:active {
-    color: #282828;
-    background-color: transparent;
-    text-decoration: underline;
-  }
+//   &:active {
+//     color: #282828;
+//     background-color: transparent;
+//     text-decoration: underline;
+//   }
 
-  &:focus {
-    outline: none;
-    background-color: transparent;
-    text-decoration: underline;
-    text-underline-offset: 1px;
-    text-decoration-thickness: 2px;
+//   &:focus {
+//     outline: none;
+//     background-color: transparent;
+//     text-decoration: underline;
+//     text-underline-offset: 1px;
+//     text-decoration-thickness: 2px;
+//   }
 
-  }
+//   &:disabled {
+//     color: #b4b4b4;
+//     pointer-events: none;
+//   }
 
-  &:disabled {
-    color: #B4B4B4;
-    pointer-events: none;
-  }
+//   &:visited {
+//     color: #9911ed;
+//   }
+// }
 
-  &:visited {
-    color: #9911ED;
-  }
-}
-
-.active  {
+.active {
   color: #282828 !important;
 }

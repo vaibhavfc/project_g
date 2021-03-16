@@ -15,7 +15,9 @@ const LinkWithInnerRef: FC<LinkProps> = ({
   children = 'link',
   disabled = false,
   inlineLink = false,
-  // doneCallback = () => undefined,
+  tabIndex=0,
+  active,
+  doneCallback = () => undefined,
   ...props
 }) => {
   const mergedClasses = useMemo(
@@ -24,15 +26,16 @@ const LinkWithInnerRef: FC<LinkProps> = ({
   );
   return (
     <MuiLink
+      tabIndex={tabIndex}
       classes={{
-        root: classnames(mergedClasses.root, { [classes.inlineLink]: inlineLink, [classes.disabled]: disabled })
+        root: classnames(mergedClasses.root, { [classes.inlineLink]: inlineLink, [classes.disabled]: disabled, [classes.active]: active  })
       }}
     >
       {children}
     </MuiLink>)
 }
 
-const Link = forwardRef<HTMLLinkElement, Omit<LinkProps, 'innerRef'>>(
+const Link = forwardRef<HTMLAnchorElement, Omit<LinkProps, 'innerRef'>>(
   (props, ref) => <LinkWithInnerRef innerRef={ref} {...props} />
 );
 export default Link;
