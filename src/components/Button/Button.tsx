@@ -38,7 +38,7 @@ const ButtonWithInnerRef: FC<ButtonProps> = ({
                 endIcon: classnames({ [classes.endIcon]: hasIconOnly }),
                 sizeSmall: mergedClasses.sizeSmall,
                 sizeLarge: mergedClasses.sizeLarge,
-                outlined: classnames(mergedClasses.outlined, { [mergedClasses.outline_icon]: hasIconOnly && size !== 'small' }),
+                outlined: classnames(mergedClasses.outlined),
                 outlinedSecondary: mergedClasses.outlinedSecondary,
                 iconSizeSmall: mergedClasses.iconSizeSmall,
                 iconSizeMedium: mergedClasses.iconSizeMedium,

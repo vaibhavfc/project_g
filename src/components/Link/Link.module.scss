@@ -1,14 +1,13 @@
-
 .root {
-  color: #ED1164;
+  color: #ed1164;
   cursor: pointer;
 
   &:hover {
-    color: #ED1164;
-  }  
+    color: #ed1164;
+  }
 
   &:active {
-    color: #97144D;
+    color: #97144d;
   }
 
   &:focus {
@@ -16,16 +15,15 @@
     text-decoration: underline;
     text-underline-offset: 1px;
     text-decoration-thickness: 2px;
-
   }
 
   &:disabled {
-    color: #B4B4B4;
+    color: #b4b4b4;
     pointer-events: none;
   }
 
   &:visited {
-    color: #9911ED;
+    color: #9911ed;
   }
 }
 
@@ -34,6 +32,10 @@
 }
 
 .disabled {
-  color: #B4B4B4;
+  color: #b4b4b4;
   pointer-events: none;
+}
+
+.active {
+  color: #282828 !important;
 }

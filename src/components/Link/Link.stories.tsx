@@ -19,13 +19,19 @@ export default {
 
 const Template: Story<LinkProps> = (args) => <Link {...args}></Link>
 
-export const Default = Template.bind({});
-Default.args = {
-  children: 'Default Link'
+export const DefaultLink = Template.bind({});
+DefaultLink.args = {
+  children: 'Default Link',
 }
 
-export const Inline = Template.bind({});
-Inline.args = {
+export const InlineLink = Template.bind({});
+InlineLink.args = {
   children: 'Inline Link',
   inlineLink: true,
+}
+
+export const ActiveLink = Template.bind({})
+ActiveLink.args = {
+  children: 'Active Link',
+  active: true
 }
