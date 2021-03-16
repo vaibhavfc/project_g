@@ -4,29 +4,33 @@ import React, { FC } from 'react';
 import { 
   Link, 
   // Button, 
-  Breadcrumbs
+  Breadcrumbs,
+  Header
 } from './components'
 
 const App: FC = () => {
 
-  const Links = [
-    { href: '#', linkText: 'Link1', active: false },
-    { href: '#', linkText: 'Link2', active: false },
-    { href: '#', linkText: 'Link3', active: false },
-    { href: '#', linkText: 'Link4', active: false },
-    { href: '#', linkText: 'Link5', active: false },
-    { href: '/1', linkText: 'Current Page', active: true }
-  ]
+  // const Links = [
+  //   { href: '#', linkText: 'Link1', active: false },
+  //   { href: '#', linkText: 'Link2', active: false },
+  //   { href: '#', linkText: 'Link3', active: false },
+  //   { href: '#', linkText: 'Link4', active: false },
+  //   { href: '#', linkText: 'Link5', active: false },
+  //   { href: '/1', linkText: 'Current Page', active: true }
+  // ]
 
   return (
     <div>
         {/* TODO VAIBHAV (ROUTER) */}
-        <Link >LINK</Link>
-        <Breadcrumbs
+        <Link>LINK</Link>
+        {/* <Breadcrumbs
           links={Links}
           itemsAfterCollapse={3}
           maxItems={4}
-        />
+        /> */}
+
+        <Header size='medium' />
+        <Header size='large'/>
     </div>
   );
 }
