@@ -7,6 +7,8 @@ export { default as Chip } from './Chip';
 export { default as Skrim } from './Skrim';
 export { default as Checkbox } from './Checkbox';
 export { default as CheckboxList } from './CheckboxList';
+export { default as Radio } from './Radio';
+export { default as RadioList } from './RadioList';
 
 //* NEED TODO FURTHER
 // export { default as YesNoSwitch } from './YesNoSwitch';

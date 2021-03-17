@@ -1,13 +1,13 @@
 // also exported from '@storybook/react' if you can deal with breaking changes in 6.1
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import Checkbox from '.';
+import Radio from '.';
 
-import { CheckboxProps } from './Checkbox.type';
+import { RadioProps } from './Radio.type';
 
 export default {
-  title: 'Components/Checkbox',
-  component: Checkbox,
+  title: 'Components/Radio',
+  component: Radio,
   parameters: {
     controls: {
       // disabled: true,
@@ -15,7 +15,7 @@ export default {
   }
 } as Meta;
 
-const Template: Story<CheckboxProps> = (args) => <Checkbox {...args} />
+const Template: Story<RadioProps> = (args) => <Radio {...args} />
 
 export const Default = Template.bind({});
 Default.args = {
@@ -34,18 +34,18 @@ DisabledAndUnChecked.args = {
 
 export const DefaultWithLabel = Template.bind({});
 DefaultWithLabel.args = {
-  label: 'Checkbox Item'
+  label: 'Radio Item'
 }
 
 export const DisabledAndCheckedWithLabel = Template.bind({});
 DisabledAndCheckedWithLabel.args = {
-  label: 'Checkbox Item',
+  label: 'Radio Item',
   checked: true,
   disabled: true
 }
 
 export const DisabledAndUnCheckedWithLabel = Template.bind({});
 DisabledAndUnCheckedWithLabel.args = {
-  label: 'Checkbox Item',
+  label: 'Radio Item',
   disabled: true
 }
