@@ -8,7 +8,9 @@ import {
   Breadcrumbs,
   Header,
   Divider,
-  Chip
+  Chip,
+  Checkbox,
+  CheckboxList,
 } from './components'
 
 const App: FC = () => {
@@ -31,18 +33,31 @@ const App: FC = () => {
         itemsAfterCollapse={3}
         maxItems={4}
       /> */}
-      <Box display='flex' justifyContent='space-around'>
-        <Chip label='chip' size='small' type='default' />
-        <Chip label='chip' size='medium' type='default' />
-        <Chip label='chip' size='small' type='success' />
-        <Chip label='chip' size='medium' type='success' />
-        <Chip label='chip' size='small' type='pending' />
-        <Chip label='chip' size='medium' type='pending' />
-        <Chip label='chip' size='small' type='warning' />
-        <Chip label='chip' size='medium' type='warning' />
-        <Chip label='chip' size='small' type='info' />
-        <Chip label='chip' size='medium' type='info' />
-      </Box>
+      <Checkbox />
+      <CheckboxList
+        list={{
+          items: [
+            {
+              label: 'Default'
+            },
+            {
+              checked: true,
+              label: 'Checked'
+            },
+            {
+              disabled: true,
+              label: 'Disabled'
+            },
+            {
+              checked: true,
+              disabled: true,
+              label: 'Checked & Disabled'
+            }
+          ],
+          title: 'Checkbox List Heading'
+        }}
+        onFocusVisible={() => {}}
+      />
     </div>
   );
 }
