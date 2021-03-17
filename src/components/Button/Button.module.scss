@@ -1,53 +1,47 @@
 .root {
   position: absolute;
   //margin-left: 0.75rem;
-  background: #97144D;
+  background: #97144d;
   border-radius: 0.5rem;
   text-transform: none;
-  line-height:1;
-  min-width:auto;
+  line-height: 1;
+  min-width: auto;
   border: 0px;
-
-
 }
 
 .label {
   padding-left: 1rem;
   padding-right: 1rem;
-  
- // margin-top: 1rem;
- // margin-bottom: 1rem;
+
+  // margin-top: 1rem;
+  // margin-bottom: 1rem;
   color: white;
   font-family: Lato;
   font-weight: 400;
   line-height: 20px;
-
-
 }
 .label_only_text {
   padding-top: 2px;
   padding-bottom: 2px;
 }
 .label_secondary {
-  color: #97144D;
+  color: #97144d;
 }
 .label_icon_small {
-    padding-left: 9px;
-    padding-right: 9px;
-    padding-top: 4px;
-    padding-bottom: 4px;
+  padding-left: 9px;
+  padding-right: 9px;
+  padding-top: 4px;
+  padding-bottom: 4px;
 }
 
 .label_icon_medium {
   padding-left: 12px;
   padding-right: 12px;
-
 }
 
 .label_icon_large {
   padding-left: 14px;
   padding-right: 14px;
-
 }
 
 .outlined {
@@ -57,32 +51,32 @@
   padding-bottom: 12px;
   &:disabled {
     // border: 1px solid red;
-    background: #B4B4B4;
+    background: #b4b4b4;
     cursor: not-allowed;
     border: none;
- }
- &:hover {
-   /* Primary / burgundy-100 */
-     background: #97144D;
-     border: none;
-    // border-radius: 0.5rem;
- }
- &:active {
-   /* Primary / burgundy-100 */
-   // background: #ED1164;
+  }
+  &:hover {
+    /* Primary / burgundy-100 */
+    background: #97144d;
     border: none;
-    
     // border-radius: 0.5rem;
- }  
- &:focus {
-   /* Primary / burgundy-100 */
+  }
+  &:active {
+    /* Primary / burgundy-100 */
+    // background: #ED1164;
+    border: none;
+
+    // border-radius: 0.5rem;
+  }
+  &:focus {
+    /* Primary / burgundy-100 */
     // background: #ED1164;
     // border-radius: 0.5rem;
- }
+  }
 }
 .sizeSmall {
-    padding-top: 4px;
-    padding-bottom: 4px;
+  padding-top: 4px;
+  padding-bottom: 4px;
 }
 .sizeLarge {
   padding-top: 14px;
@@ -90,21 +84,23 @@
 }
 
 .outlinedSecondary {
-  background: #F9F9F9;
+  background: #f9f9f9;
   &:hover {
-     background: #F1F1F1;
+    background: #f1f1f1;
   }
   &:disabled {
-    background: #F9F9F9;
- }
+    background: #f9f9f9;
+  }
 }
 
 .flashButton {
   width: 320px;
   border-radius: 0px;
+  display: flex;
+  justify-content: center;
 }
 
-.endIcon{
+.endIcon {
   margin: 0;
 }
 
