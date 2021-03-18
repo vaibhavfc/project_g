@@ -8,11 +8,11 @@ import classes from './Divider.module.scss';
 import { mergeClassesObjects } from '../../helpers/styling/mergeClassesObjects';
 
 const DividerWithInnerRef: FC<DividerProps> = ({
-  innerRef = null,
+  // innerRef = null,
   classes: overrideClasses = {},
   orientation,
   size,
-  ...props
+  // ...props
 }) => {
   const mergedClasses = useMemo(
     () => mergeClassesObjects<DividerStylingProps>(classes, overrideClasses),

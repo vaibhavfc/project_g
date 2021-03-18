@@ -8,15 +8,15 @@ import classes from './Link.module.scss';
 import { mergeClassesObjects } from '../../helpers/styling/mergeClassesObjects';
 
 const LinkWithInnerRef: FC<LinkProps> = ({
-  innerRef = null,
+  // innerRef = null,
   classes: overrideClasses = {},
   children = 'link',
   disabled = false,
   inlineLink = false,
   tabIndex = 0,
   active,
-  doneCallback = () => undefined,
-  ...props
+  // doneCallback = () => undefined,
+  // ...props
 }) => {
   const mergedClasses = useMemo(
     () => mergeClassesObjects<LinkStylingProps>(classes, overrideClasses),
@@ -26,7 +26,11 @@ const LinkWithInnerRef: FC<LinkProps> = ({
     <MuiLink
       tabIndex={tabIndex}
       classes={{
-        root: classnames(mergedClasses.root, { [classes.inlineLink]: inlineLink, [classes.disabled]: disabled, [classes.active]: active }),
+        root: classnames(mergedClasses.root, {
+          [classes.inlineLink]: inlineLink,
+          [classes.disabled]: disabled,
+          [classes.active]: active,
+        }),
       }}
     >
       {children}

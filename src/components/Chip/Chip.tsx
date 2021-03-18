@@ -8,15 +8,15 @@ import classes from './Chip.module.scss';
 import { mergeClassesObjects } from '../../helpers/styling/mergeClassesObjects';
 
 const ChipWithInnerRef: FC<ChipProps> = ({
-  innerRef = null,
+  // innerRef = null,
   classes: overrideClasses = {},
-  children = 'Chip',
+  // children = 'Chip',
   variant = 'default',
   size,
   label,
   type,
-  doneCallback = () => undefined,
-  ...props
+  // doneCallback = () => undefined,
+  // ...props
 }) => {
   const mergedClasses = useMemo(
     () => mergeClassesObjects<ChipStylingProps>(classes, overrideClasses),

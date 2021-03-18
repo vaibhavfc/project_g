@@ -1,5 +1,5 @@
 import React, { FC, forwardRef, useMemo } from 'react';
-import { Checkbox as MuiCheckbox, FormControlLabel, Typography } from '@material-ui/core';
+import { Checkbox as MuiCheckbox, FormControlLabel } from '@material-ui/core';
 import classnames from 'classnames';
 import { CheckboxProps, CheckboxStylingProps } from './Checkbox.type';
 
@@ -8,12 +8,12 @@ import classes from './Checkbox.module.scss';
 import { mergeClassesObjects } from '../../helpers/styling/mergeClassesObjects';
 
 const CheckboxWithInnerRef: FC<CheckboxProps> = ({
-  innerRef = null,
+  // innerRef = null,
   classes: overrideClasses = {},
-  children = 'Checkbox',
+  // children = 'Checkbox',
   tabIndex = 0,
   label, checked, disabled,
-  ...props
+  // ...props
 }) => {
   const mergedClasses = useMemo(
     () => mergeClassesObjects<CheckboxStylingProps>(classes, overrideClasses),
@@ -39,7 +39,7 @@ const CheckboxWithInnerRef: FC<CheckboxProps> = ({
           checked={checked}
           tabIndex={tabIndex}
           classes={{
-            root: classes.root,
+            root: mergedClasses.root,
             checked: classnames({
               [classes.disabledChecked]: (disabled && checked),
               [classes.checked]: (checked && !disabled),

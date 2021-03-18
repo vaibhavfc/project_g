@@ -1,4 +1,4 @@
-import { Ref } from 'react';
+// import { Ref } from 'react';
 import { CheckboxProps as MuiCheckboxProps, CheckboxClassKey } from '@material-ui/core/Checkbox';
 
 export interface CheckboxListStylingProps extends Partial<Record<CheckboxClassKey, string>> {

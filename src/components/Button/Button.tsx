@@ -10,7 +10,7 @@ import rippleClasses from './ButtonTouchRipple.module.scss';
 import { mergeClassesObjects } from '../../helpers/styling/mergeClassesObjects';
 
 const ButtonWithInnerRef: FC<ButtonProps> = ({
-  innerRef = null,
+  // innerRef = null,
   classes: overrideClasses = {},
   children,
   disabled = false,
@@ -20,8 +20,8 @@ const ButtonWithInnerRef: FC<ButtonProps> = ({
   withIcon = false,
   hasIconOnly = false,
   isFlushButton = false,
-  doneCallback = () => undefined,
-  ...props
+  // doneCallback = () => undefined,
+  // ...props
 }) => {
   const mergedClasses = useMemo(
     () => mergeClassesObjects<ButtonStylingProps>(classes, overrideClasses),

@@ -61,7 +61,9 @@ CustomButton.args = {
   classes,
 };
 
-const TemplatePlayground: Story<ButtonProps> = (args) => <ButtonGroup><Button {...args} /></ButtonGroup>;
+const TemplatePlayground: Story<ButtonProps> = (args) => (
+  <ButtonGroup><Button {...args} /></ButtonGroup>
+);
 
 export const Playground = TemplatePlayground.bind({});
 Playground.args = {

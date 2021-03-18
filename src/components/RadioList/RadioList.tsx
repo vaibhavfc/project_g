@@ -1,6 +1,10 @@
-import React, { FC, forwardRef, useMemo } from 'react';
+import React, { FC, useMemo } from 'react';
 import {
-  Radio as MuiRadio, FormControl, FormControlLabel, FormGroup, FormHelperText, FormLabel, Typography,
+  Radio as MuiRadio,
+  FormControl,
+  FormControlLabel,
+  FormGroup,
+  FormLabel,
 } from '@material-ui/core';
 import classnames from 'classnames';
 import { RadioListProps, RadioListStylingProps } from './RadioList.type';
@@ -10,12 +14,12 @@ import classes from './RadioList.module.scss';
 import { mergeClassesObjects } from '../../helpers/styling/mergeClassesObjects';
 
 const RadioList: FC<RadioListProps> = ({
-  innerRef = null,
+  // innerRef = null,
   classes: overrideClasses = {},
-  children = 'RadioList',
+  // children = 'RadioList',
   tabIndex = 0,
   list,
-  ...props
+  // ...props
 }) => {
   const mergedClasses = useMemo(
     () => mergeClassesObjects<RadioListStylingProps>(classes, overrideClasses),
@@ -54,7 +58,7 @@ const RadioList: FC<RadioListProps> = ({
                   checked={Radio.checked}
                   tabIndex={tabIndex}
                   classes={{
-                    root: classes.root,
+                    root: mergedClasses.root,
                     checked: classnames({
                       [classes.disabledChecked]: (Radio.disabled && Radio.checked),
                       [classes.checked]: (Radio.checked && !Radio.disabled),

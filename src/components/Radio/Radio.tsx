@@ -1,5 +1,5 @@
 import React, { FC, forwardRef, useMemo } from 'react';
-import { Radio as MuiRadio, FormControlLabel, Typography } from '@material-ui/core';
+import { Radio as MuiRadio, FormControlLabel } from '@material-ui/core';
 import classnames from 'classnames';
 import { RadioProps, RadioStylingProps } from './Radio.type';
 
@@ -8,12 +8,12 @@ import classes from './Radio.module.scss';
 import { mergeClassesObjects } from '../../helpers/styling/mergeClassesObjects';
 
 const RadioWithInnerRef: FC<RadioProps> = ({
-  innerRef = null,
+  // innerRef = null,
   classes: overrideClasses = {},
-  children = 'Radio',
+  // children = 'Radio',
   tabIndex = 0,
   label, checked, disabled,
-  ...props
+  // ...props
 }) => {
   const mergedClasses = useMemo(
     () => mergeClassesObjects<RadioStylingProps>(classes, overrideClasses),
@@ -39,7 +39,7 @@ const RadioWithInnerRef: FC<RadioProps> = ({
           checked={checked}
           tabIndex={tabIndex}
           classes={{
-            root: classes.root,
+            root: mergedClasses.root,
             checked: classnames({
               [classes.disabledChecked]: (disabled && checked),
               [classes.checked]: (checked && !disabled),

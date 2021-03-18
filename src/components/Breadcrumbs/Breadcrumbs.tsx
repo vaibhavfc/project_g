@@ -14,13 +14,13 @@ import { mergeClassesObjects } from '../../helpers/styling/mergeClassesObjects';
 import Link from '../Link/Link';
 
 const Breadcrumbs: FC<BreadcrumbsProps> = ({
-  innerRef = null,
+  // innerRef = null,
   classes: overrideClasses = {},
-  children,
+  // children,
   maxItems = 4,
   itemsAfterCollapse = 3,
   links = [],
-  ...props
+  // ...props
 }) => {
   const mergedClasses = useMemo(
     () => mergeClassesObjects<BreadcrumbsStylingProps>(classes, overrideClasses),

@@ -3,8 +3,6 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 
 import Skrim from '.';
 
-import classes from './SkrimWithClass.module.scss';
-
 import { SkrimProps } from './Skrim.type';
 
 export default {

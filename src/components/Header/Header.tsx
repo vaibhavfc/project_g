@@ -8,11 +8,11 @@ import classes from './Header.module.scss';
 import { mergeClassesObjects } from '../../helpers/styling/mergeClassesObjects';
 
 const HeaderWithInnerRef: FC<HeaderProps> = ({
-  innerRef = null,
+  // innerRef = null,
   classes: overrideClasses = {},
-  children = 'Header',
+  // children = 'Header',
   size,
-  ...props
+  // ...props
 }) => {
   const mergedClasses = useMemo(
     () => mergeClassesObjects<HeaderStylingProps>(classes, overrideClasses),
@@ -28,7 +28,7 @@ const HeaderWithInnerRef: FC<HeaderProps> = ({
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           classes={{
-            root: classnames(classes.root),
+            root: classnames(mergedClasses.root),
           }}
         >
           <path fillRule="evenodd" clipRule="evenodd" d="M0 5.25528e-07V44H152.922C158.11 44.002 160.057 39.6027 160.057 39.6027C160.057 39.6027 166.934 28.134 170.204 22.4252C173.479 16.7164 178.656 17.3222 178.656 17.3222H200V-1.75176e-07L0 5.25528e-07Z" fill="#97144D" />

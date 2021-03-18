@@ -3,8 +3,6 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 
 import Chip from '.';
 
-import classes from './LinkWithClass.module.scss';
-
 import { ChipProps } from './Chip.type';
 
 export default {

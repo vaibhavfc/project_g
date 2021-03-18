@@ -8,11 +8,11 @@ import classes from './Skrim.module.scss';
 import { mergeClassesObjects } from '../../helpers/styling/mergeClassesObjects';
 
 const SkrimWithInnerRef: FC<SkrimProps> = ({
-  innerRef = null,
+  // innerRef = null,
   classes: overrideClasses = {},
-  children = 'Skrim',
+  // children = 'Skrim',
   type,
-  ...props
+  // ...props
 }) => {
   const mergedClasses = useMemo(
     () => mergeClassesObjects<SkrimStylingProps>(classes, overrideClasses),

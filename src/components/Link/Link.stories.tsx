@@ -3,8 +3,6 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 
 import Link from '.';
 
-import classes from './LinkWithClass.module.scss';
-
 import { LinkProps } from './Link.type';
 
 export default {
