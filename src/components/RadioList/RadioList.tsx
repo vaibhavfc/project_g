@@ -1,11 +1,11 @@
-
-import React, { FC, forwardRef, useMemo } from 'react'
-import { RadioListProps, RadioListStylingProps } from './RadioList.type'
-import { Radio as MuiRadio, FormControl, FormControlLabel, FormGroup, FormHelperText, FormLabel, Typography } from "@material-ui/core"
-
-import classes from './RadioList.module.scss'
-
+import React, { FC, forwardRef, useMemo } from 'react';
+import {
+  Radio as MuiRadio, FormControl, FormControlLabel, FormGroup, FormHelperText, FormLabel, Typography,
+} from '@material-ui/core';
 import classnames from 'classnames';
+import { RadioListProps, RadioListStylingProps } from './RadioList.type';
+
+import classes from './RadioList.module.scss';
 
 import { mergeClassesObjects } from '../../helpers/styling/mergeClassesObjects';
 
@@ -13,7 +13,7 @@ const RadioList: FC<RadioListProps> = ({
   innerRef = null,
   classes: overrideClasses = {},
   children = 'RadioList',
-  tabIndex= 0,
+  tabIndex = 0,
   list,
   ...props
 }) => {
@@ -31,7 +31,8 @@ const RadioList: FC<RadioListProps> = ({
 
   return (
     <FormControl component="fieldset" className={classes.formControl}>
-      <FormLabel component="legend"
+      <FormLabel
+        component="legend"
         classes={{
           root: classnames(classes.formLabel),
           // focused: classnames(classes.formLabel)
@@ -41,35 +42,35 @@ const RadioList: FC<RadioListProps> = ({
       </FormLabel>
       <FormGroup>
         {
-          list.items?.map(Radio => {
-            return (
-              <FormControlLabel
-                classes={{
-                  label: classes.label,
-                }} 
-                value="end"
-                control={
-                  <MuiRadio 
-                    disabled={Radio.disabled} checked={Radio.checked} tabIndex={tabIndex}
-                    classes={{
-                      root: classes.root,
-                      checked: classnames({
-                        [classes.disabledChecked]: (Radio.disabled && Radio.checked),
-                        [classes.checked]: (Radio.checked && !Radio.disabled),
-                      })
-                    }} 
-                  />
-                }
-                label={Radio.label}
-                labelPlacement="end"
-              />  
-            )
-          })
+          list.items?.map((Radio) => (
+            <FormControlLabel
+              classes={{
+                label: classes.label,
+              }}
+              value="end"
+              control={(
+                <MuiRadio
+                  disabled={Radio.disabled}
+                  checked={Radio.checked}
+                  tabIndex={tabIndex}
+                  classes={{
+                    root: classes.root,
+                    checked: classnames({
+                      [classes.disabledChecked]: (Radio.disabled && Radio.checked),
+                      [classes.checked]: (Radio.checked && !Radio.disabled),
+                    }),
+                  }}
+                />
+                )}
+              label={Radio.label}
+              labelPlacement="end"
+            />
+          ))
         }
       </FormGroup>
-    </FormControl> 
-  )
-}
+    </FormControl>
+  );
+};
 
 // const RadioList = forwardRef<HTMLInputElement, Omit<RadioListProps, 'innerRef'>>(
 //   (props, ref) => <RadioListWithInnerRef innerRef={ref} {...props} />

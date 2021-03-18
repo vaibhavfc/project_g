@@ -1,11 +1,9 @@
-
-import React, { FC, forwardRef, useMemo } from 'react'
-import { SkrimProps, SkrimStylingProps } from './Skrim.type'
-import { Container as MuiContainer } from "@material-ui/core"
-
-import classes from './Skrim.module.scss'
-
+import React, { FC, forwardRef, useMemo } from 'react';
+import { Container as MuiContainer } from '@material-ui/core';
 import classnames from 'classnames';
+import { SkrimProps, SkrimStylingProps } from './Skrim.type';
+
+import classes from './Skrim.module.scss';
 
 import { mergeClassesObjects } from '../../helpers/styling/mergeClassesObjects';
 
@@ -21,21 +19,21 @@ const SkrimWithInnerRef: FC<SkrimProps> = ({
     [overrideClasses],
   );
   return (
-    <MuiContainer 
+    <MuiContainer
       classes={{
         root: classnames(
           mergedClasses.root, {
-          [classes.modal1]: (type === 'modal1'), 
-          [classes.modal2]: (type === 'modal2'), 
-          [classes.nonModal]: (type === 'nonModal')
-        })
+            [classes.modal1]: (type === 'modal1'),
+            [classes.modal2]: (type === 'modal2'),
+            [classes.nonModal]: (type === 'nonModal'),
+          },
+        ),
       }}
-    >
-    </MuiContainer>
-  )
-}
+    />
+  );
+};
 
 const Skrim = forwardRef<HTMLDivElement, Omit<SkrimProps, 'innerRef'>>(
-  (props, ref) => <SkrimWithInnerRef innerRef={ref} {...props} />
+  (props, ref) => <SkrimWithInnerRef innerRef={ref} {...props} />,
 );
 export default Skrim;

@@ -11,21 +11,21 @@ export default {
   parameters: {
     controls: {
       // disabled: true,
-    }
-  }
+    },
+  },
 } as Meta;
 
-const Template: Story<RadioListProps> = (args) => <RadioList {...args} />
+const Template: Story<RadioListProps> = (args) => <RadioList {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
   list: {
     title: 'Radio List Heading',
     items: [
-      {label: 'Default'},
-      {label: 'Checked', checked: true},
-      {label: 'Disabled', disabled: true},
-      {label: 'Checked & Disabled', disabled: true, checked: true}
-    ]
-  }
-}
+      { label: 'Default' },
+      { label: 'Checked', checked: true },
+      { label: 'Disabled', disabled: true },
+      { label: 'Checked & Disabled', disabled: true, checked: true },
+    ],
+  },
+};

@@ -8,13 +8,12 @@ import Breadcrumbs from '.';
 
 import { BreadcrumbsProps } from './Breadcrumbs.type';
 
-
 export default {
   title: 'Components/Breadcrumbs',
-  component: Breadcrumbs
+  component: Breadcrumbs,
 } as Meta;
 
-const Template: Story<BreadcrumbsProps> = (args) => <Breadcrumbs {...args} />
+const Template: Story<BreadcrumbsProps> = (args) => <Breadcrumbs {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
@@ -25,5 +24,5 @@ Default.args = {
     { href: '#', linkText: 'Link', active: false },
     { href: '#', linkText: 'Link', active: false },
     { href: '#', linkText: 'Link', active: false },
-    { href: '/1', linkText: 'Current Page', active: true }]
-}
+    { href: '/1', linkText: 'Current Page', active: true }],
+};

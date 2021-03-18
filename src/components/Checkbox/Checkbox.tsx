@@ -1,11 +1,9 @@
-
-import React, { FC, forwardRef, useMemo } from 'react'
-import { CheckboxProps, CheckboxStylingProps } from './Checkbox.type'
-import { Checkbox as MuiCheckbox, FormControlLabel, Typography } from "@material-ui/core"
-
-import classes from './Checkbox.module.scss'
-
+import React, { FC, forwardRef, useMemo } from 'react';
+import { Checkbox as MuiCheckbox, FormControlLabel, Typography } from '@material-ui/core';
 import classnames from 'classnames';
+import { CheckboxProps, CheckboxStylingProps } from './Checkbox.type';
+
+import classes from './Checkbox.module.scss';
 
 import { mergeClassesObjects } from '../../helpers/styling/mergeClassesObjects';
 
@@ -13,7 +11,7 @@ const CheckboxWithInnerRef: FC<CheckboxProps> = ({
   innerRef = null,
   classes: overrideClasses = {},
   children = 'Checkbox',
-  tabIndex= 0,
+  tabIndex = 0,
   label, checked, disabled,
   ...props
 }) => {
@@ -33,27 +31,29 @@ const CheckboxWithInnerRef: FC<CheckboxProps> = ({
     <FormControlLabel
       classes={{
         label: classes.label,
-      }} 
+      }}
       value="end"
-      control={
-        <MuiCheckbox 
-          disabled={disabled} checked={checked} tabIndex={tabIndex}
+      control={(
+        <MuiCheckbox
+          disabled={disabled}
+          checked={checked}
+          tabIndex={tabIndex}
           classes={{
             root: classes.root,
             checked: classnames({
               [classes.disabledChecked]: (disabled && checked),
               [classes.checked]: (checked && !disabled),
-            })
-          }} 
+            }),
+          }}
         />
-      }
+      )}
       label={label}
       labelPlacement="end"
-    />  
-  )
-}
+    />
+  );
+};
 
 const Checkbox = forwardRef<HTMLButtonElement, Omit<CheckboxProps, 'innerRef'>>(
-  (props, ref) => <CheckboxWithInnerRef innerRef={ref} {...props} />
+  (props, ref) => <CheckboxWithInnerRef innerRef={ref} {...props} />,
 );
 export default Checkbox;

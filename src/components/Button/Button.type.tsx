@@ -43,6 +43,5 @@ export interface ButtonProps extends MuiButtonProps {
 
   isFlushButton?: boolean;
 
-
   doneCallback?: () => void;
 }
