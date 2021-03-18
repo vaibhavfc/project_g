@@ -1,0 +1,36 @@
+.root {
+  color: #6e6e6e;
+
+  &:hover {
+    background-color: rgba(110, 110, 110, 0.08);
+  }
+
+  &:focus {
+    background-color: rgba(110, 110, 110, 0.08);
+    transition: none;
+  }
+}
+
+.checked {
+  color: #ed1164;
+
+  &:hover {
+    background-color: rgba(241, 70, 135, 0.08);
+  }
+
+  &:focus {
+    background-color: rgba(241, 70, 135, 0.08);
+    transition: none;
+  }
+}
+
+.disabledChecked {
+  color: #b4b4b4;
+}
+
+.label {
+  transform: translateX(-4px);
+  color: #282828;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}

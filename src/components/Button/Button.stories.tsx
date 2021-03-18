@@ -7,65 +7,65 @@ import ButtonGroup from '@material-ui/core/ButtonGroup';
 
 import classes from './ButtonWithClass.module.scss'
 
-import ButtonProps from './Button.type';
+import { ButtonProps } from './Button.type';
 
 export default {
-    title: 'Components/Button',
-    component: Button,
-    parameters: {
-      controls: {
-       // disabled: true,
-      }
+  title: 'Components/Button',
+  component: Button,
+  parameters: {
+    controls: {
+      // disabled: true,
     }
-  } as Meta;
-  
-  const Template: Story<ButtonProps> = (args) => <Button {...args} />;
-  
-  export const Default = Template.bind({});
-  Default.args = {
-    children:'Primary button',
   }
- 
-  export const PrimaryWithIcon = Template.bind({});
-  PrimaryWithIcon.args = {
-    children:'Primary button',
-    withIcon: true,
-  }
-  
-  export const Secondory = Template.bind({});
-  Secondory.args = {
-    color: 'secondary',
-    children:'Secondary button',
-  }
+} as Meta;
 
-  export const SecondaryWithIcon = Template.bind({});
-  SecondaryWithIcon.args = {
-    children:'Secondary button',
-    color: 'secondary',
-    withIcon: true,
-  }
+const Template: Story<ButtonProps> = (args) => <Button {...args} />;
 
-  export const IconButton = Template.bind({});
-  IconButton.args = {
-    hasIconOnly: true,
-  }
+export const Default = Template.bind({});
+Default.args = {
+  children: 'Primary button',
+}
 
-  export const FlushButton = Template.bind({});
-  FlushButton.args = {
-    children:'Flushed button',
-    isFlushButton: true,
-  }
+export const PrimaryWithIcon = Template.bind({});
+PrimaryWithIcon.args = {
+  children: 'Primary button',
+  withIcon: true,
+}
 
-  export const CustomButton = Template.bind({});
-  CustomButton.args = {
-    children:'Custom button',
-    classes,
-  }
+export const Secondory = Template.bind({});
+Secondory.args = {
+  color: 'secondary',
+  children: 'Secondary button',
+}
+
+export const SecondaryWithIcon = Template.bind({});
+SecondaryWithIcon.args = {
+  children: 'Secondary button',
+  color: 'secondary',
+  withIcon: true,
+}
+
+export const IconButton = Template.bind({});
+IconButton.args = {
+  hasIconOnly: true,
+}
+
+export const FlushButton = Template.bind({});
+FlushButton.args = {
+  children: 'Flushed button',
+  isFlushButton: true,
+}
+
+export const CustomButton = Template.bind({});
+CustomButton.args = {
+  children: 'Custom button',
+  classes,
+}
 
 
-  const TemplatePlayground: Story<ButtonProps> = (args) => <ButtonGroup><Button {...args} /></ButtonGroup>;
+const TemplatePlayground: Story<ButtonProps> = (args) => <ButtonGroup><Button {...args} /></ButtonGroup>;
 
-  export const Playground = TemplatePlayground.bind({});
-  Playground.args = {
-    children:'TODO Build Playground',
-  }
+export const Playground = TemplatePlayground.bind({});
+Playground.args = {
+  children: 'TODO Build Playground',
+}

@@ -1,0 +1,41 @@
+.root {
+  color: #ed1164;
+  cursor: pointer;
+
+  &:hover {
+    color: #ed1164;
+  }
+
+  &:active {
+    color: #97144d;
+  }
+
+  &:focus {
+    outline: none;
+    text-decoration: underline;
+    text-underline-offset: 1px;
+    text-decoration-thickness: 2px;
+  }
+
+  &:disabled {
+    color: #b4b4b4;
+    pointer-events: none;
+  }
+
+  &:visited {
+    color: #9911ed;
+  }
+}
+
+.inlineLink {
+  text-decoration: underline;
+}
+
+.disabled {
+  color: #b4b4b4;
+  pointer-events: none;
+}
+
+.active {
+  color: #282828 !important;
+}

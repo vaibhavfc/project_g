@@ -1,0 +1,90 @@
+// VARIABLES
+$defaultBg: #ebf0f9;
+$defaultText: #145599;
+
+$successMediumBg: #00cb48;
+$pendingMediumBg: #f17f22;
+$warningMediumBg: #ff2121;
+
+$successSmallBg: #eff9eb;
+$pendingSmallBg: #f9f6eb;
+$warningSmallBg: #f9ebef;
+
+$infoBg: #f1f4f7;
+$infoText: #282828;
+
+$white: #ffffff;
+
+//MEDIUM SIZE STYLES
+.rootMedium {
+  height: 1.125rem;
+  line-height: 0.625rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  color: $defaultText;
+  background-color: $defaultBg;
+  font-size: 0.625rem;
+  letter-spacing: 0.32px;
+  text-transform: uppercase;
+
+  & > * {
+    padding: 0;
+  }
+}
+
+.successMedium {
+  background-color: $successMediumBg;
+  color: $white;
+}
+
+.pendingMedium {
+  background-color: $pendingMediumBg;
+  color: $white;
+}
+
+.warningMedium {
+  background-color: $warningMediumBg;
+  color: $white;
+}
+
+.info {
+  background-color: $infoBg;
+  color: $infoText;
+}
+
+//SMALL SIZE STYLES
+.rootSmall {
+  height: 1.125rem;
+  line-height: 0.875rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  color: $defaultText;
+  background-color: $defaultBg;
+  font-size: 0.625rem;
+  letter-spacing: 0.32px;
+  text-transform: capitalize;
+
+  & > * {
+    padding: 0;
+  }
+}
+
+.successSmall {
+  background-color: $successSmallBg;
+  color: $successMediumBg;
+}
+
+.pendingSmall {
+  background-color: $pendingSmallBg;
+  color: $pendingMediumBg;
+}
+
+.warningSmall {
+  background-color: $warningSmallBg;
+  color: $warningMediumBg;
+}
+
+.info {
+  background-color: $infoBg;
+  color: $infoText;
+}
