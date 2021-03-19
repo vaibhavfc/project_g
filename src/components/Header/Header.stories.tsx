@@ -11,18 +11,18 @@ export default {
   parameters: {
     controls: {
       // disabled: true,
-    }
-  }
+    },
+  },
 } as Meta;
 
-const Template: Story<HeaderProps> = (args) => <Header {...args}></Header>
+const Template: Story<HeaderProps> = (args) => <Header {...args} />;
 
 export const HeaderMedium = Template.bind({});
 HeaderMedium.args = {
-  size: 'medium'
-}
+  size: 'medium',
+};
 
 export const HeaderLarge = Template.bind({});
 HeaderLarge.args = {
-  size: 'large'
-}
+  size: 'large',
+};

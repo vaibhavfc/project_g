@@ -1,5 +1,6 @@
-import { Ref } from 'react'
-import { ContainerProps as MuiContainerProps, ContainerClassKey } from '@material-ui/core/Container'
+import { Ref } from 'react';
+import { ContainerProps as MuiContainerProps, ContainerClassKey } from '@material-ui/core/Container';
+
 export interface SkrimStylingProps extends Partial<Record<ContainerClassKey, string>> {
 }
 

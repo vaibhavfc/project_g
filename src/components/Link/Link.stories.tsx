@@ -3,8 +3,6 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 
 import Link from '.';
 
-import classes from './LinkWithClass.module.scss'
-
 import { LinkProps } from './Link.type';
 
 export default {
@@ -13,28 +11,28 @@ export default {
   parameters: {
     controls: {
       // disabled: true,
-    }
-  }
+    },
+  },
 } as Meta;
 
-const Template: Story<LinkProps> = (args) => <Link {...args}></Link>
+const Template: Story<LinkProps> = (args) => <Link {...args} />;
 
 export const DefaultLink = Template.bind({});
 DefaultLink.args = {
   children: 'Default Link',
-  to: 'default_link'
-}
+  to: 'default_link',
+};
 
 export const InlineLink = Template.bind({});
 InlineLink.args = {
   children: 'Inline Link',
   inlineLink: true,
-  to: 'inline_link'
-}
+  to: 'inline_link',
+};
 
-export const ActiveLink = Template.bind({})
+export const ActiveLink = Template.bind({});
 ActiveLink.args = {
   children: 'Active Link',
   active: true,
-  to: 'active_link'
-}
+  to: 'active_link',
+};
