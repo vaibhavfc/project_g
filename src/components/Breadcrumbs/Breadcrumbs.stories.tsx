@@ -20,10 +20,10 @@ export const Default = Template.bind({});
 Default.args = {
   maxItems: 4,
   links: [
-    { href: '#', linkText: 'Link', active: false },
-    { href: '#', linkText: 'Link', active: false },
-    { href: '#', linkText: 'Link', active: false },
-    { href: '#', linkText: 'Link', active: false },
-    { href: '#', linkText: 'Link', active: false },
-    { href: '/1', linkText: 'Current Page', active: true }]
+    { href: '/link1', linkText: 'Link', active: false },
+    { href: '/link2', linkText: 'Link', active: false },
+    { href: '/link3', linkText: 'Link', active: false },
+    { href: '/link4', linkText: 'Link', active: false },
+    { href: '/link5', linkText: 'Link', active: false },
+    { href: '/current', linkText: 'Current Page', active: true }]
 }

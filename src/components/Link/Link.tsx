@@ -2,7 +2,8 @@
 import React, { FC, forwardRef, useMemo } from 'react'
 import { LinkProps, LinkStylingProps } from './Link.type'
 import { Link as MuiLink } from "@material-ui/core"
-
+import { Link as RouterLink } from 'react-router-dom';
+import { MemoryRouter as Router } from 'react-router';
 import classes from './Link.module.scss'
 
 import classnames from 'classnames';
@@ -17,6 +18,7 @@ const LinkWithInnerRef: FC<LinkProps> = ({
   inlineLink = false,
   tabIndex=0,
   active,
+  to="#",
   doneCallback = () => undefined,
   ...props
 }) => {
@@ -25,14 +27,18 @@ const LinkWithInnerRef: FC<LinkProps> = ({
     [overrideClasses],
   );
   return (
-    <MuiLink
-      tabIndex={tabIndex}
-      classes={{
-        root: classnames(mergedClasses.root, { [classes.inlineLink]: inlineLink, [classes.disabled]: disabled, [classes.active]: active  })
-      }}
-    >
-      {children}
-    </MuiLink>)
+    <Router>
+      <MuiLink
+        component={RouterLink}
+        tabIndex={tabIndex}
+        classes={{
+          root: classnames(mergedClasses.root, { [classes.inlineLink]: inlineLink, [classes.disabled]: disabled, [classes.active]: active  })
+        }}
+        to={to}
+      >
+        {children}
+      </MuiLink>
+    </Router>)
 }
 
 const Link = forwardRef<HTMLAnchorElement, Omit<LinkProps, 'innerRef'>>(

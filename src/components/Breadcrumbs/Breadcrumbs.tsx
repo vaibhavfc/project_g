@@ -41,7 +41,7 @@ const Breadcrumbs: FC<BreadcrumbsProps> = ({
         >
             {links?.map(({ href, linkText, active }) => {
               return (
-                <Link active={active} href={href} aria-current='page'>
+                <Link active={active} to={href} aria-current='page'>
                   {linkText}
                 </Link>
               )
