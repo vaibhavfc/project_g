@@ -1,13 +1,15 @@
+@import '../../sass/theme/default';
+
 .root {
-  color: #ed1164;
+  color: $link-root;
   cursor: pointer;
 
   &:hover {
-    color: #ed1164;
+    color: $link-root;
   }
 
   &:active {
-    color: #97144d;
+    color: $link-root__active;
   }
 
   &:focus {
@@ -18,12 +20,12 @@
   }
 
   &:disabled {
-    color: #b4b4b4;
+    color: $link-root__disabled;
     pointer-events: none;
   }
 
   &:visited {
-    color: #9911ed;
+    color: $purple;
   }
 }
 
@@ -32,10 +34,10 @@
 }
 
 .disabled {
-  color: #b4b4b4;
+  color: $link-root__disabled;
   pointer-events: none;
 }
 
 .active {
-  color: #282828 !important;
+  color: $link-active !important;
 }
