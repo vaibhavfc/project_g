@@ -43,7 +43,7 @@ DefaultWithTrailingIcon.args = {
   variant: 'filled',
   placeholder: 'Placeholder text',
   type: 'text',
-  end: <InfoOutlined />,
+  adornmentEnd: <InfoOutlined />,
 };
 
 export const DefaultWithHelperText = Template.bind({});
@@ -64,7 +64,7 @@ DefaultWithHelperTextAndTrailingIcon.args = {
   type: 'text',
   placeholder: 'Placeholder text',
   helperText: 'Helper Text',
-  end: <InfoOutlined />,
+  adornmentEnd: <InfoOutlined />,
 };
 
 export const PrefixDefault = Template.bind({});
@@ -74,7 +74,7 @@ PrefixDefault.args = {
   variant: 'filled',
   placeholder: 'Placeholder text',
   type: 'text',
-  start: '₹',
+  adornmentStart: '₹',
 };
 
 export const PrefixDefaultWithTrailingIcon = Template.bind({});
@@ -84,8 +84,8 @@ PrefixDefaultWithTrailingIcon.args = {
   variant: 'filled',
   placeholder: 'Placeholder text',
   type: 'text',
-  start: '₹',
-  end: <InfoOutlined />,
+  adornmentStart: '₹',
+  adornmentEnd: <InfoOutlined />,
 };
 
 export const PrefixDefaultWithHelperText = Template.bind({});
@@ -95,7 +95,7 @@ PrefixDefaultWithHelperText.args = {
   variant: 'filled',
   type: 'text',
   placeholder: 'Placeholder text',
-  start: '₹',
+  adornmentStart: '₹',
   helperText: 'Helper Text',
 };
 
@@ -107,8 +107,8 @@ PrefixDefaultWithHelperTextAndTrailingIcon.args = {
   type: 'text',
   placeholder: 'Placeholder text',
   helperText: 'Helper Text',
-  start: '₹',
-  end: <InfoOutlined />,
+  adornmentStart: '₹',
+  adornmentEnd: <InfoOutlined />,
 };
 
 export const SuffixDefault = Template.bind({});
@@ -118,7 +118,7 @@ SuffixDefault.args = {
   variant: 'filled',
   placeholder: 'Placeholder text',
   type: 'text',
-  suffix: 'years',
+  adornmentSuffix: 'years',
 };
 
 export const SuffixDefaultWithTrailingIcon = Template.bind({});
@@ -128,8 +128,8 @@ SuffixDefaultWithTrailingIcon.args = {
   variant: 'filled',
   placeholder: 'Placeholder text',
   type: 'text',
-  end: <InfoOutlined />,
-  suffix: 'years',
+  adornmentEnd: <InfoOutlined />,
+  adornmentSuffix: 'years',
 };
 
 export const SuffixDefaultWithHelperText = Template.bind({});
@@ -140,7 +140,7 @@ SuffixDefaultWithHelperText.args = {
   type: 'text',
   placeholder: 'Placeholder text',
   helperText: 'Helper Text',
-  suffix: 'years',
+  adornmentSuffix: 'years',
 };
 
 export const SuffixDefaultWithHelperTextAndTrailingIcon = Template.bind({});
@@ -151,6 +151,6 @@ SuffixDefaultWithHelperTextAndTrailingIcon.args = {
   type: 'text',
   placeholder: 'Placeholder text',
   helperText: 'Helper Text',
-  end: <InfoOutlined />,
-  suffix: 'years',
+  adornmentEnd: <InfoOutlined />,
+  adornmentSuffix: 'years',
 };

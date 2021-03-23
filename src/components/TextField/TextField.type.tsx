@@ -13,7 +13,7 @@ export interface TextFieldProps extends MuiTextFieldProps {
    * overriden BaseProps innerRef to HTMLButtonElement
    */
   // innerRef: Ref<HTMLInputElement>;
-  start?: any;
-  end?: any ;
-  suffix?: any;
+  adornmentStart?: any;
+  adornmentEnd?: any ;
+  adornmentSuffix?: any;
 }

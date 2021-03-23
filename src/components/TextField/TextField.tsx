@@ -20,10 +20,10 @@ const TextField: FC<TextFieldProps> = ({
   disabled,
   type,
   helperText,
-  start,
-  end,
+  adornmentStart,
+  adornmentEnd,
+  adornmentSuffix,
   placeholder,
-  suffix,
 }) => {
   const mergedClasses = useMemo(
     () => mergeClassesObjects<TextFieldStylingProps>(classes, overrideClasses),
@@ -74,7 +74,7 @@ const TextField: FC<TextFieldProps> = ({
             root: classnames(
               classes.inputRoot,
               {
-                [classes.suffix]: suffix,
+                [classes.suffix]: adornmentSuffix,
                 [classes.disabled]: disabled,
               },
             ),
@@ -90,7 +90,7 @@ const TextField: FC<TextFieldProps> = ({
               }}
               position="start"
             >
-              {start}
+              {adornmentStart}
             </InputAdornment>
           ),
           endAdornment: (
@@ -104,16 +104,16 @@ const TextField: FC<TextFieldProps> = ({
                   ),
                 }}
               >
-                {suffix}
+                {adornmentSuffix}
               </InputAdornment>
               <InputAdornment
                 position="end"
                 classes={{ root: classes.inputAdornment }}
               >
                 {
-                  (!end && error) ? (
+                  (!adornmentEnd && error) ? (
                     <CancelIcon className={classes.errorIcon} />
-                  ) : (end)
+                  ) : (adornmentEnd)
                 }
               </InputAdornment>
             </>
