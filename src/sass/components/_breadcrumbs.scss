@@ -1,0 +1,6 @@
+@import '../main.scss';
+
+$breadcrumbs-root: map-get($burgundy, 100);
+$breadcrumbs-visited: $purple;
+$active: $charcoal;
+$breadcrumbs-disabled: map-get($grey, 50);

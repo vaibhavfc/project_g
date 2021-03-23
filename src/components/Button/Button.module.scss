@@ -1,7 +1,9 @@
+@import '../../sass/theme/default';
+
 .root {
   position: absolute;
   //margin-left: 0.75rem;
-  background: #97144d;
+  background: $button-bg;
   border-radius: 0.5rem;
   text-transform: none;
   line-height: 1;
@@ -15,7 +17,7 @@
 
   // margin-top: 1rem;
   // margin-bottom: 1rem;
-  color: white;
+  color: $white;
   font-family: Lato;
   font-weight: 400;
   line-height: 20px;
@@ -25,7 +27,7 @@
   padding-bottom: 2px;
 }
 .label_secondary {
-  color: #97144d;
+  color: $button-bg;
 }
 .label_icon_small {
   padding-left: 9px;
@@ -51,13 +53,13 @@
   padding-bottom: 12px;
   &:disabled {
     // border: 1px solid red;
-    background: #b4b4b4;
+    background: $button-disabled;
     cursor: not-allowed;
     border: none;
   }
   &:hover {
     /* Primary / burgundy-100 */
-    background: #97144d;
+    background: $button-bg;
     border: none;
     // border-radius: 0.5rem;
   }
@@ -84,12 +86,12 @@
 }
 
 .outlinedSecondary {
-  background: #f9f9f9;
+  background: $button-outlined__secondary;
   &:hover {
-    background: #f1f1f1;
+    background: $button-outlined__secondary--hover;
   }
   &:disabled {
-    background: #f9f9f9;
+    background: $button-outlined__secondary;
   }
 }
 

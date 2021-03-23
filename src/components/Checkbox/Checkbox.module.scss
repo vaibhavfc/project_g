@@ -1,36 +1,38 @@
+@import '../../sass/theme/default';
+
 .root {
-  color: #6e6e6e;
+  color: $checkbox-square;
 
   &:hover {
-    background-color: rgba(110, 110, 110, 0.08);
+    background-color: rgba($checkbox-hover-unchecked, 0.08);
   }
 
   &:focus {
-    background-color: rgba(110, 110, 110, 0.08);
+    background-color: rgba($checkbox-hover-unchecked, 0.08);
     transition: none;
   }
 }
 
 .checked {
-  color: #ed1164;
+  color: $checkbox-checked;
 
   &:hover {
-    background-color: rgba(241, 70, 135, 0.08);
+    background-color: rgba($checkbox-hover-checked, 0.08);
   }
 
   &:focus {
-    background-color: rgba(241, 70, 135, 0.08);
+    background-color: rgba($checkbox-hover-checked, 0.08);
     transition: none;
   }
 }
 
 .disabledChecked {
-  color: #b4b4b4;
+  color: $checkbox-disabled;
 }
 
 .label {
   transform: translateX(-4px);
-  color: #282828;
+  color: $checkbox-label;
   font-size: 0.875rem;
   line-height: 1.25rem;
 }

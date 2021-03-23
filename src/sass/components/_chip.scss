@@ -1,0 +1,17 @@
+@import '../main.scss';
+
+$white: #FFFFFF;
+
+$chip-bg__default: $neutral-blue;
+$chip-text__default: $snackblue;
+
+$chip-bg--medium__success: $green;
+$chip-bg--medium__pending: $orange;
+$chip-bg--medium__warning: $red;
+
+$chip-bg--small__success: $neutral-green;
+$chip-bg--small__pending: $neutral-orange;
+$chip-bg--small__warning: $neutral-red;
+
+$chip-bg__info: $neutral-lightblue;
+$chip-text__info: $charcoal;

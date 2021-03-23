@@ -1,4 +1,4 @@
-// VARIABLES
+@import '../../sass/theme/default';
 $defaultBg: #ebf0f9;
 $defaultText: #145599;
 
@@ -21,8 +21,8 @@ $white: #ffffff;
   line-height: 0.625rem;
   padding: 0.25rem 0.5rem;
   border-radius: 0.25rem;
-  color: $defaultText;
-  background-color: $defaultBg;
+  color: $chip-text__default;
+  background-color: $chip-bg__default;
   font-size: 0.625rem;
   letter-spacing: 0.32px;
   text-transform: uppercase;
@@ -33,23 +33,23 @@ $white: #ffffff;
 }
 
 .successMedium {
-  background-color: $successMediumBg;
+  background-color: $chip-bg--medium__success;
   color: $white;
 }
 
 .pendingMedium {
-  background-color: $pendingMediumBg;
+  background-color: $chip-bg--medium__pending;
   color: $white;
 }
 
 .warningMedium {
-  background-color: $warningMediumBg;
+  background-color: $chip-bg--medium__warning;
   color: $white;
 }
 
 .info {
-  background-color: $infoBg;
-  color: $infoText;
+  background-color: $chip-bg__info;
+  color: $chip-text__info;
 }
 
 //SMALL SIZE STYLES
@@ -58,8 +58,8 @@ $white: #ffffff;
   line-height: 0.875rem;
   padding: 0.25rem 0.5rem;
   border-radius: 0.25rem;
-  color: $defaultText;
-  background-color: $defaultBg;
+  color: $chip-text__default;
+  background-color: $neutral-blue;
   font-size: 0.625rem;
   letter-spacing: 0.32px;
   text-transform: capitalize;
@@ -70,21 +70,21 @@ $white: #ffffff;
 }
 
 .successSmall {
-  background-color: $successSmallBg;
-  color: $successMediumBg;
+  background-color: $chip-bg--small__success;
+  color: $chip-bg--medium__success;
 }
 
 .pendingSmall {
-  background-color: $pendingSmallBg;
-  color: $pendingMediumBg;
+  background-color: $chip-bg--small__success;
+  color: $chip-bg--medium__pending;
 }
 
 .warningSmall {
-  background-color: $warningSmallBg;
-  color: $warningMediumBg;
+  background-color: $chip-bg--small__warning;
+  color: $chip-bg--medium__warning;
 }
 
 .info {
-  background-color: $infoBg;
-  color: $infoText;
+  background-color: $chip-bg__info;
+  color: $chip-text__info;
 }

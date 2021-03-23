@@ -1,5 +1,7 @@
+@import '../../sass/theme/default';
+
 .root {
-  background: #f2f7f6;
+  background: $textfield--root__bg;
   width: 18rem;
   height: 3.5rem;
 }
@@ -8,33 +10,33 @@
   font-size: 1rem;
   line-height: 1.5rem;
   letter-spacing: 0.16px;
-  color: #858585;
+  color: $textfield--labelRoot;
 
   &Focused {
-    color: #12877f !important;
+    color: $textfield--labelRoot__focused !important;
   }
 
   &Disabled {
-    color: #b4b4b4 !important;
+    color: $textfield--labelRoot__disabled !important;
   }
 
   &Error {
-    color: #FF2121 !important;
+    color: $textfield--labelRoot__error !important;
   }
 }
 
 .inputRoot {
-  border-bottom: 2px solid #71b7b2;
+  border-bottom: 2px solid $textfield--inputroot;
 
   &:disabled {
     background-color: red !important;
   }
 
   &Disabled {
-    background: #f9f9f9;
+    background: $textfield-disabled__bg;
     
     & > * {
-      background: #f9f9f9;      
+      background: $textfield-disabled__bg;      
     }
 
     &:before {
@@ -43,7 +45,7 @@
   }
 
   &:hover {
-    background: #e6f8f4;
+    background: $textfield--inputroot__hover;
 
     &:before {
       border: none;
@@ -60,14 +62,14 @@
 }
 
 .inputAdornment {
-  color: #6e6e6e;
+  color: $textfield--inputAdornment;
 
   &:before {
     border: none;
   }
 
   &Suffix{
-    color: #858585;
+    color: $textfield--labelRoot;
     transform: translate(-4px, 9px);
     margin-right: -5px;
   }
@@ -85,12 +87,12 @@
 }
 
 .errorIcon {
-  color: #FF2121;
+  color: $textfield--labelRoot__error;
 }
 
 .disabled {
-  background-color: #F9F9F9 !important;
-  border-bottom: 2px solid #b4b4b4;
+  background-color: $textfield-disabled__bg !important;
+  border-bottom: 2px solid $textfield--labelRoot__disabled;
   
 
   &:before {
