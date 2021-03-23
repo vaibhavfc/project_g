@@ -1,0 +1,7 @@
+@import '../main.scss';
+
+$button-bg: map-get($burgundy, 100);
+$button-disabled: map-get($grey, 50);
+$button-outlined__secondary: map-get($grey, 10);
+$button-outlined__secondary--hover: map-get($grey, 20);
+$button-ripple: map-get($pink, 100);

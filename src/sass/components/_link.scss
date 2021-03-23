@@ -1,0 +1,8 @@
+@import '../main.scss';
+
+
+$link-root: map-get($pink, 100);
+$link-root__active: map-get($burgundy, 100);
+$link-root__disabled: map-get($grey, 50);
+$link-active: $charcoal;
+$link-visited: $purple;

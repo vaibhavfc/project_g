@@ -1,0 +1,9 @@
+@import '../main.scss';
+
+$radio-label: $charcoal;
+$radio-circle: map-get($grey, 80);
+$radio-checked: map-get($pink, 100);
+$radio-disabled: map-get($grey, 50);
+
+$radio-hover-checked: map-get($pink, 80);
+$radio-hover-unchecked: map-get($grey, 100);
