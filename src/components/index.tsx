@@ -9,6 +9,7 @@ export { default as Checkbox } from './Checkbox';
 export { default as CheckboxList } from './CheckboxList';
 export { default as Radio } from './Radio';
 export { default as RadioList } from './RadioList';
+export { default as TextField } from './TextField';
 
 //* NEED TODO FURTHER
 // export { default as YesNoSwitch } from './YesNoSwitch';

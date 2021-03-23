@@ -1,0 +1,99 @@
+.root {
+  background: #f2f7f6;
+  width: 18rem;
+  height: 3.5rem;
+}
+
+.labelRoot {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  letter-spacing: 0.16px;
+  color: #858585;
+
+  &Focused {
+    color: #12877f !important;
+  }
+
+  &Disabled {
+    color: #b4b4b4 !important;
+  }
+
+  &Error {
+    color: #FF2121 !important;
+  }
+}
+
+.inputRoot {
+  border-bottom: 2px solid #71b7b2;
+
+  &:disabled {
+    background-color: red !important;
+  }
+
+  &Disabled {
+    background: #f9f9f9;
+    
+    & > * {
+      background: #f9f9f9;      
+    }
+
+    &:before {
+      border: none;
+    }
+  }
+
+  &:hover {
+    background: #e6f8f4;
+
+    &:before {
+      border: none;
+    }
+  }
+  
+  &:before {
+    border-bottom: none;
+  }
+  
+  &:after {
+    border-bottom: none;
+  }
+}
+
+.inputAdornment {
+  color: #6e6e6e;
+
+  &:before {
+    border: none;
+  }
+
+  &Suffix{
+    color: #858585;
+    transform: translate(-4px, 9px);
+    margin-right: -5px;
+  }
+}
+
+.displayAdornment {
+  display: none;
+}
+
+.suffix {
+
+  & > * {
+    text-align: end;
+  }
+}
+
+.errorIcon {
+  color: #FF2121;
+}
+
+.disabled {
+  background-color: #F9F9F9 !important;
+  border-bottom: 2px solid #b4b4b4;
+  
+
+  &:before {
+    border: none !important;
+  }
+}
