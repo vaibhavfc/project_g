@@ -1,20 +1,18 @@
-
-import React, { FC, forwardRef, useMemo } from 'react'
-import { DividerProps, DividerStylingProps } from './Divider.type'
-import { Divider as MuiDivider } from "@material-ui/core"
-
-import classes from './Divider.module.scss'
-
+import React, { FC, forwardRef, useMemo } from 'react';
+import { Divider as MuiDivider } from '@material-ui/core';
 import classnames from 'classnames';
+import { DividerProps, DividerStylingProps } from './Divider.type';
+
+import classes from './Divider.module.scss';
 
 import { mergeClassesObjects } from '../../helpers/styling/mergeClassesObjects';
 
 const DividerWithInnerRef: FC<DividerProps> = ({
-  innerRef = null,
+  // innerRef = null,
   classes: overrideClasses = {},
   orientation,
   size,
-  ...props
+  // ...props
 }) => {
   const mergedClasses = useMemo(
     () => mergeClassesObjects<DividerStylingProps>(classes, overrideClasses),
@@ -27,17 +25,18 @@ const DividerWithInnerRef: FC<DividerProps> = ({
       classes={{
         root: classnames(
           mergedClasses.root, {
-          [classes.smallHorizontal]: (size === 'small' && orientation === 'horizontal'), 
-          [classes.largeHorizontal]: (size === 'large' && orientation === 'horizontal'), 
-          [classes.largeVertical]: (size === 'large' && orientation === 'vertical'), 
-          [classes.smallVertical]: (size === 'small' && orientation === 'vertical'), 
-        })
+            [classes.smallHorizontal]: (size === 'small' && orientation === 'horizontal'),
+            [classes.largeHorizontal]: (size === 'large' && orientation === 'horizontal'),
+            [classes.largeVertical]: (size === 'large' && orientation === 'vertical'),
+            [classes.smallVertical]: (size === 'small' && orientation === 'vertical'),
+          },
+        ),
       }}
     />
-  )
-}
+  );
+};
 
 const Divider = forwardRef<HTMLHRElement, Omit<DividerProps, 'innerRef'>>(
-  (props, ref) => <DividerWithInnerRef innerRef={ref} {...props} />
+  (props, ref) => <DividerWithInnerRef innerRef={ref} {...props} />,
 );
 export default Divider;

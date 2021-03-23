@@ -11,32 +11,32 @@ export default {
   parameters: {
     controls: {
       // disabled: true,
-    }
-  }
+    },
+  },
 } as Meta;
 
-const Template: Story<DividerProps> = (args) => <Divider {...args} />
+const Template: Story<DividerProps> = (args) => <Divider {...args} />;
 
 export const HorizontalSmall = Template.bind({});
 HorizontalSmall.args = {
   orientation: 'horizontal',
-  size: 'small'
-}
+  size: 'small',
+};
 
 export const HorizontalLarge = Template.bind({});
 HorizontalLarge.args = {
   orientation: 'horizontal',
-  size: 'large'
-}
+  size: 'large',
+};
 
 export const VerticalSmall = Template.bind({});
 VerticalSmall.args = {
   orientation: 'vertical',
-  size: 'small'
-}
+  size: 'small',
+};
 
 export const VerticalLarge = Template.bind({});
 VerticalLarge.args = {
   orientation: 'vertical',
-  size: 'large'
-}
+  size: 'large',
+};

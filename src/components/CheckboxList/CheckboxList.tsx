@@ -1,21 +1,25 @@
-
-import React, { FC, forwardRef, useMemo } from 'react'
-import { CheckboxListProps, CheckboxListStylingProps } from './CheckboxList.type'
-import { Checkbox as MuiCheckbox, FormControl, FormControlLabel, FormGroup, FormHelperText, FormLabel, Typography } from "@material-ui/core"
-
-import classes from './CheckboxList.module.scss'
-
+import React, { FC, useMemo } from 'react';
+import {
+  Checkbox as MuiCheckbox,
+  FormControl,
+  FormControlLabel,
+  FormGroup,
+  FormLabel,
+} from '@material-ui/core';
 import classnames from 'classnames';
+import { CheckboxListProps, CheckboxListStylingProps } from './CheckboxList.type';
+
+import classes from './CheckboxList.module.scss';
 
 import { mergeClassesObjects } from '../../helpers/styling/mergeClassesObjects';
 
 const CheckboxList: FC<CheckboxListProps> = ({
-  innerRef = null,
+  // innerRef = null,
   classes: overrideClasses = {},
-  children = 'CheckboxList',
-  tabIndex= 0,
+  // children = 'CheckboxList',
+  tabIndex = 0,
   list,
-  ...props
+  // ...props
 }) => {
   const mergedClasses = useMemo(
     () => mergeClassesObjects<CheckboxListStylingProps>(classes, overrideClasses),
@@ -31,7 +35,8 @@ const CheckboxList: FC<CheckboxListProps> = ({
 
   return (
     <FormControl component="fieldset" className={classes.formControl}>
-      <FormLabel component="legend"
+      <FormLabel
+        component="legend"
         classes={{
           root: classnames(classes.formLabel),
           // focused: classnames(classes.formLabel)
@@ -41,35 +46,35 @@ const CheckboxList: FC<CheckboxListProps> = ({
       </FormLabel>
       <FormGroup>
         {
-          list.items?.map(checkbox => {
-            return (
-              <FormControlLabel
-                classes={{
-                  label: classes.label,
-                }} 
-                value="end"
-                control={
-                  <MuiCheckbox 
-                    disabled={checkbox.disabled} checked={checkbox.checked} tabIndex={tabIndex}
-                    classes={{
-                      root: classes.root,
-                      checked: classnames({
-                        [classes.disabledChecked]: (checkbox.disabled && checkbox.checked),
-                        [classes.checked]: (checkbox.checked && !checkbox.disabled),
-                      })
-                    }} 
-                  />
-                }
-                label={checkbox.label}
-                labelPlacement="end"
-              />  
-            )
-          })
+          list.items?.map((checkbox) => (
+            <FormControlLabel
+              classes={{
+                label: classes.label,
+              }}
+              value="end"
+              control={(
+                <MuiCheckbox
+                  disabled={checkbox.disabled}
+                  checked={checkbox.checked}
+                  tabIndex={tabIndex}
+                  classes={{
+                    root: mergedClasses.root,
+                    checked: classnames({
+                      [classes.disabledChecked]: (checkbox.disabled && checkbox.checked),
+                      [classes.checked]: (checkbox.checked && !checkbox.disabled),
+                    }),
+                  }}
+                />
+                )}
+              label={checkbox.label}
+              labelPlacement="end"
+            />
+          ))
         }
       </FormGroup>
-    </FormControl> 
-  )
-}
+    </FormControl>
+  );
+};
 
 // const CheckboxList = forwardRef<HTMLInputElement, Omit<CheckboxListProps, 'innerRef'>>(
 //   (props, ref) => <CheckboxListWithInnerRef innerRef={ref} {...props} />

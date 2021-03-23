@@ -1,5 +1,6 @@
-import { Ref } from 'react'
-import { LinkProps as MuiLinkProps, LinkClassKey } from '@material-ui/core/Link'
+import { Ref } from 'react';
+import { LinkProps as MuiLinkProps, LinkClassKey } from '@material-ui/core/Link';
+
 export interface LinkStylingProps extends Partial<Record<LinkClassKey, string>> {
 }
 
