@@ -15,7 +15,7 @@ describe('test', () => {
     ],
   };
 
-  it('Renders RadioList Compoents', () => {
+  it('Renders RadioList Components', () => {
     render(<RadioList list={list}>test</RadioList>);
   });
 
