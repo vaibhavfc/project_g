@@ -1,17 +1,44 @@
 @import '../main.scss';
 
+
 $white: #FFFFFF;
 
+/// Default Chip Background 
+/// @group chip
 $chip-bg__default: $neutral-blue;
+
+/// Default Chip Text Color 
+/// @group chip
 $chip-text__default: $snackblue;
 
+/// Medium Success Background 
+/// @group chip
 $chip-bg--medium__success: $green;
+
+/// Medium Pending Background 
+/// @group chip
 $chip-bg--medium__pending: $orange;
+
+/// Medium Warning Background 
+/// @group chip
 $chip-bg--medium__warning: $red;
 
+/// Small Success Background  
+/// @group chip
 $chip-bg--small__success: $neutral-green;
+
+/// Small Pending Background  
+/// @group chip
 $chip-bg--small__pending: $neutral-orange;
+
+/// Small Warning Background  
+/// @group chip
 $chip-bg--small__warning: $neutral-red;
 
+/// Chip Info Background  
+/// @group chip
 $chip-bg__info: $neutral-lightblue;
+
+/// Chip Info Text color  
+/// @group chip
 $chip-text__info: $charcoal;

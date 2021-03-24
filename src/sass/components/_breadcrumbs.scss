@@ -1,6 +1,17 @@
 @import '../main.scss';
 
+/// Default
+/// @group breadcrumbs
 $breadcrumbs-root: map-get($burgundy, 100);
+
+/// Visited State
+/// @group breadcrumbs
 $breadcrumbs-visited: $purple;
+
+/// Active State 
+/// @group breadcrumbs
 $active: $charcoal;
+
+/// Disabled State 
+/// @group breadcrumbs
 $breadcrumbs-disabled: map-get($grey, 50);
