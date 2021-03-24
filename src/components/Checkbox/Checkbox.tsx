@@ -8,12 +8,11 @@ import classes from './Checkbox.module.scss';
 import { mergeClassesObjects } from '../../helpers/styling/mergeClassesObjects';
 
 const CheckboxWithInnerRef: FC<CheckboxProps> = ({
-  // innerRef = null,
   classes: overrideClasses = {},
   // children = 'Checkbox',
   tabIndex = 0,
   label, checked, disabled,
-  // ...props
+  ...props
 }) => {
   const mergedClasses = useMemo(
     () => mergeClassesObjects<CheckboxStylingProps>(classes, overrideClasses),
@@ -45,6 +44,7 @@ const CheckboxWithInnerRef: FC<CheckboxProps> = ({
               [classes.checked]: (checked && !disabled),
             }),
           }}
+          {...props}
         />
       )}
       label={label}
