@@ -1,19 +1,4 @@
 @import '../../sass/theme/default';
-$defaultBg: #ebf0f9;
-$defaultText: #145599;
-
-$successMediumBg: #00cb48;
-$pendingMediumBg: #f17f22;
-$warningMediumBg: #ff2121;
-
-$successSmallBg: #eff9eb;
-$pendingSmallBg: #f9f6eb;
-$warningSmallBg: #f9ebef;
-
-$infoBg: #f1f4f7;
-$infoText: #282828;
-
-$white: #ffffff;
 
 //MEDIUM SIZE STYLES
 .rootMedium {
@@ -23,9 +8,7 @@ $white: #ffffff;
   border-radius: 0.25rem;
   color: $chip-text__default;
   background-color: $chip-bg__default;
-  font-size: 0.625rem;
-  letter-spacing: 0.32px;
-  text-transform: uppercase;
+  @include subtitle;
 
   & > * {
     padding: 0;
@@ -60,8 +43,7 @@ $white: #ffffff;
   border-radius: 0.25rem;
   color: $chip-text__default;
   background-color: $neutral-blue;
-  font-size: 0.625rem;
-  letter-spacing: 0.32px;
+  @include info-1;
   text-transform: capitalize;
 
   & > * {

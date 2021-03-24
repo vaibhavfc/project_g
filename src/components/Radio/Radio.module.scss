@@ -33,6 +33,5 @@
 .label {
   transform: translateX(-4px);
   color: $radio-label;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
+  @include body-2;
 }

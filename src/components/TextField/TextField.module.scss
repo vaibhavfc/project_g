@@ -7,9 +7,7 @@
 }
 
 .labelRoot {
-  font-size: 1rem;
-  line-height: 1.5rem;
-  letter-spacing: 0.16px;
+  @include body-1;
   color: $textfield--labelRoot;
 
   &Focused {
@@ -63,12 +61,14 @@
 
 .inputAdornment {
   color: $textfield--inputAdornment;
+  @include body-1;
 
   &:before {
     border: none;
   }
 
   &Suffix{
+    @include body-1;
     color: $textfield--labelRoot;
     transform: translate(-4px, 9px);
     margin-right: -5px;

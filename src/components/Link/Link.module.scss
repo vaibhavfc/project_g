@@ -1,6 +1,8 @@
 @import '../../sass/theme/default';
 
 .root {
+  //! TODO: font-family is not applying
+  @include body-3;
   color: $link-root;
   cursor: pointer;
 
