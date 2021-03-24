@@ -1,7 +1,17 @@
 @import '../abstracts/variables';
 
-/// HEADING-DEFAULT
+/// TYPOGRPAHY-DEFAULT
 /// @group Typography
+/// @author Akepogu Bhanu Prakash
+/// @param {String} $font-name - Element's font name
+/// @param {String} $path  - Path to the required font
+/// @param {String} $weight [normal] - Defines the weight of the font
+/// @param {String} $style [normal] - Defines the styles of the font
+/// @param {String} $color [#C4C4C4] - Color of the text
+/// @example Set font-face to `.foo`
+///   .foo {
+///         @include font-face($font-name: "Lato-Bold", $path: "/styles/Lato-Bold", $weight: bold, $style: normal, $color: white);
+///   }
 @mixin font-face($font-name, $path: "../../styles/", $weight: normal, $style: normal, $color: $text-color) {
   @font-face {
     font-family: quote($font-name+'monospace');

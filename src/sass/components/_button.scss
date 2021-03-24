@@ -1,7 +1,21 @@
 @import '../main.scss';
 
+/// Default 
+/// @group buttons
 $button-bg: map-get($burgundy, 100);
-$button-disabled: map-get($grey, 50);
+
+/// Outlined Secondary 
+/// @group buttons
 $button-outlined__secondary: map-get($grey, 10);
+
+/// Outlined Secondary hover state
+/// @group buttons
 $button-outlined__secondary--hover: map-get($grey, 20);
+
+/// Disabled State
+/// @group buttons
+$button-disabled: map-get($grey, 50);
+
+/// Ripple Color
+/// @group buttons
 $button-ripple: map-get($pink, 100);
