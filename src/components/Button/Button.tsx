@@ -10,7 +10,7 @@ import rippleClasses from './ButtonTouchRipple.module.scss';
 import { mergeClassesObjects } from '../../helpers/styling/mergeClassesObjects';
 
 const ButtonWithInnerRef: FC<ButtonProps> = ({
-  // innerRef = null,
+  innerRef = null,
   classes: overrideClasses = {},
   children,
   disabled = false,
@@ -20,8 +20,7 @@ const ButtonWithInnerRef: FC<ButtonProps> = ({
   withIcon = false,
   hasIconOnly = false,
   isFlushButton = false,
-  // doneCallback = () => undefined,
-  // ...props
+  ...props
 }) => {
   const mergedClasses = useMemo(
     () => mergeClassesObjects<ButtonStylingProps>(classes, overrideClasses),
@@ -29,6 +28,7 @@ const ButtonWithInnerRef: FC<ButtonProps> = ({
   );
   return (
     <MuiButton
+      ref={innerRef}
       classes={{
         root: classnames(mergedClasses.root, { [classes.flashButton]: isFlushButton && color === 'primary' && !hasIconOnly && !withIcon }),
         label: classnames(mergedClasses.label, {
@@ -50,6 +50,7 @@ const ButtonWithInnerRef: FC<ButtonProps> = ({
       color={color}
       disabled={disabled}
       endIcon={(withIcon || hasIconOnly) && <AddIcon />}
+      {...props}
     >
       { !hasIconOnly && children}
     </MuiButton>

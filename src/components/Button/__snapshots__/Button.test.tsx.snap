@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`test Matches Snapshot of Button 1`] = `
+exports[`Button Matches Snapshot of Button 1`] = `
 <button
   className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary"
   disabled={false}

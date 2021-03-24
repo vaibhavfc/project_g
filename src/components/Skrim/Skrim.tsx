@@ -10,7 +10,7 @@ import { mergeClassesObjects } from '../../helpers/styling/mergeClassesObjects';
 const Skrim: FC<SkrimProps> = ({
   // innerRef = null,
   classes: overrideClasses = {},
-  children,
+  children = null,
   type,
   // ...props
 }) => {

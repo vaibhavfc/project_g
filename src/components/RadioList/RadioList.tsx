@@ -1,4 +1,4 @@
-import React, { FC, useMemo, useState } from 'react';
+import React, { FC, useMemo } from 'react';
 import {
   Radio as MuiRadio,
   FormControl,
@@ -32,13 +32,6 @@ const RadioList: FC<RadioListProps> = ({
   //   setClicked(event.target.checked);
   //   return clicked;
   // };
-  const [radioKey, setRadioKey] = useState<number>(0);
-
-  const handleKey = (): number => {
-    const key: number = radioKey;
-    setRadioKey(key + 1);
-    return key;
-  };
 
   return (
     <FormControl component="fieldset" className={classes.formControl}>
@@ -55,7 +48,7 @@ const RadioList: FC<RadioListProps> = ({
         {
           list.items?.map((Radio) => (
             <FormControlLabel
-              key={handleKey}
+              key={Radio.label}
               classes={{
                 label: classes.label,
               }}

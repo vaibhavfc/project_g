@@ -9,7 +9,6 @@ import { mergeClassesObjects } from '../../helpers/styling/mergeClassesObjects';
 
 const CheckboxWithInnerRef: FC<CheckboxProps> = ({
   classes: overrideClasses = {},
-  // children = 'Checkbox',
   tabIndex = 0,
   label, checked, disabled,
   ...props
@@ -18,13 +17,6 @@ const CheckboxWithInnerRef: FC<CheckboxProps> = ({
     () => mergeClassesObjects<CheckboxStylingProps>(classes, overrideClasses),
     [overrideClasses],
   );
-
-  // const [clicked, setClicked] = React.useState(false);
-
-  // const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-  //   setClicked(event.target.checked);
-  //   return clicked;
-  // };
 
   return (
     <FormControlLabel
