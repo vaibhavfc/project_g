@@ -1,7 +1,7 @@
 @import '../../sass/theme/default';
 
-//MEDIUM SIZE STYLES
-.rootMedium {
+//STATUS CHIP STYLES
+.rootStatus {
   @include label-2;
   text-transform: uppercase;
   height: 1.125rem;
@@ -15,18 +15,18 @@
   }
 }
 
-.successMedium {
-  background-color: $chip-bg--medium__success;
+.successStatus {
+  background-color: $chip-bg--status__success;
   color: $white;
 }
 
-.pendingMedium {
-  background-color: $chip-bg--medium__pending;
+.pendingStatus {
+  background-color: $chip-bg--status__pending;
   color: $white;
 }
 
-.warningMedium {
-  background-color: $chip-bg--medium__warning;
+.warningStatus {
+  background-color: $chip-bg--status__warning;
   color: $white;
 }
 
@@ -35,8 +35,8 @@
   color: $chip-text__info;
 }
 
-//SMALL SIZE STYLES
-.rootSmall {
+//NUDGE CHIP STYLES
+.rootNudge {
   @include info-1;
   text-transform: capitalize;
   height: 1.125rem;
@@ -50,19 +50,19 @@
   }
 }
 
-.successSmall {
-  background-color: $chip-bg--small__success;
-  color: $chip-bg--medium__success;
+.successNudge {
+  background-color: $chip-bg--nudge__success;
+  color: $chip-bg--status__success;
 }
 
-.pendingSmall {
-  background-color: $chip-bg--small__success;
-  color: $chip-bg--medium__pending;
+.pendingNudge {
+  background-color: $chip-bg--nudge__success;
+  color: $chip-bg--status__pending;
 }
 
-.warningSmall {
-  background-color: $chip-bg--small__warning;
-  color: $chip-bg--medium__warning;
+.warningNudge {
+  background-color: $chip-bg--nudge__warning;
+  color: $chip-bg--status__warning;
 }
 
 .info {
