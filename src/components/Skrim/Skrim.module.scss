@@ -6,13 +6,13 @@
 }
 
 .modal1 {
-  background-color: rgba($skrim--model1, 0.24);
+  @include scrim-modal-1;
 }
 
 .modal2 {
-  background-color: rgba($skrim--model2, 0.3);
+  @include scrim-modal-2;
 }
 
 .nonModal {
-  background-color: rgba($skrim--nonmodel, 0.15);
+  @include scrim-non-modal;
 }

@@ -34,8 +34,7 @@
 .label {
   transform: translate(-0.375rem, 0.3125rem);
   color: $radio-label;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
+  @include body-2;
 
   // & > :first-of-type {
   //   padding: 0 0.5rem 0.125rem 0;
@@ -46,7 +45,6 @@
 .formLabel {
   color: $radio-label !important;
   text-transform: capitalize;
-  font-size: 0.75rem;
-  line-height: 1rem;
+  @include body-3;
   // transform: translate(-0.5rem, -0.25rem);
 }
