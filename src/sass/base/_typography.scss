@@ -9,7 +9,7 @@
 /// @param {String} $color [#C4C4C4] - Color of the text
 /// @example Set font-face to `.foo`
 ///   .foo {
-///         @include font-face($font-name: "Lato-Bold", $path: "/styles/Lato-Bold", $weight: bold, $style: normal, $color: white);
+///         @include font-face($weight: bold, $style: normal, $color: white);
 ///   }
 @mixin font-face($weight: normal, $style: normal, $color: $text-color) {
   font-family:'Lato', monospace;
