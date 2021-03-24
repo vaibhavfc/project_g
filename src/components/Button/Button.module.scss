@@ -29,27 +29,27 @@
 }
 
 .label_icon_small {
-  padding-left: 9px;
-  padding-right: 9px;
-  padding-top: 4px;
-  padding-bottom: 4px;
+  padding-left: 0.5625rem;
+  padding-right: 0.5625rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
 }
 
 .label_icon_medium {
-  padding-left: 12px;
-  padding-right: 12px;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
 }
 
 .label_icon_large {
-  padding-left: 14px;
-  padding-right: 14px;
+  padding-left: 0.875rem;
+  padding-right: 0.875rem;
 }
 
 .outlined {
   padding: 0;
   border: none;
-  padding-top: 12px;
-  padding-bottom: 12px;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
   &:disabled {
     background: $button-disabled;
     cursor: not-allowed;
@@ -69,12 +69,12 @@
   }
 }
 .sizeSmall {
-  padding-top: 4px;
-  padding-bottom: 4px;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
 }
 .sizeLarge {
-  padding-top: 14px;
-  padding-bottom: 14px;
+  padding-top: 10.25rem;
+  padding-bottom: 10.25rem;
 }
 
 .outlinedSecondary {
@@ -88,7 +88,7 @@
 }
 
 .flashButton {
-  width: 320px;
+  width: 20rem;
   border-radius: 0px;
   display: flex;
   justify-content: center;
@@ -102,13 +102,13 @@
   margin: 0;
 }
 .iconSizeSmall > :first-child {
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 .iconSizeMedium > :first-child {
-  font-size: 24px;
+  font-size: 1.5rem;
 }
 
 .iconSizeLarge > :first-child {
-  font-size: 24px;
+  font-size: 1.5rem;
 }

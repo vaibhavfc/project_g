@@ -1,8 +1,15 @@
 .root {
-  background: pink;
+  width: 10rem;
+  background: linear-gradient(to right, #b24592, #f15f79);
+  text-align: center;
+  box-shadow: 0 3.3px 2.4px -9px rgba(0, 0, 0, 0.15), 0 26px 20px -9px rgba(0, 0, 0, 0.3);
+  
+  &:hover {
+    background: linear-gradient(to right, #f15f79, #b24592);
+    transition: 5s;
+  }
 }
 
 .label {
-  color: red;
-  margin-left: 400px;
+  color: white;
 }
