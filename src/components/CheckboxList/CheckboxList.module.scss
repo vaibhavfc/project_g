@@ -1,6 +1,7 @@
 @import '../../sass/theme/default';
 
 .root {
+  @include body-2;
   color: $checkbox-square;
   margin-bottom: -0.625rem;
 

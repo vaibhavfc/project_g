@@ -12,8 +12,8 @@ const ChipWithInnerRef: FC<ChipProps> = ({
   classes: overrideClasses = {},
   // children = 'Chip',
   variant = 'default',
-  size,
   label,
+  as,
   type,
   // doneCallback = () => undefined,
   // ...props
@@ -22,26 +22,34 @@ const ChipWithInnerRef: FC<ChipProps> = ({
     () => mergeClassesObjects<ChipStylingProps>(classes, overrideClasses),
     [overrideClasses],
   );
+
+  const handleSize = (asInput: string) => {
+    if (asInput === 'status') {
+      return 'medium';
+    }
+    return 'small';
+  };
+
   return (
     <MuiChip
       label={label}
       variant={variant}
-      size={size}
+      size={handleSize(as)}
       classes={{
         root: classnames(
           mergedClasses.rootMedium, {
-            [classes.successMedium]: (size === 'medium' && type === 'success'),
-            [classes.pendingMedium]: (size === 'medium' && type === 'pending'),
-            [classes.warningMedium]: (size === 'medium' && type === 'warning'),
-            [classes.info]: (size === 'medium' && type === 'info'),
+            [classes.successMedium]: (as === 'status' && type === 'success'),
+            [classes.pendingMedium]: (as === 'status' && type === 'pending'),
+            [classes.warningMedium]: (as === 'status' && type === 'warning'),
+            [classes.info]: (as === 'status' && type === 'info'),
           },
         ),
         sizeSmall: classnames(
           mergedClasses.rootSmall, {
-            [classes.successSmall]: (size === 'small' && type === 'success'),
-            [classes.pendingSmall]: (size === 'small' && type === 'pending'),
-            [classes.warningSmall]: (size === 'small' && type === 'warning'),
-            [classes.info]: (size === 'small' && type === 'info'),
+            [classes.successSmall]: (as === 'nudge' && type === 'success'),
+            [classes.pendingSmall]: (as === 'nudge' && type === 'pending'),
+            [classes.warningSmall]: (as === 'nudge' && type === 'warning'),
+            [classes.info]: (as === 'nudge' && type === 'info'),
           },
         ),
       }}

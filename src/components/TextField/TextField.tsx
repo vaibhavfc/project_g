@@ -64,6 +64,9 @@ const TextField: FC<TextFieldProps> = ({
           classes: {
             root: classnames(classes.labelRoot, {
               [classes.labelRootError]: (error),
+              [classes.shrink]: (labelActive && !adornmentStart),
+              [classes.shrinkPrefix]: (labelActive && adornmentStart),
+              [classes.shrinkSuffix]: (labelActive && adornmentSuffix),
             }),
             focused: classes.labelRootFocused,
             disabled: classnames(classes.labelRootDisabled),

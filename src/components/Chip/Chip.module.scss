@@ -2,13 +2,13 @@
 
 //MEDIUM SIZE STYLES
 .rootMedium {
+  @include label-2;
+  text-transform: uppercase;
   height: 1.125rem;
-  line-height: 0.625rem;
   padding: 0.25rem 0.5rem;
   border-radius: 0.25rem;
   color: $chip-text__default;
   background-color: $chip-bg__default;
-  @include subtitle;
 
   & > * {
     padding: 0;
@@ -37,14 +37,13 @@
 
 //SMALL SIZE STYLES
 .rootSmall {
+  @include info-1;
+  text-transform: capitalize;
   height: 1.125rem;
-  line-height: 0.875rem;
   padding: 0.25rem 0.5rem;
   border-radius: 0.25rem;
   color: $chip-text__default;
-  background-color: $neutral-blue;
-  @include info-1;
-  text-transform: capitalize;
+  background-color: $chip-bg__default;
 
   & > * {
     padding: 0;
