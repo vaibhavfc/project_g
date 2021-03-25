@@ -3,29 +3,25 @@
 /// TYPOGRPAHY-DEFAULT
 /// @group Typography
 /// @author Akepogu Bhanu Prakash
-/// @param {String} $font-name - Element's font name
-/// @param {String} $path  - Path to the required font
+/// 
 /// @param {String} $weight [normal] - Defines the weight of the font
 /// @param {String} $style [normal] - Defines the styles of the font
 /// @param {String} $color [#C4C4C4] - Color of the text
 /// @example Set font-face to `.foo`
 ///   .foo {
-///         @include font-face($font-name: "Lato-Bold", $path: "/styles/Lato-Bold", $weight: bold, $style: normal, $color: white);
+///         @include font-face($weight: bold, $style: normal, $color: white);
 ///   }
-@mixin font-face($font-name, $path: "../../styles/", $weight: normal, $style: normal, $color: $text-color) {
-  @font-face {
-    font-family: quote($font-name+'monospace');
-    src: url(($path+$font-name+'.ttf')) format('tff'); // DEFAULT: 'LATO'
-    font-weight: $weight;
-    font-style: $style;
-    color: $color;
-  }
+@mixin font-face($weight: normal, $style: normal, $color: $text-color) {
+  font-family:'Lato', monospace;
+  font-weight: $weight;
+  font-style: $style;
+  color: $color;
 }
 
 /// HEADING-1
 /// @group Typography
 @mixin h1 {
-  @include font-face($font-name: "Lato-Bold", $weight: bold, $style: normal);
+  @include font-face($weight: bold, $style: normal);
   font-size: 2.75rem;     //44px
   line-height: 3.375rem;  //54px
 }
@@ -33,7 +29,7 @@
 /// HEADING-2
 /// @group Typography
 @mixin h2 {
-  @include font-face($font-name: "Lato-Bold", $weight: bold, $style: normal);
+  @include font-face($weight: bold, $style: normal);
   font-weight: bold;
   font-size: 2rem;        //32px
   line-height: 2.5rem;    //40px
@@ -42,7 +38,7 @@
 /// HEADING-3
 /// @group Typography
 @mixin h3 {
-  @include font-face($font-name: "Lato-Bold", $weight: bold, $style: normal);
+  @include font-face($weight: bold, $style: normal);
   font-size: 1.5rem;      //24px
   line-height: 1.875rem;  //40px
   letter-spacing: 0.2px;
@@ -51,7 +47,7 @@
 /// HEADING-4
 /// @group Typography
 @mixin h4 {
-  @include font-face($font-name: "Lato-Bold", $weight: bold, $style: normal);
+  @include font-face($weight: bold, $style: normal);
   font-size: 1.25rem;     //20px
   line-height: 1.75rem;   //28px
   letter-spacing: 0.16px;
@@ -60,7 +56,7 @@
 /// HEADING-5
 /// @group Typography
 @mixin h5 {
-  @include font-face($font-name: "Lato-Bold", $weight: bold, $style: normal);
+  @include font-face($weight: bold, $style: normal);
   font-size: 1.125rem;    //18px
   line-height: 1.5rem;    //24px
   letter-spacing: 0.16px;
@@ -69,7 +65,7 @@
 /// HEADING-6
 /// @group Typography
 @mixin h6 {
-  @include font-face($font-name: "Lato-Bold", $weight: bold, $style: normal);
+  @include font-face($weight: bold, $style: normal);
   font-size: 1rem;          //16px
   line-height: 1.135rem;    //22px
   letter-spacing: 0.3px;
@@ -78,7 +74,7 @@
 /// SUB-HEADING
 /// @group Typography
 @mixin subheading {
-  @include font-face($font-name: "Lato-Regular", $weight: 600, $style: normal);
+  @include font-face($weight: 600, $style: normal);
   font-size: 0.75rem;       //12px
   line-height: 1.125rem;    //18px
   letter-spacing: 0.26px;
@@ -88,7 +84,7 @@
 /// BODY-1
 /// @group Typography
 @mixin body-1 {
-  @include font-face($font-name: "Lato-Regular", $weight: normal, $style: normal);
+  @include font-face($weight: normal, $style: normal);
   font-size: 1rem;          //16px
   line-height: 1.5rem;      //24px
   letter-spacing: 0.16px;
@@ -97,8 +93,8 @@
 /// BODY-2
 /// @group Typography
 @mixin body-2 {
-  @include font-face($font-name: "Lato-Regular", $weight: normal, $style: normal);
-  font-weight: 'Lato';
+  @include font-face($weight: normal, $style: normal);
+  // font-weight: 'Lato';
   font-size: 0.875rem;          //14px
   line-height: 1.25rem;         //20px
   letter-spacing: 0.26px;
@@ -107,26 +103,26 @@
 /// BODY-3 / LINK
 /// @group Typography
 @mixin body-3 {                 // BODY-3 / LINK
-  @include font-face("Lato-Regular", $weight: normal, $style: normal);
+  @include font-face($weight: normal, $style: normal);
   font-size: 0.75rem;          //12px
   line-height: 1rem;           //16px
   letter-spacing: 0.32px;
 }
 
-/// SUBTITLE / LABEL-2
+/// SUBTITLE 
 /// @group Typography
-@mixin subtitle {              //SUBTITLE / LABEL-2
-  @include font-face($font-name: "Lato-Regular", $weight: 600, $style: normal);
+@mixin subtitle {              //SUBTITLE
+  @include font-face($weight: 600, $style: normal);
   font-size: 0.625rem;         //10px
   line-height: 0.625rem;       //10px
   letter-spacing: 0.32px;
   text-transform: uppercase;
 }
 
-/// CAPTION / HELPER / LABEL-1
+/// CAPTION / HELPER 
 /// @group Typography
-@mixin caption {            // CAPTION / HELPER / LABEL-1
-  @include font-face($font-name: "Lato-Regular", $weight: normal, $style: normal);
+@mixin caption {            // CAPTION / HELPER 
+  @include font-face($weight: normal, $style: normal);
   font-size: 0.75rem;       //12px
   line-height: 1rem;        //16px
   letter-spacing: 0.32px;
@@ -135,7 +131,7 @@
 /// CTA-BUTTON-1
 /// @group Typography
 @mixin cta-button-1 {
-  @include font-face($font-name: "Lato-Bold", $weight: Bold, $style: normal);
+  @include font-face($weight: bold, $style: normal);
   font-size: 1rem;        //16px
   line-height: 1.25rem;   //20px
   letter-spacing: 0.26px;
@@ -144,16 +140,17 @@
 /// CTA-BUTTON-2
 /// @group Typography
 @mixin cta-button-2 {
-  @include font-face($font-name: "Lato-Bold", $weight: bold, $style: normal);
+  @include font-face($weight: bold, $style: normal);
   font-size: 0.875rem;        //14px
   line-height: 1.125rem;      //18px
   letter-spacing: 0.26px;
+  font-family: 'Lato';
 }
 
 /// CTA-BUTTON-3
 /// @group Typography
 @mixin cta-button-3 {
-  @include font-face($font-name: "Lato-Bold", $weight: Bold, $style: normal);
+  @include font-face($weight: bold, $style: normal);
   font-size: 0.75rem;         //12px
   line-height: 0.875rem;      //14px
   letter-spacing: 0.32px;
@@ -162,7 +159,7 @@
 /// TEXT-BUTTON
 /// @group Typography
 @mixin text-button {              
-  @include font-face($font-name: "Lato-Bold", $weight: bold, $style: normal);
+  @include font-face($weight: bold, $style: normal);
   font-size: 0.625rem;         //10px
   line-height: 0.625rem;       //10px
   letter-spacing: 1px;
@@ -172,7 +169,7 @@
 /// INFO-1
 /// @group Typography
 @mixin info-1 {
-  @include font-face($font-name: "Lato-Regular", $weight: normal, $style: normal);
+  @include font-face($weight: normal, $style: normal);
   font-size: 0.625;         //10px
   line-height: 0.875rem;    //14px;
   letter-spacing: 0.32px;
@@ -181,8 +178,26 @@
 /// INFO-2
 /// @group Typography
 @mixin info-2 {
-  @include font-face($font-name: "Lato-Regular", $weight: normal, $style: normal);
+  @include font-face($weight: normal, $style: normal);
   font-size: 0.5rem;          //8px
   line-height: 0.75rem;       //12px
+  letter-spacing: 0.32px;
+}
+
+/// LABEL-1
+/// @group Typography
+@mixin label-1 {
+  @include font-face($weight: normal, $style: normal);
+  font-size: 0.75rem;          //12px
+  line-height: 1rem;       //16px
+  letter-spacing: 0.32px;
+}
+
+/// LABEL-2
+/// @group Typography
+@mixin label-2 {
+  @include font-face($weight: normal, $style: normal);
+  font-size: 0.625rem;          //10px
+  line-height: 0.625rem;       //10px
   letter-spacing: 0.32px;
 }

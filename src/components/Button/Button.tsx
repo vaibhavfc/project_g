@@ -32,7 +32,11 @@ const ButtonWithInnerRef: FC<ButtonProps> = ({
       classes={{
         root: classnames(mergedClasses.root, { [classes.flashButton]: isFlushButton && color === 'primary' && !hasIconOnly && !withIcon }),
         label: classnames(mergedClasses.label, {
-          [classes.label_secondary]: color === 'secondary', [classes.label_only_text]: !hasIconOnly, [classes.label_icon_medium]: hasIconOnly && size === 'medium', [classes.label_icon_large]: hasIconOnly && size === 'large', [classes.label_icon_small]: hasIconOnly && size === 'small',
+          [classes.label_secondary]: color === 'secondary',
+          [classes.label_only_text]: !hasIconOnly,
+          [classes.label_icon_medium]: hasIconOnly && size === 'medium',
+          [classes.label_icon_large]: hasIconOnly && size === 'large',
+          [classes.label_icon_small]: hasIconOnly && size === 'small',
         }),
         endIcon: classnames({ [classes.endIcon]: hasIconOnly }),
         sizeSmall: mergedClasses.sizeSmall,
