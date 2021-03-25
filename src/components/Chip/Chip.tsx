@@ -37,32 +37,18 @@ const ChipWithInnerRef: FC<ChipProps> = ({
       size={handleSize(as)}
       classes={{
         root: classnames(
-<<<<<<< HEAD
-          mergedClasses.rootMedium, {
-            [classes.successMedium]: (as === 'status' && type === 'success'),
-            [classes.pendingMedium]: (as === 'status' && type === 'pending'),
-            [classes.warningMedium]: (as === 'status' && type === 'warning'),
-=======
           mergedClasses.rootStatus, {
             [classes.successStatus]: (as === 'status' && type === 'success'),
             [classes.pendingStatus]: (as === 'status' && type === 'pending'),
             [classes.warningStatus]: (as === 'status' && type === 'warning'),
->>>>>>> 6c4049120033ab23882b1647c09a625b474602de
             [classes.info]: (as === 'status' && type === 'info'),
           },
         ),
         sizeSmall: classnames(
-<<<<<<< HEAD
-          mergedClasses.rootSmall, {
-            [classes.successSmall]: (as === 'nudge' && type === 'success'),
-            [classes.pendingSmall]: (as === 'nudge' && type === 'pending'),
-            [classes.warningSmall]: (as === 'nudge' && type === 'warning'),
-=======
           mergedClasses.rootNudge, {
             [classes.successNudge]: (as === 'nudge' && type === 'success'),
             [classes.pendingNudge]: (as === 'nudge' && type === 'pending'),
             [classes.warningNudge]: (as === 'nudge' && type === 'warning'),
->>>>>>> 6c4049120033ab23882b1647c09a625b474602de
             [classes.info]: (as === 'nudge' && type === 'info'),
           },
         ),
