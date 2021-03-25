@@ -7,8 +7,7 @@ import Button from './Button';
 
 describe('Button', () => {
   it('Renders Button Compoents', () => {
-    const { debug } = render(<Button hasIconOnly>test</Button>);
-    debug();
+    render(<Button hasIconOnly>test</Button>);
   });
 
   it('Matches Snapshot of Button', () => {
@@ -45,7 +44,7 @@ describe('Flushed Button', () => {
 
 describe('Icon Button', () => {
   it('Should render flusehd button', () => {
-    //TODO vaibhav
+    // TODO vaibhav
     // render(<Button withIcon>Icon button</Button>);
     // expect(screen.getByRole('button').getElementsByClassName('MuiButton-endIcon')).toBe(true);
   });
@@ -53,7 +52,7 @@ describe('Icon Button', () => {
 
 describe('Icon Only Button', () => {
   it('Should render flusehd button', () => {
-    //TODO vaibhav
+    // TODO vaibhav
     // render(<Button hasIconOnly>Icon button</Button>);
     // expect(screen.getByRole('button').getElementsByClassName('MuiButton-root')).toBe(true);
   });
