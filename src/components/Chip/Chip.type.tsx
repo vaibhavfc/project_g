@@ -9,6 +9,6 @@ export interface ChipStylingProps extends Partial<Record<ChipClassKey, string>> 
 export interface ChipProps extends MuiChipProps {
   innerRef: Ref<HTMLDivElement>;
   type: 'default' | 'success' | 'pending' | 'warning' | 'info';
-  as: 'status' | 'nudge';
+  chipType: 'status' | 'nudge';
   doneCallback?: () => void;
 }

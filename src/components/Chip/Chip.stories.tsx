@@ -20,68 +20,68 @@ const Template: Story<ChipProps> = (args) => <Chip {...args} />;
 export const DefaultStatusChip = Template.bind({});
 DefaultStatusChip.args = {
   label: 'Default',
-  as: 'status',
+  chipType: 'status',
   type: 'default',
 };
 
 export const DefaultNudgeChip = Template.bind({});
 DefaultNudgeChip.args = {
   label: 'Default',
-  as: 'nudge',
+  chipType: 'nudge',
   type: 'default',
 };
 
 export const SuccessStatusChip = Template.bind({});
 SuccessStatusChip.args = {
   label: 'Success',
-  as: 'status',
+  chipType: 'status',
   type: 'success',
 };
 
 export const SuccessNudgeChip = Template.bind({});
 SuccessNudgeChip.args = {
   label: 'Success',
-  as: 'nudge',
+  chipType: 'nudge',
   type: 'success',
 };
 
 export const PendingStatusChip = Template.bind({});
 PendingStatusChip.args = {
   label: 'Pending',
-  as: 'status',
+  chipType: 'status',
   type: 'pending',
 };
 
 export const PendingNudgeChip = Template.bind({});
 PendingNudgeChip.args = {
   label: 'Pending',
-  as: 'nudge',
+  chipType: 'nudge',
   type: 'pending',
 };
 
 export const WarningStatusChip = Template.bind({});
 WarningStatusChip.args = {
   label: 'Warning',
-  as: 'status',
+  chipType: 'status',
   type: 'warning',
 };
 
 export const WarningNudgeChip = Template.bind({});
 WarningNudgeChip.args = {
   label: 'Warning',
-  as: 'nudge',
+  chipType: 'nudge',
   type: 'warning',
 };
 export const InfoStatusChip = Template.bind({});
 InfoStatusChip.args = {
   label: 'Info',
-  as: 'status',
+  chipType: 'status',
   type: 'info',
 };
 
 export const InfoNudgeChip = Template.bind({});
 InfoNudgeChip.args = {
   label: 'Info',
-  as: 'nudge',
+  chipType: 'nudge',
   type: 'info',
 };

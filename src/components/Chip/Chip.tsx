@@ -13,7 +13,7 @@ const ChipWithInnerRef: FC<ChipProps> = ({
   // children = 'Chip',
   variant = 'default',
   label,
-  as,
+  chipType,
   type,
   // doneCallback = () => undefined,
   // ...props
@@ -34,22 +34,22 @@ const ChipWithInnerRef: FC<ChipProps> = ({
     <MuiChip
       label={label}
       variant={variant}
-      size={handleSize(as)}
+      size={handleSize(chipType)}
       classes={{
         root: classnames(
           mergedClasses.rootStatus, {
-            [classes.successStatus]: (as === 'status' && type === 'success'),
-            [classes.pendingStatus]: (as === 'status' && type === 'pending'),
-            [classes.warningStatus]: (as === 'status' && type === 'warning'),
-            [classes.info]: (as === 'status' && type === 'info'),
+            [classes.successStatus]: (chipType === 'status' && type === 'success'),
+            [classes.pendingStatus]: (chipType === 'status' && type === 'pending'),
+            [classes.warningStatus]: (chipType === 'status' && type === 'warning'),
+            [classes.info]: (chipType === 'status' && type === 'info'),
           },
         ),
         sizeSmall: classnames(
           mergedClasses.rootNudge, {
-            [classes.successNudge]: (as === 'nudge' && type === 'success'),
-            [classes.pendingNudge]: (as === 'nudge' && type === 'pending'),
-            [classes.warningNudge]: (as === 'nudge' && type === 'warning'),
-            [classes.info]: (as === 'nudge' && type === 'info'),
+            [classes.successNudge]: (chipType === 'nudge' && type === 'success'),
+            [classes.pendingNudge]: (chipType === 'nudge' && type === 'pending'),
+            [classes.warningNudge]: (chipType === 'nudge' && type === 'warning'),
+            [classes.info]: (chipType === 'nudge' && type === 'info'),
           },
         ),
       }}
