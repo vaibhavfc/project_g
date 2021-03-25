@@ -1,90 +1,71 @@
-// VARIABLES
-$defaultBg: #ebf0f9;
-$defaultText: #145599;
+@import '../../sass/theme/default';
 
-$successMediumBg: #00cb48;
-$pendingMediumBg: #f17f22;
-$warningMediumBg: #ff2121;
-
-$successSmallBg: #eff9eb;
-$pendingSmallBg: #f9f6eb;
-$warningSmallBg: #f9ebef;
-
-$infoBg: #f1f4f7;
-$infoText: #282828;
-
-$white: #ffffff;
-
-//MEDIUM SIZE STYLES
-.rootMedium {
-  height: 1.125rem;
-  line-height: 0.625rem;
-  padding: 0.25rem 0.5rem;
-  border-radius: 0.25rem;
-  color: $defaultText;
-  background-color: $defaultBg;
-  font-size: 0.625rem;
-  letter-spacing: 0.32px;
+//STATUS CHIP STYLES
+.rootStatus {
+  @include label-2;
   text-transform: uppercase;
-
-  & > * {
-    padding: 0;
-  }
-}
-
-.successMedium {
-  background-color: $successMediumBg;
-  color: $white;
-}
-
-.pendingMedium {
-  background-color: $pendingMediumBg;
-  color: $white;
-}
-
-.warningMedium {
-  background-color: $warningMediumBg;
-  color: $white;
-}
-
-.info {
-  background-color: $infoBg;
-  color: $infoText;
-}
-
-//SMALL SIZE STYLES
-.rootSmall {
   height: 1.125rem;
-  line-height: 0.875rem;
   padding: 0.25rem 0.5rem;
   border-radius: 0.25rem;
-  color: $defaultText;
-  background-color: $defaultBg;
-  font-size: 0.625rem;
-  letter-spacing: 0.32px;
-  text-transform: capitalize;
+  color: $chip-text__default;
+  background-color: $chip-bg__default;
 
   & > * {
     padding: 0;
   }
 }
 
-.successSmall {
-  background-color: $successSmallBg;
-  color: $successMediumBg;
+.successStatus {
+  background-color: $chip-bg--status__success;
+  color: $white;
 }
 
-.pendingSmall {
-  background-color: $pendingSmallBg;
-  color: $pendingMediumBg;
+.pendingStatus {
+  background-color: $chip-bg--status__pending;
+  color: $white;
 }
 
-.warningSmall {
-  background-color: $warningSmallBg;
-  color: $warningMediumBg;
+.warningStatus {
+  background-color: $chip-bg--status__warning;
+  color: $white;
 }
 
 .info {
-  background-color: $infoBg;
-  color: $infoText;
+  background-color: $chip-bg__info;
+  color: $chip-text__info;
+}
+
+//NUDGE CHIP STYLES
+.rootNudge {
+  @include info-1;
+  text-transform: capitalize;
+  height: 1.125rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  color: $chip-text__default;
+  background-color: $chip-bg__default;
+
+  & > * {
+    padding: 0;
+  }
+}
+
+.successNudge {
+  background-color: $chip-bg--nudge__success;
+  color: $chip-bg--status__success;
+}
+
+.pendingNudge {
+  background-color: $chip-bg--nudge__success;
+  color: $chip-bg--status__pending;
+}
+
+.warningNudge {
+  background-color: $chip-bg--nudge__warning;
+  color: $chip-bg--status__warning;
+}
+
+.info {
+  background-color: $chip-bg__info;
+  color: $chip-text__info;
 }

@@ -1,13 +1,15 @@
+@import '../../sass/theme/default';
+
 .root > * > * > * {
-  color: #97144d !important;
+  color: $breadcrumbs-root !important;
   cursor: pointer;
 
   &:hover {
-    color: #97144d;
+    color: $breadcrumbs-root;
   }
 
   &:active {
-    color: #97144d;
+    color: $breadcrumbs-root;
   }
 
   &:focus {
@@ -18,12 +20,12 @@
   }
 
   &:disabled {
-    color: #b4b4b4;
+    color: $breadcrumbs-disabled;
     pointer-events: none;
   }
 
   &:visited {
-    color: #9911ed;
+    color: $breadcrumbs-visited;
   }
 }
 
@@ -38,7 +40,7 @@
 
 //   &:focus {
 //     // outline: none;
-//     color: #97144d;
+//     color: $breadcrumbs-root;
 //     background-color: transparent;
 //   }
 
@@ -67,5 +69,5 @@
 // }
 
 .active {
-  color: #282828 !important;
+  color: $active !important;
 }

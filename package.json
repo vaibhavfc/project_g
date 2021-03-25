@@ -15,6 +15,7 @@
     "@types/react-dom": "^17.0.0",
     "@types/react-router-dom": "^5.1.7",
     "classnames": "^2.2.6",
+    "global": "^4.4.0",
     "loadsh": "^0.0.4",
     "lodash": "^4.17.21",
     "node-sass": "^5.0.0",
@@ -33,6 +34,7 @@
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -c .storybook watch-css -s ./src",
     "build-storybook": "build-storybook -s public",
+    "sassdoc": "sassdoc src/sass",
     "lint": "eslint src --ext .js,.jsx,.ts,.tsx,.json",
     "fix": "eslint src --fix --ext .js,.jsx,.ts,.tsx,.json"
   },

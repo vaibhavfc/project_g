@@ -3,5 +3,6 @@
 exports[`test Matches Snapshot of Divider 1`] = `
 <hr
   className="MuiDivider-root"
+  role="devider"
 />
 `;

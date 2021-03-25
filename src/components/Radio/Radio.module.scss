@@ -1,36 +1,37 @@
+@import '../../sass/theme/default';
+
 .root {
-  color: #6e6e6e;
+  color: $radio-circle;
 
   &:hover {
-    background-color: rgba(110, 110, 110, 0.08);
+    background-color: rgba($radio-hover-unchecked, 0.08);
   }
 
   &:focus {
-    background-color: rgba(110, 110, 110, 0.08);
+    background-color: rgba($radio-hover-unchecked, 0.08);
     transition: none;
   }
 }
 
 .checked {
-  color: #ed1164;
+  color: $radio-hover-unchecked;
 
   &:hover {
-    background-color: rgba(241, 70, 135, 0.08);
+    background-color: rgba($radio-hover-checked, 0.08);
   }
 
   &:focus {
-    background-color: rgba(241, 70, 135, 0.08);
+    background-color: rgba($radio-hover-checked, 0.08);
     transition: none;
   }
 }
 
 .disabledChecked {
-  color: #b4b4b4;
+  color: $radio-disabled;
 }
 
 .label {
+  @include body-2;
   transform: translateX(-4px);
-  color: #282828;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
+  color: $radio-label;
 }

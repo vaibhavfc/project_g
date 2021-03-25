@@ -1,5 +1,7 @@
+@import '../../sass/theme/default';
+
 .root {
-  background-color: #f1f1f1;
+  background-color: $divider-bg;
 }
 
 .smallHorizontal {

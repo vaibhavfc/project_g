@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`test Matches Snapshot of Checkbox 1`] = `
+exports[`test Should match Snapshot of Checkbox 1`] = `
 <label
   className="MuiFormControlLabel-root"
 >
@@ -45,6 +45,8 @@ exports[`test Matches Snapshot of Checkbox 1`] = `
   </span>
   <span
     className="MuiTypography-root MuiFormControlLabel-label label MuiTypography-body1"
-  />
+  >
+    Checkbox Item
+  </span>
 </label>
 `;

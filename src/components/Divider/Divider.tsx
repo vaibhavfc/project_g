@@ -22,6 +22,8 @@ const DividerWithInnerRef: FC<DividerProps> = ({
   return (
     <MuiDivider
       orientation={orientation}
+      // eslint-disable-next-line jsx-a11y/aria-role
+      role="devider"
       classes={{
         root: classnames(
           mergedClasses.root, {

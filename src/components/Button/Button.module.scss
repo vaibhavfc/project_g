@@ -1,7 +1,9 @@
+@import '../../sass/theme/default';
+
 .root {
   position: absolute;
   //margin-left: 0.75rem;
-  background: #97144d;
+  background: $button-bg;
   border-radius: 0.5rem;
   text-transform: none;
   line-height: 1;
@@ -10,63 +12,55 @@
 }
 
 .label {
+  @include cta-button-2;
+  // font-family: 'Lato';
+  color: $white;
   padding-left: 1rem;
   padding-right: 1rem;
-
-  // margin-top: 1rem;
-  // margin-bottom: 1rem;
-  color: white;
-  font-family: Lato;
-  font-weight: 400;
-  line-height: 20px;
 }
+
 .label_only_text {
   padding-top: 2px;
   padding-bottom: 2px;
 }
+
 .label_secondary {
-  color: #97144d;
+  color: $button-bg;
 }
+
 .label_icon_small {
-  padding-left: 9px;
-  padding-right: 9px;
-  padding-top: 4px;
-  padding-bottom: 4px;
+  padding-left: 0.5625rem;
+  padding-right: 0.5625rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
 }
 
 .label_icon_medium {
-  padding-left: 12px;
-  padding-right: 12px;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
 }
 
 .label_icon_large {
-  padding-left: 14px;
-  padding-right: 14px;
+  padding-left: 0.875rem;
+  padding-right: 0.875rem;
 }
 
 .outlined {
   padding: 0;
   border: none;
-  padding-top: 12px;
-  padding-bottom: 12px;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
   &:disabled {
-    // border: 1px solid red;
-    background: #b4b4b4;
+    background: $button-disabled;
     cursor: not-allowed;
     border: none;
   }
   &:hover {
-    /* Primary / burgundy-100 */
-    background: #97144d;
+    background: $button-bg;
     border: none;
-    // border-radius: 0.5rem;
   }
   &:active {
-    /* Primary / burgundy-100 */
-    // background: #ED1164;
     border: none;
-
-    // border-radius: 0.5rem;
   }
   &:focus {
     /* Primary / burgundy-100 */
@@ -75,26 +69,26 @@
   }
 }
 .sizeSmall {
-  padding-top: 4px;
-  padding-bottom: 4px;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
 }
 .sizeLarge {
-  padding-top: 14px;
-  padding-bottom: 14px;
+  padding-top: 10.25rem;
+  padding-bottom: 10.25rem;
 }
 
 .outlinedSecondary {
-  background: #f9f9f9;
+  background: $button-outlined__secondary;
   &:hover {
-    background: #f1f1f1;
+    background: $button-outlined__secondary--hover;
   }
   &:disabled {
-    background: #f9f9f9;
+    background: $button-outlined__secondary;
   }
 }
 
 .flashButton {
-  width: 320px;
+  width: 20rem;
   border-radius: 0px;
   display: flex;
   justify-content: center;
@@ -108,13 +102,13 @@
   margin: 0;
 }
 .iconSizeSmall > :first-child {
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 .iconSizeMedium > :first-child {
-  font-size: 24px;
+  font-size: 1.5rem;
 }
 
 .iconSizeLarge > :first-child {
-  font-size: 24px;
+  font-size: 1.5rem;
 }

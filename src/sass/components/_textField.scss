@@ -1,0 +1,37 @@
+@import '../main.scss';
+
+/// Default Background
+/// @group text-field
+$textfield--root__bg: $aqua-haze-1;
+
+/// Default Label Color
+/// @group text-field
+$textfield--labelRoot: map-get($grey, 70);
+
+/// Default Label Focused state
+/// @group text-field
+$textfield--labelRoot__focused: map-get($aqua-deep, 100);
+
+/// Default Input Field Border
+/// @group text-field
+$textfield--inputroot: map-get($aqua-deep, 60);
+
+/// Default Input Field State
+/// @group text-field
+$textfield--inputroot__hover: $aqua-haze-2;
+
+/// Disabled State
+/// @group text-field
+$textfield--labelRoot__disabled: map-get($grey, 50);
+
+/// Disabled State Background
+/// @group text-field
+$textfield-disabled__bg: map-get($grey, 10);
+
+/// Error Color for Label and Helper text
+/// @group text-field
+$textfield--labelRoot__error: $red;
+
+/// Input Adorment Color
+/// @group text-field
+$textfield--inputAdornment: map-get($grey, 80);

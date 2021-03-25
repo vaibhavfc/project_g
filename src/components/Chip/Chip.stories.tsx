@@ -17,71 +17,71 @@ export default {
 
 const Template: Story<ChipProps> = (args) => <Chip {...args} />;
 
-export const DefaultMediumChip = Template.bind({});
-DefaultMediumChip.args = {
+export const DefaultStatusChip = Template.bind({});
+DefaultStatusChip.args = {
   label: 'Default',
-  size: 'medium',
+  chipType: 'status',
   type: 'default',
 };
 
-export const DefaultSmallChip = Template.bind({});
-DefaultSmallChip.args = {
+export const DefaultNudgeChip = Template.bind({});
+DefaultNudgeChip.args = {
   label: 'Default',
-  size: 'small',
+  chipType: 'nudge',
   type: 'default',
 };
 
-export const SuccessMediumChip = Template.bind({});
-SuccessMediumChip.args = {
+export const SuccessStatusChip = Template.bind({});
+SuccessStatusChip.args = {
   label: 'Success',
-  size: 'medium',
+  chipType: 'status',
   type: 'success',
 };
 
-export const SuccessSmallChip = Template.bind({});
-SuccessSmallChip.args = {
+export const SuccessNudgeChip = Template.bind({});
+SuccessNudgeChip.args = {
   label: 'Success',
-  size: 'small',
+  chipType: 'nudge',
   type: 'success',
 };
 
-export const PendingMediumChip = Template.bind({});
-PendingMediumChip.args = {
+export const PendingStatusChip = Template.bind({});
+PendingStatusChip.args = {
   label: 'Pending',
-  size: 'medium',
+  chipType: 'status',
   type: 'pending',
 };
 
-export const PendingSmallChip = Template.bind({});
-PendingSmallChip.args = {
+export const PendingNudgeChip = Template.bind({});
+PendingNudgeChip.args = {
   label: 'Pending',
-  size: 'small',
+  chipType: 'nudge',
   type: 'pending',
 };
 
-export const WarningMediumChip = Template.bind({});
-WarningMediumChip.args = {
+export const WarningStatusChip = Template.bind({});
+WarningStatusChip.args = {
   label: 'Warning',
-  size: 'medium',
+  chipType: 'status',
   type: 'warning',
 };
 
-export const WarningSmallChip = Template.bind({});
-WarningSmallChip.args = {
+export const WarningNudgeChip = Template.bind({});
+WarningNudgeChip.args = {
   label: 'Warning',
-  size: 'small',
+  chipType: 'nudge',
   type: 'warning',
 };
-export const InfoMediumChip = Template.bind({});
-InfoMediumChip.args = {
+export const InfoStatusChip = Template.bind({});
+InfoStatusChip.args = {
   label: 'Info',
-  size: 'medium',
+  chipType: 'status',
   type: 'info',
 };
 
-export const InfoSmallChip = Template.bind({});
-InfoSmallChip.args = {
+export const InfoNudgeChip = Template.bind({});
+InfoNudgeChip.args = {
   label: 'Info',
-  size: 'small',
+  chipType: 'nudge',
   type: 'info',
 };

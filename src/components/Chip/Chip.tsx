@@ -12,8 +12,8 @@ const ChipWithInnerRef: FC<ChipProps> = ({
   classes: overrideClasses = {},
   // children = 'Chip',
   variant = 'default',
-  size,
   label,
+  chipType,
   type,
   // doneCallback = () => undefined,
   // ...props
@@ -22,26 +22,34 @@ const ChipWithInnerRef: FC<ChipProps> = ({
     () => mergeClassesObjects<ChipStylingProps>(classes, overrideClasses),
     [overrideClasses],
   );
+
+  const handleSize = (asInput: string) => {
+    if (asInput === 'status') {
+      return 'medium';
+    }
+    return 'small';
+  };
+
   return (
     <MuiChip
       label={label}
       variant={variant}
-      size={size}
+      size={handleSize(chipType)}
       classes={{
         root: classnames(
-          mergedClasses.rootMedium, {
-            [classes.successMedium]: (size === 'medium' && type === 'success'),
-            [classes.pendingMedium]: (size === 'medium' && type === 'pending'),
-            [classes.warningMedium]: (size === 'medium' && type === 'warning'),
-            [classes.info]: (size === 'medium' && type === 'info'),
+          mergedClasses.rootStatus, {
+            [classes.successStatus]: (chipType === 'status' && type === 'success'),
+            [classes.pendingStatus]: (chipType === 'status' && type === 'pending'),
+            [classes.warningStatus]: (chipType === 'status' && type === 'warning'),
+            [classes.info]: (chipType === 'status' && type === 'info'),
           },
         ),
         sizeSmall: classnames(
-          mergedClasses.rootSmall, {
-            [classes.successSmall]: (size === 'small' && type === 'success'),
-            [classes.pendingSmall]: (size === 'small' && type === 'pending'),
-            [classes.warningSmall]: (size === 'small' && type === 'warning'),
-            [classes.info]: (size === 'small' && type === 'info'),
+          mergedClasses.rootNudge, {
+            [classes.successNudge]: (chipType === 'nudge' && type === 'success'),
+            [classes.pendingNudge]: (chipType === 'nudge' && type === 'pending'),
+            [classes.warningNudge]: (chipType === 'nudge' && type === 'warning'),
+            [classes.info]: (chipType === 'nudge' && type === 'info'),
           },
         ),
       }}

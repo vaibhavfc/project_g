@@ -8,24 +8,15 @@ import classes from './Checkbox.module.scss';
 import { mergeClassesObjects } from '../../helpers/styling/mergeClassesObjects';
 
 const CheckboxWithInnerRef: FC<CheckboxProps> = ({
-  // innerRef = null,
   classes: overrideClasses = {},
-  // children = 'Checkbox',
   tabIndex = 0,
   label, checked, disabled,
-  // ...props
+  ...props
 }) => {
   const mergedClasses = useMemo(
     () => mergeClassesObjects<CheckboxStylingProps>(classes, overrideClasses),
     [overrideClasses],
   );
-
-  // const [clicked, setClicked] = React.useState(false);
-
-  // const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-  //   setClicked(event.target.checked);
-  //   return clicked;
-  // };
 
   return (
     <FormControlLabel
@@ -45,6 +36,7 @@ const CheckboxWithInnerRef: FC<CheckboxProps> = ({
               [classes.checked]: (checked && !disabled),
             }),
           }}
+          {...props}
         />
       )}
       label={label}

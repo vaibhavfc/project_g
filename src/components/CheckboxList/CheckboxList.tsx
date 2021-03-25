@@ -68,6 +68,7 @@ const CheckboxList: FC<CheckboxListProps> = ({
                 )}
               label={checkbox.label}
               labelPlacement="end"
+              key={checkbox.label}
             />
           ))
         }

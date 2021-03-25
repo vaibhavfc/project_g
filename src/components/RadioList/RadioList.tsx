@@ -48,6 +48,7 @@ const RadioList: FC<RadioListProps> = ({
         {
           list.items?.map((Radio) => (
             <FormControlLabel
+              key={Radio.label}
               classes={{
                 label: classes.label,
               }}

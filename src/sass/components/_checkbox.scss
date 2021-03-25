@@ -1,0 +1,26 @@
+@import '../main.scss';
+
+/// DEFAULT CHECKED STATE
+/// @group checkbox
+$checkbox-checked: map-get($pink, 100);
+
+/// Default Checked Hover State
+/// @group checkbox
+$checkbox-hover-checked: map-get($pink, 80);
+
+/// Default label color
+/// @group checkbox
+$checkbox-label: $charcoal;
+
+/// Checkbox Unchecked color
+/// @group checkbox
+$checkbox-square: map-get($grey, 80);
+
+/// Checkbox Unchecked hover state
+/// @group checkbox
+$checkbox-hover-unchecked: map-get($grey, 100);
+
+/// Checkbox Disabled state
+/// @group buttons
+$checkbox-disabled: map-get($grey, 50);
+
