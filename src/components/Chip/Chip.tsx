@@ -13,7 +13,7 @@ const ChipWithInnerRef: FC<ChipProps> = ({
   // children = 'Chip',
   variant = 'default',
   label,
-  chipType,
+  chipType = 'default',
   type,
   // doneCallback = () => undefined,
   // ...props

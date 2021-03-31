@@ -1,25 +1,21 @@
 import React, { FC, useMemo } from 'react';
-import { Container as MuiContainer } from '@material-ui/core';
+import { Typography as MuiTypography } from '@material-ui/core';
 import classnames from 'classnames';
 import { SkrimProps, SkrimStylingProps } from './Skrim.type';
-
 import classes from './Skrim.module.scss';
-
 import { mergeClassesObjects } from '../../helpers/styling/mergeClassesObjects';
 
 const Skrim: FC<SkrimProps> = ({
-  // innerRef = null,
   classes: overrideClasses = {},
-  children = null,
   type,
-  // ...props
 }) => {
   const mergedClasses = useMemo(
     () => mergeClassesObjects<SkrimStylingProps>(classes, overrideClasses),
     [overrideClasses],
   );
   return (
-    <MuiContainer
+    <MuiTypography
+      component="div"
       classes={{
         root: classnames(
           mergedClasses.root, {
@@ -29,13 +25,7 @@ const Skrim: FC<SkrimProps> = ({
           },
         ),
       }}
-    >
-      {children}
-    </MuiContainer>
+    />
   );
 };
-
-// const Skrim = forwardRef<HTMLDivElement, Omit<SkrimProps, 'innerRef'>>(
-//   (props, ref) => <SkrimWithInnerRef innerRef={ref} {...props} />,
-// );
 export default Skrim;

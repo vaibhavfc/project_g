@@ -6,11 +6,11 @@ import Skrim from './Skrim';
 
 describe('test', () => {
   it('Renders Skrim Compoents', () => {
-    render(<Skrim />);
+    render(<Skrim type="modal1" />);
   });
 
   it('Matches Snapshot of Skrim', () => {
-    const tree = renderer.create(<Skrim />).toJSON();
+    const tree = renderer.create(<Skrim type="modal1" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

@@ -11,7 +11,7 @@ const DividerWithInnerRef: FC<DividerProps> = ({
   // innerRef = null,
   classes: overrideClasses = {},
   orientation,
-  size,
+  size = 'small',
   // ...props
 }) => {
   const mergedClasses = useMemo(

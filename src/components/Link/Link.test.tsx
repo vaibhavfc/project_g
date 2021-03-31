@@ -12,7 +12,7 @@ describe('test', () => {
 
   it('should have correct href', () => {
     render(<Link to="/home"> to workd </Link>);
-    expect(screen.getByRole('link').href).toBe('http://localhost/home');
+    expect(screen.getByRole('link').hasAttribute('href')).toBe('http://localhost/home');
   });
 
   it('should have child content', () => {

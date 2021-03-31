@@ -30,9 +30,9 @@ InlineLink.args = {
   to: 'inline_link',
 };
 
-export const ActiveLink = Template.bind({});
-ActiveLink.args = {
-  children: 'Active Link',
+export const VisitedLink = Template.bind({});
+VisitedLink.args = {
+  children: 'Visited Link',
   active: true,
   to: 'active_link',
 };

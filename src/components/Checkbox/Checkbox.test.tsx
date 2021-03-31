@@ -21,7 +21,8 @@ describe('test', () => {
 
   it('Should be checked if checked flag is true', () => {
     render(<Checkbox label="Checkbox Item" checked />);
-    expect(screen.getByRole('checkbox').checked).toBe(true);
+    const chk = screen.getByRole('checkbox');
+    expect(chk.hasAttribute('checked')).toBe(true);
   });
 
   it('Should be disabled if disabled flag is true', () => {

@@ -1,0 +1,45 @@
+@import '../../sass/theme/default';
+
+@mixin DigitalInput {
+  @include h4;
+  color: $digital-input__text;
+  height: 2.5rem; 
+  outline: none;
+  background: $digital-input__bg;
+  border-radius: 4px 4px 0px 0px;
+  border-left: 0;
+  border-top: 0;
+  border-left: 0;
+  border-bottom: 2px solid $digital-input__border !important;
+  border-color: transparent;
+}
+
+.container {
+  @include DigitalInput;
+  width: 3.5rem !important;
+  height: 3.5rem;
+  
+  &Small {
+    @include DigitalInput;
+    width: 2.5rem !important;
+    height: 2.5rem;
+  }
+}
+
+.separator {
+  width: 8px;
+}
+
+.focus {
+  border-bottom: 2px solid $digital-input__border-focus !important;
+}
+
+.disabled {
+  color: $digital-input__disabled-color;
+  background: $digital-input__disabled-bg;
+  border-bottom: 2px solid $digital-input__disabled-color !important;
+}
+
+.error {
+  border-bottom: 2px solid $digital-input__error !important;
+}

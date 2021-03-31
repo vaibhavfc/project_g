@@ -6,11 +6,11 @@ import Divider from './Divider';
 
 describe('test', () => {
   it('Renders Divider Compoents', () => {
-    render(<Divider />);
+    render(<Divider size="small" />);
   });
 
   it('Matches Snapshot of Divider', () => {
-    const tree = renderer.create(<Divider />).toJSON();
+    const tree = renderer.create(<Divider size="small" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 

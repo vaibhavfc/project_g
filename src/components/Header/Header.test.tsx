@@ -6,11 +6,11 @@ import Header from './Header';
 
 describe('test', () => {
   it('Renders Header Compoents', () => {
-    render(<Header>test</Header>);
+    render(<Header size="medium" />);
   });
 
   it('Matches Snapshot of Header', () => {
-    const tree = renderer.create(<Header> TEST</Header>).toJSON();
+    const tree = renderer.create(<Header size="medium" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

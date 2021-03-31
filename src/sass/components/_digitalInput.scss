@@ -1,0 +1,20 @@
+@import '../main.scss';
+
+/// Default
+/// @group digitalInput
+$digital-input__text: $charcoal;
+$digital-input__bg: $aqua-haze-1;
+$digital-input__border: map-get($aqua-deep, 60);
+
+/// FOCUS
+/// @group digitalInput
+$digital-input__border-focus: map-get($aqua-deep, 100);
+
+/// DISABLED
+/// @group digitalInput
+$digital-input__disabled-color: map-get($grey, 50);
+$digital-input__disabled-bg: map-get($grey, 10);
+
+/// ERROR
+/// @group digitalInput
+$digital-input__error: $red;
