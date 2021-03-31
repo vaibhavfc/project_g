@@ -21,7 +21,7 @@ describe('test', () => {
 
   it('Should be checked if checked flag is true', () => {
     render(<Radio label="Radio Item" checked />);
-    expect(screen.getByRole('radio').checked).toBe(true);
+    expect(screen.getByRole('radio').hasAttribute('checked')).toBe(true);
   });
 
   it('Should be disabled if disabled flag is true', () => {

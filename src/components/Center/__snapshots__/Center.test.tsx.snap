@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`test Matches Snapshot of Center 1`] = `
-<div
-  className="center"
->
-   TEST
-</div>
-`;

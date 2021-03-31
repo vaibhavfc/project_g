@@ -6,11 +6,11 @@ import Chip from './Chip';
 
 describe('Chip', () => {
   it('Renders Chip Compoents', () => {
-    render(<Chip />);
+    render(<Chip type="default" chipType="status" />);
   });
 
   it('Matches Snapshot of Chip', () => {
-    const tree = renderer.create(<Chip />).toJSON();
+    const tree = renderer.create(<Chip type="default" chipType="status" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 

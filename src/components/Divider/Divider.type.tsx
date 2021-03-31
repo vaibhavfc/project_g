@@ -6,5 +6,5 @@ export interface DividerStylingProps extends Partial<Record<DividerClassKey, str
 
 export interface DividerProps extends MuiDividerProps {
   // innerRef: Ref<HTMLHRElement>
-  size: 'small' | 'large';
+  size?: 'small' | 'large';
 }

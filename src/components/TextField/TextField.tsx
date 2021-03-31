@@ -4,7 +4,6 @@ import {
   InputAdornment,
   TextField as MuiTextField,
 } from '@material-ui/core';
-import CancelIcon from '@material-ui/icons/Cancel';
 
 import classnames from 'classnames';
 import { TextFieldProps, TextFieldStylingProps } from './TextField.type';
@@ -15,7 +14,6 @@ import { mergeClassesObjects } from '../../helpers/styling/mergeClassesObjects';
 const TextField: FC<TextFieldProps> = ({
   classes: overrideClasses = {},
   variant,
-  label,
   error,
   disabled,
   type,
@@ -23,7 +21,6 @@ const TextField: FC<TextFieldProps> = ({
   adornmentStart,
   adornmentEnd,
   adornmentSuffix,
-  placeholder,
 }) => {
   const mergedClasses = useMemo(
     () => mergeClassesObjects<TextFieldStylingProps>(classes, overrideClasses),
@@ -52,18 +49,16 @@ const TextField: FC<TextFieldProps> = ({
         onBlur={() => setLabelActive(handleBlur)}
         error={error}
         variant={variant}
-        label={label}
         disabled={disabled}
         helperText={(!error) ? helperText : 'Error'}
         classes={{
           root: classnames(mergedClasses.root),
         }}
-        placeholder={placeholder}
         InputLabelProps={{
           shrink: labelActive,
           classes: {
             root: classnames(classes.labelRoot, {
-              [classes.labelRootError]: (error),
+              [classes.labelRootError]: (error && labelActive),
               [classes.shrink]: (labelActive && !adornmentStart),
               [classes.shrinkPrefix]: (labelActive && adornmentStart),
               [classes.shrinkSuffix]: (labelActive && adornmentSuffix),
@@ -79,9 +74,13 @@ const TextField: FC<TextFieldProps> = ({
               {
                 [classes.suffix]: adornmentSuffix,
                 [classes.disabled]: disabled,
+                [classes.error]: error,
               },
             ),
             disabled: classes.inputRootDisabled,
+            input: classnames(classes.inputStart, {
+              [classes.inputSuffix]: (adornmentSuffix && !adornmentStart),
+            }),
           },
           startAdornment: (
             <InputAdornment
@@ -113,11 +112,7 @@ const TextField: FC<TextFieldProps> = ({
                 position="end"
                 classes={{ root: classes.inputAdornment }}
               >
-                {
-                  (!adornmentEnd && error) ? (
-                    <CancelIcon className={classes.errorIcon} />
-                  ) : (adornmentEnd)
-                }
+                {adornmentEnd}
               </InputAdornment>
             </>
           ),

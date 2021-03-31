@@ -8,6 +8,10 @@ $textfield--root__bg: $aqua-haze-1;
 /// @group text-field
 $textfield--labelRoot: map-get($grey, 70);
 
+/// Default Text Color
+/// @group text-field
+$textfield--text: $charcoal;
+
 /// Default Label Focused state
 /// @group text-field
 $textfield--labelRoot__focused: map-get($aqua-deep, 100);

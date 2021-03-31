@@ -4,10 +4,12 @@
   // background-color: $textfield--root__bg;
   width: 18rem;
   height: 3.5rem;
+  transform: translateY(-2px)
 }
 
 ::placeholder {
   @include body-1;
+  // transform: translateY(-1px);
 }
 
 .labelRoot {
@@ -30,6 +32,8 @@
 }
 
 .inputRoot {
+  @include body-1;
+  color: $textfield--text;
   background-color: $textfield--root__bg;
   border-bottom: 2px solid $textfield--inputroot;
 
@@ -54,7 +58,7 @@
   }
 
   &:focus {
-    background-color: red !important;
+    background: $textfield--inputroot__hover !important;
   }
   
   &:before {
@@ -67,9 +71,9 @@
 }
 
 .inputAdornment {
+  @include body-1;
   color: $textfield--inputAdornment !important;
   // padding-left: 0.32rem !important;
-  @include body-1;
 
   &:before {
     border: none;
@@ -94,8 +98,8 @@
   }
 }
 
-.errorIcon {
-  color: $textfield--labelRoot__error;
+.error {
+  border-bottom: 2px solid $textfield--labelRoot__error
 }
 
 .disabled {
@@ -110,7 +114,7 @@
 
 
 .shrink {
-  color: $textfield--labelRoot__focused !important;
+  color: $textfield--labelRoot__focused;
   transform: translate(1.1875rem, 0.625rem) scale(0.75) !important;
   
   &Prefix {
@@ -120,4 +124,12 @@
   &Suffix {
     transform: translate(1rem, 0.625rem) scale(0.75) !important;
   }
+}
+
+.inputStart {
+  transform: translate(-1px, -2px);
+}
+
+.inputSuffix {
+  transform: translateY(0);
 }
