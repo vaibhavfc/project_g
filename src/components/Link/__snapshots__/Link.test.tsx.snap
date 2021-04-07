@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test Matches Snapshot of Link 1`] = `
+<a
+  className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
+  href="/home"
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  tabIndex={0}
+>
+   to workd 
+</a>
+`;

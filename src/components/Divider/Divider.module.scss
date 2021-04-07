@@ -1,0 +1,25 @@
+@import '../../sass/theme/default';
+
+.root {
+  background-color: $divider-bg;
+}
+
+.smallHorizontal {
+  height: 1px;
+  width: 99vw;
+}
+
+.largeHorizontal {
+  height: 0.75rem;
+  width: 99vw;
+}
+
+.largeVertical {
+  width: 0.75rem;
+  height: 99vh;
+}
+
+.smallVertical {
+  width: 1px;
+  height: 99vh;
+}

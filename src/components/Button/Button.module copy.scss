@@ -1,0 +1,143 @@
+.root {
+    position: absolute;
+    min-width: 2rem;
+    height: 3rem;
+    /* Primary / burgundy-100 */
+    background: $button-bg;
+    border-radius: 0.5rem;
+    text-transform: none;
+
+    &:disabled {
+       // border: 1px solid red;
+       background: $button-disabled;
+       cursor: not-allowed;
+    }
+    
+}
+
+.label {
+    position: relative;
+    width: 100%;
+    white-space: nowrap;
+    z-index: 2;
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    text-align: center;
+    letter-spacing: 0.016rem;
+    /* Primary / white-100 */
+    color:$white;
+
+  }
+
+  .outlined {
+      &:hover {
+        /* Primary / burgundy-100 */
+          background: $button-bg;
+         // border-radius: 0.5rem;
+      }
+  }
+
+  .sizeSmall {
+      height: 2rem;
+      font-size: 0.5rem;
+  }
+
+  .sizeLarge {
+      width: 196px;
+      height: 3.375rem;
+      
+  }
+
+  .labelSmall {
+    font-size: 0.75rem;
+  }
+
+  .labelLarge {
+    font-size: 1rem;
+  }
+
+  .labelDisabledSecondary {
+    color: #B4B4B4;
+  }
+
+  .outlinedSecondary {
+    background: #F9F9F9;
+    border: none;
+    &:hover {
+       background: #F1F1F1;
+       border: none;
+    }
+    &:disabled {
+      background: #F9F9F9;
+      border: none;
+   }
+  }
+
+  .textSecondary {
+    color: $button-bg;
+  }
+
+  .colorPrimary {
+    color: $white;
+    font-size: 1.5rem;
+    
+  }
+
+  .colorSecondary {
+    color: $button-bg;
+    font-size: 1.5rem;
+  }
+
+  .labelContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+  }
+
+  .iconButton {
+    display: flex;
+    //margin-left: 	0.5rem;
+  }
+
+  .iconButtonRoot {
+    width:48px;
+  }
+
+  .iconSizeSmall {
+    width: 32px;
+  }
+
+  .iconSizeLarge {
+    width: 54px;
+  }
+
+  .flashButton {
+    width: 320px;
+    border-radius: 0px;
+  }
+
+  .labelPadding {
+    padding-right: 16px;
+  }
+
+  .textButton {
+    border: 1px solid red;
+  }
+
+  .labelPaddingSmall {
+    padding-right: 8px;
+  }
+
+  .fontSizeSmall{
+    font-size: 1rem;
+  }
+
+  .labelContainerPadding{
+    padding-left: 11px;
+    padding-right: 11px;
+  }

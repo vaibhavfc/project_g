@@ -1,0 +1,37 @@
+@import '../../sass/theme/default';
+
+.root {
+  color: $radio-circle;
+
+  &:hover {
+    background-color: rgba($radio-hover-unchecked, 0.08);
+  }
+
+  &:focus {
+    background-color: rgba($radio-hover-unchecked, 0.08);
+    transition: none;
+  }
+}
+
+.checked {
+  color: $radio-hover-unchecked;
+
+  &:hover {
+    background-color: rgba($radio-hover-checked, 0.08);
+  }
+
+  &:focus {
+    background-color: rgba($radio-hover-checked, 0.08);
+    transition: none;
+  }
+}
+
+.disabledChecked {
+  color: $radio-disabled;
+}
+
+.label {
+  @include body-2;
+  transform: translateX(-4px);
+  color: $radio-label;
+}

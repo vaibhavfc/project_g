@@ -1,0 +1,18 @@
+@import '../../sass/theme/default';
+
+.root {
+  height: 35.5rem;
+  width: 20rem;
+}
+
+.modal1 {
+  @include scrim-modal-1;
+}
+
+.modal2 {
+  @include scrim-modal-2;
+}
+
+.nonModal {
+  @include scrim-non-modal;
+}

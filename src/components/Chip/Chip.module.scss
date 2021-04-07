@@ -1,0 +1,71 @@
+@import '../../sass/theme/default';
+
+//STATUS CHIP STYLES
+.rootStatus {
+  @include label-2;
+  text-transform: uppercase;
+  height: 1.125rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  color: $chip-text__default;
+  background-color: $chip-bg__default;
+
+  & > * {
+    padding: 0;
+  }
+}
+
+.successStatus {
+  background-color: $chip-bg--status__success;
+  color: $white;
+}
+
+.pendingStatus {
+  background-color: $chip-bg--status__pending;
+  color: $white;
+}
+
+.warningStatus {
+  background-color: $chip-bg--status__warning;
+  color: $white;
+}
+
+.info {
+  background-color: $chip-bg__info;
+  color: $chip-text__info;
+}
+
+//NUDGE CHIP STYLES
+.rootNudge {
+  @include info-1;
+  text-transform: capitalize;
+  height: 1.125rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  color: $chip-text__default;
+  background-color: $chip-bg__default;
+
+  & > * {
+    padding: 0;
+  }
+}
+
+.successNudge {
+  background-color: $chip-bg--nudge__success;
+  color: $chip-bg--status__success;
+}
+
+.pendingNudge {
+  background-color: $chip-bg--nudge__pending;
+  color: $chip-bg--status__pending;
+}
+
+.warningNudge {
+  background-color: $chip-bg--nudge__warning;
+  color: $chip-bg--status__warning;
+}
+
+.info {
+  background-color: $chip-bg__info;
+  color: $chip-text__info;
+}

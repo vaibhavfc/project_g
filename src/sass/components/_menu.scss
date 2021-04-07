@@ -1,0 +1,5 @@
+@import '../main.scss';
+
+$menuItem-color: $charcoal;
+$menuItem-hover: map-get($pink, 20);
+$menuItem-ripple: map-get($pink, 100);

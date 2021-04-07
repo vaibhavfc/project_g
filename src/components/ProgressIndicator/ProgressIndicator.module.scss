@@ -1,0 +1,97 @@
+@import '../../sass/theme/default';
+
+@mixin step {
+  width: 3rem !important;
+  height: 3rem !important;
+}
+
+@mixin percentage {
+  width: 2rem !important;
+  height: 2rem !important;
+}
+
+// STEP VARIANTS
+.stepProgress {
+  @include step;
+  color: $progress-color;
+}
+
+.stepError {
+  @include step;
+  color: $error-color;
+}
+
+.stepSuccess {
+  @include step;
+  color: $success-color;
+}
+
+// PERCENTAGE VARIANTS
+.percentageProgress {
+  @include percentage;
+  color: $progress-color;
+}
+
+.percentageError {
+  @include percentage;
+  color: $error-color;
+}
+
+.percentageSuccess {
+  @include percentage;
+  color: $success-color;
+}
+
+// LABELS
+.stepProgressLabel {
+  @include subheading;
+  color: $progress-step-label;  
+}
+
+.percentageProgressLabel {
+  @include subtitle;
+  color: $progress-percentage-label;  
+}
+
+.stepErrorLabel {
+  color: $error-color;  
+}
+
+.percentageErrorLabel {
+  color: $error-color;  
+  font-size: .5rem;
+  & > * {
+    height: 1rem;
+  }
+}
+
+.stepSuccessLabel {
+  color: $success-color;
+}
+
+.percentageSuccessLabel {
+  color: $success-color;
+  font-size: .5rem;
+  & > * {
+    height: 1rem;
+  }
+}
+
+.label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sup {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 4px;
+  line-height: 138%;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.32px;
+  text-transform: uppercase;
+  transform: translateY(-1px);
+}

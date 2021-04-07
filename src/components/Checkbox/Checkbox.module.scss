@@ -1,0 +1,39 @@
+@import '../../sass/theme/default';
+
+.root {
+  color: $checkbox-square;
+
+  &:hover {
+    background-color: rgba($checkbox-hover-unchecked, 0.08);
+  }
+
+  &:focus {
+    background-color: rgba($checkbox-hover-unchecked, 0.08);
+    transition: none;
+  }
+}
+
+.checked {
+  color: $checkbox-checked;
+
+  &:hover {
+    background-color: rgba($checkbox-hover-checked, 0.08);
+  }
+
+  &:focus {
+    background-color: rgba($checkbox-hover-checked, 0.08);
+    transition: none;
+  }
+}
+
+.disabledChecked {
+  color: $checkbox-disabled;
+}
+
+.label {
+  transform: translateX(-4px);
+  @include body-2;
+  color: $checkbox-label;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}

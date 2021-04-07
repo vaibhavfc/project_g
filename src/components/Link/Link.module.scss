@@ -1,0 +1,45 @@
+@import '../../sass/theme/default';
+
+.root {
+  //! TODO: font-family is not applying
+  @include body-3;
+  color: $link-root;
+  cursor: pointer;
+
+  &:hover {
+    color: $link-root;
+  }
+
+  &:active {
+    color: $link-root__active;
+  }
+
+  &:focus {
+    outline: none;
+    text-decoration: underline;
+    text-underline-offset: 1px;
+    text-decoration-thickness: 2px;
+  }
+
+  &:disabled {
+    color: $link-root__disabled;
+    pointer-events: none;
+  }
+
+  &:visited {
+    color: $purple;
+  }
+}
+
+.inlineLink {
+  text-decoration: underline;
+}
+
+.disabled {
+  color: $link-root__disabled;
+  pointer-events: none;
+}
+
+.active {
+  color: $link-active !important;
+}

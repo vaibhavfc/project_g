@@ -1,0 +1,16 @@
+@import '../../sass/theme/default';
+
+.root {
+  z-index: 2;
+  opacity: 1;
+  color: $button-ripple; 
+}
+
+.rippleVisible {
+  // opacity: 0.5;
+  //border: 10px solid red;
+}
+
+.buttonRipple {
+  // color: green; 
+}

@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Chip Matches Snapshot of Chip 1`] = `
+<div
+  className="MuiChip-root MuiChip-sizeSmall"
+  onKeyDown={[Function]}
+  onKeyUp={[Function]}
+>
+  <span
+    className="MuiChip-label MuiChip-labelSmall"
+  />
+</div>
+`;

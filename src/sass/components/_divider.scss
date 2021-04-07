@@ -1,0 +1,5 @@
+@import '../main.scss';
+
+/// Default Background  
+/// @group divider
+$divider-bg: map-get($grey, 20);

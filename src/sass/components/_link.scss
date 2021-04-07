@@ -1,0 +1,21 @@
+@import '../main.scss';
+
+/// Default
+/// @group links
+$link-root: map-get($pink, 100);
+
+/// Active state
+/// @group links
+$link-root__active: map-get($burgundy, 100);
+
+/// Disabled State
+/// @group links
+$link-root__disabled: map-get($grey, 50);
+
+/// Visited State
+/// @group links
+$link-visited: $purple;
+
+/// ACTIVE LINK
+/// @group links
+$link-active: $charcoal;
