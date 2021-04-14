@@ -1,0 +1,28 @@
+@import '../main.scss';
+
+// PROGRESS TRACKER
+$main-border: map-get($map: $grey, $key: 20);
+
+$progress-tracker-current-step: map-get($map: $pink, $key: 100);
+
+$progress-tracker-next-step: map-get($map: $grey, $key: 60);
+
+$progress-tracker-current-step: map-get($map: $pink, $key: 100);
+
+// STEP ITEM
+$line: map-get($map: $grey, $key: 30);
+
+$step-title-color: $charcoal;
+
+// ICONS-STATUS
+$current-icon: map-get($map: $pink, $key: 100);
+
+$success-icon: $green;
+
+$pending-icon: $orange;
+
+$onhold-icon: $red;
+
+$unvisited-icon: map-get($map: $grey, $key: 70);
+
+$unvisited-icon-border: map-get($map: $grey, $key: 50);

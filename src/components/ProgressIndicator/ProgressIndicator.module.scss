@@ -1,0 +1,110 @@
+@import '../../sass/theme/default';
+
+@mixin step {
+  width: 3rem !important;
+  height: 3rem !important;
+}
+
+@mixin percentage {
+  width: 2rem !important;
+  height: 2rem !important;
+}
+
+// STEP VARIANTS
+.stepProgress {
+  @include step;
+  color: $progress-color;
+}
+
+.stepError {
+  @include step;
+  color: $error-color;
+}
+
+.stepSuccess {
+  @include step;
+  color: $success-color;
+}
+
+// PERCENTAGE VARIANTS
+.percentageProgress {
+  @include percentage;
+  color: $progress-color;
+}
+
+.percentageError {
+  @include percentage;
+  color: $error-color;
+}
+
+.percentageSuccess {
+  @include percentage;
+  color: $success-color;
+}
+
+// LABELS
+.stepProgressLabel {
+  @include subheading;
+  color: $progress-step-label;  
+}
+
+.percentageProgressLabel {
+  @include subtitle;
+  color: $progress-percentage-label;  
+}
+
+.stepErrorLabel {
+  color: $error-color;  
+}
+
+.percentageErrorLabel {
+  color: $error-color;  
+  font-size: .5rem;
+  & > * {
+    height: 1rem;
+  }
+}
+
+.stepSuccessLabel {
+  color: $success-color;
+}
+
+.percentageSuccessLabel {
+  color: $success-color;
+  font-size: .5rem;
+  & > * {
+    height: 1rem;
+  }
+}
+
+.label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sup {
+  @include sup;
+  color: $progress-percentage-label;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.32px;
+  text-transform: uppercase;
+  transform: translateY(-1px);
+}
+
+.outlineStep {
+  z-index: -10;
+  box-shadow: inset 0px 0px 0px 4px $progress-circle-bg;
+  width: 100%;
+  height: 3rem;
+  border-radius: 50%;
+}
+
+.outlinePercentage {
+  z-index: -10;
+  box-shadow: inset 0px 0px 0px 3px $progress-circle-bg;
+  width: 100%;
+  height: 2rem;
+  border-radius: 50%;
+}

@@ -1,0 +1,10 @@
+@import '../main.scss';
+
+$switch-border: map-get($map: $grey, $key: 20);
+$switch-border__hover: map-get($map: $pink, $key: 20);
+$switch-border__focus: map-get($map: $pink, $key: 60);
+
+$switch-selected: map-get($map: $pink, $key: 100);
+$switch-disabled-selected: map-get($map: $grey, $key: 50);
+
+$switch-selected-label: $white;

@@ -1,0 +1,73 @@
+@import '../../sass/theme/default';
+
+.root > * > * > * {
+  color: $breadcrumbs-root !important;
+  cursor: pointer;
+
+  &:hover {
+    color: $breadcrumbs-root;
+  }
+
+  &:active {
+    color: $breadcrumbs-root;
+  }
+
+  &:focus {
+    outline: none;
+    text-decoration: underline;
+    text-underline-offset: 1px;
+    text-decoration-thickness: 2px;
+  }
+
+  &:disabled {
+    color: $breadcrumbs-disabled;
+    pointer-events: none;
+  }
+
+  &:visited {
+    color: $breadcrumbs-visited;
+  }
+}
+
+
+// .li > * {
+//   background-color: transparent;
+
+//   & > *:focus {
+//     background: none;
+//     text-decoration: underline 2px;
+//   }
+
+//   &:focus {
+//     // outline: none;
+//     color: $breadcrumbs-root;
+//     background-color: transparent;
+//   }
+
+//   &:active {
+//     color: #282828;
+//     background-color: transparent;
+//     text-decoration: underline;
+//   }
+
+//   &:focus {
+//     outline: none;
+//     background-color: transparent;
+//     text-decoration: underline;
+//     text-underline-offset: 1px;
+//     text-decoration-thickness: 2px;
+//   }
+
+//   &:disabled {
+//     color: #b4b4b4;
+//     pointer-events: none;
+//   }
+
+//   &:visited {
+//     color: #9911ed;
+//   }
+// }
+
+.active {
+  color: $active !important;
+}

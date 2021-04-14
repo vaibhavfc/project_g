@@ -1,0 +1,55 @@
+@import '../../sass/theme/default';
+
+.main {
+  border-bottom: 1px solid $main-border;
+  border-right: 1px solid $main-border;
+  border-left: 1px solid $main-border;
+  width: 20rem;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 18rem;
+  height: 2.9375rem;
+  padding: 1rem;
+  border-top: 1px solid $main-border;
+  border-bottom: 1px solid $main-border;
+
+  &-indicator {
+    margin: 0;
+    cursor: pointer;
+   
+    &:focus {
+      outline: none;
+    }
+  }
+  
+  &-rightTitles {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    &__title {
+      @include h6;
+      text-transform: capitalize;
+      color: $progress-tracker-current-step;
+      margin: 0 0 4px 0;
+    }
+    
+    &__subtitle {
+      @include subtitle;
+      color: $progress-tracker-next-step;
+      margin: 0;
+    }
+  }
+}
+
+.hide {
+  display: none;
+}
+
+.unhide {
+  display: block;
+}

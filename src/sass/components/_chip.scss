@@ -1,0 +1,44 @@
+@import '../main.scss';
+
+
+$white: #FFFFFF;
+
+/// Default Chip Background 
+/// @group Chip
+$chip-bg__default: $neutral-blue;
+
+/// Default Chip Text Color 
+/// @group Chip
+$chip-text__default: $snackblue;
+
+/// Status Success Background 
+/// @group Chip
+$chip-bg--status__success: $green;
+
+/// Status Pending Background
+/// @group Chip 
+$chip-bg--status__pending: $orange;
+
+/// Status Warning Background 
+/// @group Chip
+$chip-bg--status__warning: $red;
+
+/// Nudge Success Background  
+/// @group Chip
+$chip-bg--nudge__success: $neutral-green;
+
+/// Nudge Pending Background 
+/// @group Chip 
+$chip-bg--nudge__pending: $neutral-orange;
+
+/// Nudge Warning Background  
+/// @group Chip
+$chip-bg--nudge__warning: $neutral-red;
+
+/// Chip Info Background  
+/// @group Chip
+$chip-bg__info: $neutral-lightblue;
+
+/// Chip Info Text color  
+/// @group Chip
+$chip-text__info: $charcoal;

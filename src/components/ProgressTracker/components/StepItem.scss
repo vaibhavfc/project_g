@@ -1,0 +1,71 @@
+@import '../../../sass/theme/default';
+
+@mixin line {
+  width: 2px;
+  height: 14px;
+  background-color: $line;
+}
+
+.step-item { 
+  height: 3.5rem;
+  width: 18rem;
+  padding: 0 1rem 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+  &-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+    
+    &__icon {
+      height: 1.25rem;
+      width: 1.25rem;
+      transform: translateY(-1px);
+
+      &-first {
+        transform: translateY(5px);
+      }
+      
+      &-last {        
+        transform: translateY(-9px);
+      }
+    }
+    
+    &__linetop {
+      @include line;
+      transform: translate(9px, -1px);
+      
+      &Last {
+        @include line;
+        transform: translate(9px, -3px);
+      }
+    }
+    
+    &__linebottom {
+      @include line;
+      transform: translate(9px, 1px);
+      
+      &First {
+        @include line;
+        transform: translate(9px, 3px);
+      }
+    }
+  }
+
+  &-titleWrapper {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    padding-left: 1.5rem;
+    
+
+    &__text {
+      @include body-2;
+      color: $step-title-color;
+    }
+  }
+
+}

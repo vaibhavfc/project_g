@@ -1,0 +1,58 @@
+@import '../../../sass/theme/default';
+
+// ICON SIZE
+@mixin size {
+  height: calc(1.5rem - 0.03px);
+  width: calc(1.5rem - 0.03px);
+}
+
+// LINES
+.first {
+  transform: translateY(5px);
+}
+
+.last {        
+  transform: translateY(-9px);
+}
+
+// ICON VARIANTS
+.currentIcon {
+  @include size;
+  color: $current-icon;
+  // transform: translateY(-1px);
+}
+
+.successIcon {
+  @include size;
+  color: $success-icon;
+  // transform: translateY(-1px);
+}
+
+.pendingIcon {
+  @include size;
+  color: $pending-icon;
+  // transform: translateY(-1px);
+}
+
+.onholdIcon {
+  @include size;
+  color: $onhold-icon;
+  // transform: translateY(-1px);
+}
+
+.unvisited {
+  width: 1.125rem;
+  height: 1.125rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  border: 1px solid $unvisited-icon-border;
+  border-radius: 50%;
+  
+  &-number {
+    @include label-2;
+    color: $unvisited-icon;
+  }
+}

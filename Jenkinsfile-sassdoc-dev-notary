@@ -1,0 +1,101 @@
+node('slave-1') {
+    def ARTIFACTORY_URL = "artifactory-dbat.dev.axisb.com"
+    def dockerrepo = "dbat-axissubzero-docker"
+    def env = "${ENVR}"
+    def myRepo = checkout scm
+    def gitCommit = myRepo.GIT_COMMIT
+    def gitBranch = myRepo.GIT_BRANCH
+    def shortGitCommit = "${gitCommit[0..10]}"
+    def previousGitCommit = sh(script: "git rev-parse ${gitCommit}~", returnStdout: true)
+    def reponame = "sassdoc"
+    def S3_BACKUP_PATH = "dbat-notary-backup"
+    stage('Test') {
+        sh """
+            echo 'Test Succesful'
+            echo ${env}
+            echo ${ARTIFACTORY_URL}
+            echo ${myRepo}
+            echo ${gitCommit}
+            echo ${gitBranch}
+            echo ${shortGitCommit}
+            echo ${gitBranch}
+            echo ${previousGitCommit}
+            echo ${reponame}
+        """
+    }
+    stage('Repo Key Pre-Sync') {
+        // load keys from s3
+        sh "sudo aws s3 sync s3://${S3_BACKUP_PATH}/${dockerrepo}/${env}/${reponame.trim()}/private /root/.docker/trust/private"
+    }
+    stage('Install dependencies') {
+        withCredentials([file(credentialsId: 'npm-reg-npmrc', variable: 'FILE')]) {
+            sh 'cat $FILE > ~/.npmrc'
+        }
+        sh """
+            ls -ltr
+            npm cache clean --force
+            rm -rf node_modules package-lock.json build
+            export NODE_TLS_REJECT_UNAUTHORIZED=0
+            export NODE_EXTRA_CA_CERTS=/home/devops/axisbca.pem
+            npm config set cafile /home/devops/axisbca.pem
+            npm install --registry https://${ARTIFACTORY_URL}/artifactory/api/npm/npm/
+            export APP_URL=http://sassdoc.dev.axisb.com
+            export NODE_ENV=development
+            export BABEL_ENV=production
+            export BROWSERSLIST_ENV=production
+            node -v
+            npm -v
+            which node
+            npm run sassdoc
+        """
+    }
+     stage('Code Quality Check via SonarQube') {
+        script {
+            def scannerHome = tool 'dbat-sonar-scanner';
+            withSonarQubeEnv("dbat-sonar-server") {
+                sh "${tool("dbat-sonar-scanner")}/bin/sonar-scanner \
+                    -Dsonar.sources=. \
+                    -Dsonar.host.url=https://sonar.dev.axisb.com \
+                    -Dsonar.language=js \
+                    -Dsonar.projectKey=glacier"
+            }
+        }
+    }
+    stage('Create Docker images') {
+        checkout([$class: 'GitSCM',
+            branches: [[name: '*/dev' ]],
+            extensions: scm.extensions,
+            userRemoteConfigs: [[
+                url: 'https://bitbucket.org/freecharge/subzerobrahma.git',
+                credentialsId: 'bitbucket-devops'
+            ]]
+        ])
+        def shortCommit = sh(returnStdout: true, script: "git log -n 1 --pretty=format:'%h'").trim()
+        sh """echo ${shortCommit}"""
+        withCredentials([file(credentialsId: 'npmrc-alpine', variable: 'FILEE')]) {
+            sh 'cat $FILEE > .npmrc'
+        }
+        withCredentials([
+                usernamePassword(credentialsId: 'artifactory-user', passwordVariable: 'RT_PASSWORD', usernameVariable: 'RT_USERNAME'),
+                string(credentialsId: 'notary-repo-passphrase', variable: 'DOCKER_CONTENT_TRUST_REPOSITORY_PASSPHRASE')
+                ]){
+            sh """
+                cd ${workspace}/${env}/axissubzero-sassdoc-reverse-proxy/nginx/
+                cp -arvp ${workspace}/sassdoc/* ${workspace}/${env}/axissubzero-sassdoc-reverse-proxy/nginx/content
+                sudo docker image prune -a --force --filter "until=22h"
+                sudo docker -l debug login ${ARTIFACTORY_URL} -u${RT_USERNAME} -p${RT_PASSWORD}
+                sudo docker -l debug build -t ${ARTIFACTORY_URL}/${dockerrepo}/${reponame.trim()}:${shortGitCommit}-${shortCommit}-${env}-${currentBuild.number} .
+                export DOCKER_CONTENT_TRUST_SERVER=https://notary-server.axisb.com:4443
+                sudo -E docker trust sign ${ARTIFACTORY_URL}/${dockerrepo}/${reponame.trim()}:${shortGitCommit}-${shortCommit}-${env}-${currentBuild.number}
+                sudo -E docker trust inspect ${ARTIFACTORY_URL}/${dockerrepo}/${reponame.trim()}:${shortGitCommit}-${shortCommit}-${env}-${currentBuild.number}
+                echo 'Image Name: "${ARTIFACTORY_URL}/${dockerrepo}/${reponame.trim()}:${shortGitCommit}-${shortCommit}-${env}-${currentBuild.number}"'
+                cd ${workspace}/${env}
+                echo "----------eks helm deploy----------"
+                helm upgrade --install ${reponame.trim()}-${env}-app --set image.repository=${ARTIFACTORY_URL}/${dockerrepo}/${reponame.trim()} --set labels.release=${shortGitCommit}-${shortCommit}-${env}-${currentBuild.number} --set labels.app=subzero-${reponame.trim()}-${env}-reverse-proxy --set labels.environment=${env}  --set service.name=subzero-${reponame.trim()}-${env}-axisb-com  -n axis-subzero sassdoc-frontend-helm-chart/
+            """
+        }
+    }
+    stage('Workspace Cleanup') {
+        step([$class: 'WsCleanup'])
+    }
+}

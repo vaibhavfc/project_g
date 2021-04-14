@@ -1,0 +1,13 @@
+@import '../main.scss';
+
+$progress-color: map-get($pink, 100);
+
+$progress-circle-bg: map-get($grey, 20);
+
+$progress-step-label: $charcoal;
+
+$progress-percentage-label: map-get($grey, 80);
+
+$error-color: $red;
+
+$success-color: $green;

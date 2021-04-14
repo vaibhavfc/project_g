@@ -1,0 +1,76 @@
+@import '../../sass/theme/default';
+
+.root {
+  width: 4.25rem;
+  height: 1.75rem;
+  border-radius: 0.375rem;
+  border: 1px solid $switch-border;
+  display: flex;
+  justify-content: space-evenly;
+
+  &:hover {
+    border: 1px solid $switch-border__hover;
+  }
+
+  &:focus {
+    border: 1px solid $switch-border__focus;
+    outline: none;
+  }
+}
+
+.rootBtn {
+  font-size: 0.625rem;
+  line-height: 0.625rem;
+  width: 2rem;
+  border: none;
+
+  &:hover {
+    background-color: transparent;
+  }
+
+  &:first-child {
+    background-color: transparent;
+    color: black;
+    
+    &:hover {
+      background-color: transparent;
+    }
+  }
+
+  &:nth-child(2) {
+    background-color: transparent;
+    
+    &:hover {
+      background-color: transparent;
+    }
+  }
+}
+
+.selected {
+  @include text-button;
+  background-color: $switch-selected;
+  color: $switch-selected-label;
+}
+
+.unselected {
+  @include text-button;
+  color: $switch-selected;
+  background-color: transparent;
+}
+
+.disabledBtnSelected {
+  background-color: $switch-disabled-selected;
+  color: $switch-selected-label;
+}
+
+.disabledBtnUnselected {
+  background-color: transparent;
+  color: $switch-disabled-selected;
+}
+
+.disabled {
+  pointer-events: none;
+  &:focus {
+    border: 1px solid $switch-border;
+  }
+}

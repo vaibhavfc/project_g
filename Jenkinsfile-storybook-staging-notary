@@ -1,0 +1,124 @@
+node('slave-1') {
+    def ARTIFACTORY_URL = "artifactory-dbat.dev.axisb.com"
+    def dockerrepo = "dbat-axissubzero-docker"
+    def env = "${ENVR}"
+    def myRepo = checkout scm
+    def gitCommit = myRepo.GIT_COMMIT
+    def gitBranch = myRepo.GIT_BRANCH
+    def shortGitCommit = "${gitCommit[0..10]}"
+    def previousGitCommit = sh(script: "git rev-parse ${gitCommit}~", returnStdout: true)
+    def reponame = "storybook"
+    def S3_BACKUP_PATH = "dbat-notary-backup"
+    stage('Test') {
+        sh """
+            echo 'Test Succesful'
+            echo ${env}
+            echo ${ARTIFACTORY_URL}
+            echo ${myRepo}
+            echo ${gitCommit}
+            echo ${gitBranch}
+            echo ${shortGitCommit}
+            echo ${gitBranch}
+            echo ${previousGitCommit}
+            echo ${reponame}
+        """
+    }
+    stage('Repo Key Pre-Sync') {
+        // load keys from s3
+        sh "sudo aws s3 sync s3://${S3_BACKUP_PATH}/${dockerrepo}/${env}/${reponame.trim()}/private /root/.docker/trust/private"
+    }
+    stage('Install dependencies') {
+        withCredentials([file(credentialsId: 'npm-reg-npmrc', variable: 'FILE')]) {
+            sh 'cat $FILE > ~/.npmrc'
+        }
+        sh """
+            ls -ltr
+            npm cache clean --force
+            rm -rf node_modules package-lock.json build
+            export NODE_TLS_REJECT_UNAUTHORIZED=0
+            export NODE_EXTRA_CA_CERTS=/home/devops/axisbca.pem
+            npm config set cafile /home/devops/axisbca.pem
+            npm install --registry https://${ARTIFACTORY_URL}/artifactory/api/npm/npm/
+            export APP_URL=http://storybook.staging.axisb.com
+            export NODE_ENV=development
+            export BABEL_ENV=production
+            export BROWSERSLIST_ENV=production
+            node -v
+            npm -v
+            which node
+            npm run build-storybook
+        """
+    }
+    stage('checkmarx') {
+        sh "echo Executing Checkmarx Jenkins Plugin to request a Scan..."
+        step([$class: 'CxScanBuilder', comment: '', credentialsId: '', excludeFolders: 'node_modules', excludeOpenSourceFolders: '', exclusionsSetting: 'global', failBuildOnNewResults: false, failBuildOnNewSeverity: 'HIGH', filterPattern: '''!**/_cvs/**/*, !**/.svn/**/*,   !**/.hg/**/*,   !**/.git/**/*,  !**/.bzr/**/*, !**/bin/**/*,
+            !**/obj/**/*,  !**/backup/**/*, !**/.idea/**/*, !**/*.DS_Store, !**/*.ipr,     !**/*.iws,
+            !**/*.bak,     !**/*.tmp,       !**/*.aac,      !**/*.aif,      !**/*.iff,     !**/*.m3u, !**/*.mid, !**/*.mp3,
+            !**/*.mpa,     !**/*.ra,        !**/*.wav,      !**/*.wma,      !**/*.3g2,     !**/*.3gp, !**/*.asf, !**/*.asx,
+            !**/*.avi,     !**/*.flv,       !**/*.mov,      !**/*.mp4,      !**/*.mpg,     !**/*.rm,  !**/*.swf, !**/*.vob,
+            !**/*.wmv,     !**/*.bmp,       !**/*.gif,      !**/*.jpg,      !**/*.png,     !**/*.psd, !**/*.tif, !**/*.swf,
+            !**/*.jar,     !**/*.zip,       !**/*.rar,      !**/*.exe,      !**/*.dll,     !**/*.pdb, !**/*.7z,  !**/*.gz,
+            !**/*.tar.gz,  !**/*.tar,       !**/*.gz,       !**/*.ahtm,     !**/*.ahtml,   !**/*.fhtml, !**/*.hdm,
+            !**/*.hdml,    !**/*.hsql,      !**/*.ht,       !**/*.hta,      !**/*.htc,     !**/*.htd, !**/*.war, !**/*.ear,
+            !**/*.htmls,   !**/*.ihtml,     !**/*.mht,      !**/*.mhtm,     !**/*.mhtml,   !**/*.ssi, !**/*.stm,
+            !**/*.stml,    !**/*.ttml,      !**/*.txn,      !**/*.xhtm,     !**/*.xhtml,   !**/*.class, !**/*.iml, !Checkmarx/Reports/*.*''', fullScanCycle: 10, generatePdfReport: true, groupId: 'd09906da-967d-4147-9cc3-77695ae6181b', highThreshold: 1, includeOpenSourceFolders: '', lowThreshold: 10, mediumThreshold: 10, osaArchiveIncludePatterns: '*.zip, *.war, *.ear, *.tgz', osaInstallBeforeScan: false, password: '{AQAAABAAAAAQyIHOkVAEFjoELI4ictCyqbIYdRJWQlu5ml891ET7PPA=}', preset: '36', projectName: 'dbat-dev-al-jobs', sastEnabled: true, serverUrl: 'https://vminchkmarprdap.axisb.com', sourceEncoding: '1', thresholdSettings: 'job', username: '', vulnerabilityThresholdEnabled: true, vulnerabilityThresholdResult: 'FAILURE', waitForResultsEnabled: true])
+    }
+    stage('Sending Report to S3') {
+        sh """
+            ls -ltr
+            cd Checkmarx/Reports
+            ls -ltr
+            aws s3 cp . s3://dbat-docshare/CheckMarx/"${reponame}"/  --recursive --sse AES256
+            rm -rf *
+        """
+    }
+    stage('Code Quality Check via SonarQube') {
+        script {
+            def scannerHome = tool 'dbat-sonar-scanner';
+            withSonarQubeEnv("dbat-sonar-server") {
+                sh "${tool("dbat-sonar-scanner")}/bin/sonar-scanner \
+                    -Dsonar.sources=. \
+                    -Dsonar.host.url=https://sonar.dev.axisb.com \
+                    -Dsonar.language=js \
+                    -Dsonar.projectKey=glacier"
+            }
+        }
+    }
+    stage('Create Docker images') {
+        checkout([$class: 'GitSCM',
+            branches: [[name: '*/dev' ]],
+            extensions: scm.extensions,
+            userRemoteConfigs: [[
+                url: 'https://bitbucket.org/freecharge/subzerobrahma.git',
+                credentialsId: 'bitbucket-devops'
+            ]]
+        ])
+        def shortCommit = sh(returnStdout: true, script: "git log -n 1 --pretty=format:'%h'").trim()
+        sh """echo ${shortCommit}"""
+        withCredentials([file(credentialsId: 'npmrc-alpine', variable: 'FILEE')]) {
+            sh 'cat $FILEE > .npmrc'
+        }
+        withCredentials([
+                usernamePassword(credentialsId: 'artifactory-user', passwordVariable: 'RT_PASSWORD', usernameVariable: 'RT_USERNAME'),
+                string(credentialsId: 'notary-repo-passphrase', variable: 'DOCKER_CONTENT_TRUST_REPOSITORY_PASSPHRASE')
+                ]){
+            sh """
+                cd ${workspace}/${env}/axissubzero-storybook-reverse-proxy/nginx/
+                cp -arvp ${workspace}/storybook-static/* ${workspace}/${env}/axissubzero-storybook-reverse-proxy/nginx/content
+                sudo docker image prune -a --force --filter "until=22h"
+                sudo docker -l debug login ${ARTIFACTORY_URL} -u${RT_USERNAME} -p${RT_PASSWORD}
+                sudo docker -l debug build -t ${ARTIFACTORY_URL}/${dockerrepo}/${reponame.trim()}:${shortGitCommit}-${shortCommit}-${env}-${currentBuild.number} .
+                export DOCKER_CONTENT_TRUST_SERVER=https://notary-server.axisb.com:4443
+                sudo -E docker trust sign ${ARTIFACTORY_URL}/${dockerrepo}/${reponame.trim()}:${shortGitCommit}-${shortCommit}-${env}-${currentBuild.number}
+                sudo -E docker trust inspect ${ARTIFACTORY_URL}/${dockerrepo}/${reponame.trim()}:${shortGitCommit}-${shortCommit}-${env}-${currentBuild.number}
+                echo 'Image Name: "${ARTIFACTORY_URL}/${dockerrepo}/${reponame.trim()}:${shortGitCommit}-${shortCommit}-${env}-${currentBuild.number}"'
+                cd ${workspace}/${env}
+                echo "----------eks helm deploy----------"
+                helm upgrade --install ${reponame.trim()}-${env}-app --set image.repository=${ARTIFACTORY_URL}/${dockerrepo}/${reponame.trim()} --set labels.release=${shortGitCommit}-${shortCommit}-${env}-${currentBuild.number} --set labels.app=subzero-${reponame.trim()}-${env}-reverse-proxy --set labels.environment=${env}  --set service.name=subzero-${reponame.trim()}-${env}-axisb-com  -n axis-subzero storybook-frontend-helm-chart/
+            """
+        }
+    }
+    stage('Workspace Cleanup') {
+        step([$class: 'WsCleanup'])
+    }
+}
