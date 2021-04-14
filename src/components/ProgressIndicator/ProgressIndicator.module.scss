@@ -87,10 +87,10 @@
   @include sup;
   color: $progress-percentage-label;
   display: flex;
-  align-items: center;
+  // align-items: center;
   letter-spacing: 0.32px;
   text-transform: uppercase;
-  transform: translateY(-1px);
+  transform: translate(-1.25px, -1px);
 }
 
 .outlineStep {

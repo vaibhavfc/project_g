@@ -68,35 +68,50 @@ const ProgressIndicator: FC<ProgressIndicatorProps> = ({
         />
       </div>
       <MuiBox
-        top={0}
-        left={0}
-        bottom={0}
-        right={0}
-        position="absolute"
-        display="flex"
-        alignItems="center"
-        justifyContent="center"
+        justifyContent="space-around"
       >
-        <MuiTypography
-          // component=""
-          classes={{
-            root: classnames(mergedClasses.label, {
-              [mergedClasses.stepProgressLabel]: (type === 'progress' && progressIndicatorType === 'step'),
-              [mergedClasses.stepErrorLabel]: (type === 'error' && progressIndicatorType === 'step'),
-              [mergedClasses.stepSuccessLabel]: (type === 'success' && progressIndicatorType === 'step'),
-              [mergedClasses.percentageProgressLabel]: (type === 'progress' && progressIndicatorType === 'percentage'),
-              [mergedClasses.percentageErrorLabel]: (type === 'error' && progressIndicatorType === 'percentage'),
-              [mergedClasses.percentageSuccessLabel]: (type === 'success' && progressIndicatorType === 'percentage'),
-            }),
-          }}
+        <MuiBox
+          alignItems="center"
+          justifyContent="center"
+          display="flex"
+          position="absolute"
+          top={0}
+          left={0}
+          bottom={0}
+          right={0}
         >
-          {progressIndicatorType === 'percentage' && type === 'progress' ? value : ''}
-          {progressIndicatorType === 'step' && type === 'progress' ? progressStepLabel : ''}
-          {type === 'error' && value ? <PriorityHighIcon /> : ''}
-          {type === 'success' && value ? <DoneIcon /> : ''}
-          {(!value) ? `${progress}` : ''}
+          <MuiTypography
+            // component=""
+            classes={{
+              root: classnames(mergedClasses.label, {
+                [mergedClasses.stepProgressLabel]: (type === 'progress' && progressIndicatorType === 'step'),
+                [mergedClasses.stepErrorLabel]: (type === 'error' && progressIndicatorType === 'step'),
+                [mergedClasses.stepSuccessLabel]: (type === 'success' && progressIndicatorType === 'step'),
+                [mergedClasses.percentageProgressLabel]: (type === 'progress' && progressIndicatorType === 'percentage'),
+                [mergedClasses.percentageErrorLabel]: (type === 'error' && progressIndicatorType === 'percentage'),
+                [mergedClasses.percentageSuccessLabel]: (type === 'success' && progressIndicatorType === 'percentage'),
+              }),
+            }}
+          >
+            {progressIndicatorType === 'percentage' && type === 'progress' ? value : ''}
+            {progressIndicatorType === 'step' && type === 'progress' ? progressStepLabel : ''}
+            {type === 'error' && value ? <PriorityHighIcon /> : ''}
+            {value === 100 ? <DoneIcon /> : ''}
+            {(!value) ? `${progress}` : ''}
+          </MuiTypography>
+        </MuiBox>
+        <MuiBox
+          top={0}
+          left={0}
+          bottom={0}
+          right={4}
+          justifyContent="flex-end"
+          alignItems="center"
+          display="flex"
+          position="absolute"
+        >
           <sup className={mergedClasses.sup}>{((progressIndicatorType === 'percentage' && type === 'progress')) ? '%' : ''}</sup>
-        </MuiTypography>
+        </MuiBox>
       </MuiBox>
     </MuiBox>
   );

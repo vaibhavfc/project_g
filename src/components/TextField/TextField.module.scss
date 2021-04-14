@@ -1,15 +1,21 @@
 @import '../../sass/theme/default';
 
 .root {
-  // background-color: $textfield--root__bg;
+  background-color: $textfield--root__bg;
   width: 18rem;
   height: 3.5rem;
-  transform: translateY(-2px)
+  transform: translateY(-2px);
+  border-radius: 4px 4px 0px 0px;
 }
 
 ::placeholder {
   @include body-1;
   // transform: translateY(-1px);
+}
+
+.helperText{
+  @include body-3;
+  color: $textfield--labelRoot;
 }
 
 .labelRoot {
@@ -80,10 +86,14 @@
   }
 
   &Suffix{
-    @include body-1;
+    // @include body-1;
     color: $textfield--labelRoot;
     transform: translate(-4px, 9px);
     margin-right: -5px;
+    & > * {
+      @include body-1;
+      color: $textfield--labelRoot;
+    }
   }
 }
 
@@ -92,7 +102,7 @@
 }
 
 .suffix {
-
+  font-family: 'Lato' !important;
   & > * {
     text-align: end;
   }
@@ -115,14 +125,14 @@
 
 .shrink {
   color: $textfield--labelRoot__focused;
-  transform: translate(1.1875rem, 0.625rem) scale(0.75) !important;
+  transform: translate(1.1875rem, 0.5rem) scale(0.75) !important;
   
   &Prefix {
-    transform: translate(0.75rem, 0.625rem) scale(0.75) !important;
+    transform: translate(0.75rem, 0.5rem) scale(0.75) !important;
   }
   
   &Suffix {
-    transform: translate(1rem, 0.625rem) scale(0.75) !important;
+    transform: translate(1rem, 0.5rem) scale(0.75) !important;
   }
 }
 

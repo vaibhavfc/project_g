@@ -1,0 +1,6 @@
+@import '../../sass/theme/default';
+
+
+.MuiPickersToolbarToolbar {
+    background-color: map-get($grey, 100) !important;
+}

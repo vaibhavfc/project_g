@@ -59,6 +59,11 @@ const TextField: FC<TextFieldProps> = ({
         classes={{
           root: classnames(mergedClasses.root),
         }}
+        FormHelperTextProps={{
+          classes: {
+            root: classnames(classes.helperText),
+          },
+        }}
         InputLabelProps={{
           shrink: labelActive,
           classes: {
