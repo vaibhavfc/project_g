@@ -1,0 +1,98 @@
+@import '../../sass/theme/default';
+
+.rootBtn {
+    color: red;
+    width: 2.38rem;
+    height: 1.25rem;
+}
+
+.switchBtn {
+    width: 2.38rem;
+    height: 1.25rem;
+    padding: 0;
+    border-radius: 0.625rem;
+    margin: 0.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:$toggle-disabled-unselected;
+}
+
+.switchBtn1 {
+    width: 2.38rem;
+    height: 1.25rem;
+    padding: 0;
+    border-radius: 0.625rem;
+    margin: 0.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $toggle-selected;
+}
+
+.switchBase {
+    transform: translateY(-0.7rem);
+    background-color:$toggle-disabled-unselected;
+    &:checked {
+        transform: translateX(1.25rem);
+    }
+}
+
+.switchBase1 {
+    transform: translateY(-0.7rem);
+    background-color: $toggle-selected;
+    &:checked {
+        transform: translateX(1.25rem);
+    }
+}
+
+.checked {
+    transform: translateX(1.25rem);
+}
+
+.thumb {
+    background-color: $toggle-selected-label;
+    transform: translate(-0.625rem, -0.5625rem);
+    color: $toggle-selected;
+}
+
+.unselectedThumb {
+    background-color: $toggle-selected-label;
+    transform: translate(-0.625rem, 0.1rem);
+    color: $toggle-selected;
+    &:hover {
+        background-color: $toggle-selected-label;
+    }
+}
+
+.colorSecondary {
+    background-color: $toggle-disabled-unselected;
+    &:checked {
+        background-color:$toggle-disabled-unselected;
+    }
+    &:hover {
+        background-color:$toggle-disabled-unselected;
+    }
+}
+
+.colorSecondary1 {
+    background-color: $toggle-selected;
+    &:checked {
+        background-color: $toggle-selected;
+    }
+    &:hover {
+        background-color: $toggle-selected;
+    }
+}
+
+
+.colorPrimary {
+    background-color: $toggle-selected;
+    &:checked {
+        background-color: $toggle-selected;
+    }
+}
+.track {
+    opacity: 1;
+    background-color:$toggle-disabled-unselected;
+}

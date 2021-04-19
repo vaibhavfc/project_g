@@ -201,6 +201,16 @@
   letter-spacing: 0.32px;
 }
 
+
+/// LABEL-2
+/// @group Typography
+@mixin label-3 {
+  @include font-face($weight: 400, $style: normal);
+  font-size: 0.625rem;          //10px
+  line-height: 0.625rem;       //10px
+  letter-spacing: 0.32px;
+}
+
 /// SUPERSCRIPT 
 /// @group Typography
 @mixin sup {

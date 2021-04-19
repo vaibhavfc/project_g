@@ -1,0 +1,309 @@
+@import "../../sass/theme/default";
+
+//STATUS CARD STYLES
+.root {
+  @include dp-8;
+  cursor: pointer;
+  width: 18rem;
+  min-height: 3.5rem;
+  border: 1px solid $card-border;
+  border-radius: 0.5rem;
+  position: relative;
+}
+
+.display {
+  box-shadow: none;
+}
+
+.clickable {
+  &:active {
+    box-shadow: none;
+  }
+}
+
+.selectedCard {
+  @include dp-8;
+  width: 18rem;
+  min-height: 3.5rem;
+  border-radius: 0.5rem;
+  position: relative;
+  border: 1px solid $selected-heading;
+}
+
+.unSelectedCard {
+  @include dp-8;
+  width: 18rem;
+  min-height: 3.5rem;
+  border-radius: 0.5rem;
+  position: relative;
+  border: 1px solid $card-border;
+}
+
+.selectedIcon {
+  color: $selected-heading;
+  &:hover {
+    color: $selected-heading;
+  }
+}
+
+.unSelectedIcon {
+  color: $card-unselected;
+  &:hover {
+    color: $card-unselected;
+  }
+}
+
+
+.title {
+ @include h6;
+ color: $card-heading;
+ width: 13.5rem;
+}
+
+.metricTitle {
+ @include label-3;
+ color: $card-metric-title;
+ width: 13.5rem;
+}
+
+.headerTitle {
+ @include h6;
+ color: $card-heading;
+ width: 12.25rem;
+}
+
+.selectedTitle {
+  @include h6;
+  color: $selected-heading;
+  width: 13.5rem;
+}
+
+.unSelectedTitle {
+  @include h6;
+  color: $card-heading;
+  width: 13.5rem;
+}
+
+.header{
+  padding: 1rem 1rem 0 1rem;
+}
+
+.headerWithAssets{
+  padding: 1.0625rem 1rem 0 1rem;
+}
+
+.subheader {
+ @include label-3;
+ padding-top: 1rem;
+ display: flex;
+ width: 13.5rem;
+ word-wrap: break-word;
+ text-transform: uppercase;
+}
+
+.subheader1{
+  @include label-3;
+  padding-top: 1rem;
+  display: flex;
+  width: 5.5rem;
+  word-wrap: break-word;
+  text-transform: uppercase;
+ }
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+.actionContainer {
+  width: 3rem;
+  right: 1rem;
+  top: 0.8rem;
+  position: absolute;
+}
+
+.actionTextContainer {
+  width: 4.25rem;
+  right: 1.3rem;
+  top: 0.65rem;
+  position: absolute;
+}
+
+.content {
+  padding: 0.25rem 1rem 1rem 1rem;
+  max-width: 13.5rem;
+  &:last-child {
+    padding-bottom: 1rem;
+  }
+}
+
+.metricContent {
+  padding: 1rem 1rem 0rem 1rem;
+  max-width: 13.5rem;
+}
+
+.metricContent {
+  @include h4;
+  padding: 0.25rem 1rem 0rem 0rem;
+  max-width: 13.5rem;
+  color: $primary-black;
+}
+
+.caption {
+  @include body-2;
+  word-wrap: break-word;
+  color: $card-body-content;
+  max-width: 95%;
+}
+
+.iconButton {
+  padding-top: 0.72rem;
+  &:hover {
+    background-color: transparent !important;
+    color: transparent;
+  }
+}
+
+.iconButton1 {
+  width: 2.5rem;
+  margin:  -0.7rem 0 0 0;
+  padding: 1rem 1rem 0 0;
+  &:hover {
+    background-color: transparent !important;
+    color: transparent;
+  }
+}
+
+.divider {
+  margin: 0 1rem 1rem 1rem;
+  background-color: $card-border;
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: 'row';
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  &:first-child {
+    padding-top: 1rem;
+  }  
+  &:last-child {
+    padding-bottom: 2rem;
+  }
+}
+
+.cardAvatar {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.cardLayoutBody {
+  @include body-3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $card-content;
+  max-width:12.75rem;
+  word-wrap: break-word;
+  padding: 0 0.65rem;
+}
+
+.boxLabel {
+  display: flex;
+  justify-content: space-between;
+  word-wrap: break-word;
+}
+
+.contentWraper {
+  max-width: 7.625rem;
+  word-wrap: break-word;
+}
+
+.contentWraper2 {
+  position: relative;
+  max-width: 5.875rem;
+  word-wrap: break-word;
+}
+
+.captionWraper {
+  width: 9.875rem;
+  height: 2.5rem;
+  position: relative;
+  word-wrap: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  // --max-lines: 3;
+  // &::before {
+  //   position: absolute;
+  //   content: "...";
+  //   inset-block-end: 0; /* "bottom" */
+  //   left:4rem; /* "right" */
+  // }
+}
+
+.captionWraper1 {
+  width: 9.875rem;
+  height: 1.75rem;
+  position: relative;
+  word-wrap: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.textButton {
+  @include text-button;
+  color: $selected-heading;
+  align-items: center;
+  justify-content: flex-start;
+  &:hover {
+    background-color: transparent;
+  }
+}
+
+.avatarHeader {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: .5rem;
+}
+
+.avatarMetricHeader {
+  width: 2.625rem;
+  height: 2.625rem;
+  border-radius: .5rem;
+}
+
+.avatarContainer {
+  padding: 1rem 0 1rem 1rem;
+}
+
+.cardWraper {
+  display: flex;
+  flex-direction: row;
+}
+
+.switchBase {
+  padding: 1rem;
+  transform: translate(-0.25rem,-0.4375rem);
+  color: $white;
+  &:checked{
+    color:$white;
+    transform: translate(1rem,-0.4375rem);
+    opacity: 1;
+  }
+} 
+
+.track {   
+ background-color: $selected-heading;
+ border-radius: 26/2;
+ opacity: 1;
+}
+
+.checked {
+  color:$white;
+  transform: translate(-0.25rem,-0.4375rem);
+  opacity: 1;
+}
+
+

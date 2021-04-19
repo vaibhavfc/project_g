@@ -16,3 +16,5 @@ export { default as ProgressIndicator } from './ProgressIndicator';
 export { default as YesNoSwitch } from './YesNoSwitch';
 export { default as Datepicker } from './Datepicker';
 export { default as Dropdown } from './Dropdown';
+export { default as Card } from './Card';
+export { default as Toggle } from './Toggle';
