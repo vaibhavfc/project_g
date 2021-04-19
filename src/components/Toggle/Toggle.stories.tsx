@@ -19,6 +19,12 @@ const Template: Story<ToggleProps> = (args) => <Toggle {...args} />;
 
 export const DefaultAndToggle = Template.bind({});
 DefaultAndToggle.args = {
-  type: 'label',
-  buttonType: 'icon',
+  type: 'default',
+  buttonType: 'Selected',
+};
+
+export const DefaultAndUnSelected = Template.bind({});
+DefaultAndUnSelected.args = {
+  type: 'default',
+  buttonType: 'Unselected',
 };
