@@ -120,7 +120,7 @@ export interface CardProps extends MuiCardProps {
   switchValue?: false;
   assets: 'Yes' | 'No';
   link?: string;
-  doneCallback?: () => void;
+  onIconCallback?: () => void;
 }
 
 

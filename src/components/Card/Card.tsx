@@ -45,7 +45,7 @@ const CardWithInnerRef: FC<CardProps> = ({
   switchValue,
   type,
   assets = 'No',
-  // doneCallback = () => undefined,
+  onIconCallback = () => undefined,
   // ...props
 }) => {
   const mergedClasses = useMemo(
@@ -75,7 +75,7 @@ const CardWithInnerRef: FC<CardProps> = ({
       }}
     >
       <Box classes={{ root: classnames(mergedClasses.cardWraper) }} component="div">
-        <Box classes={{ root: classnames(mergedClasses.avatarContainer, { [mergedClasses.hide]: (cardType !== 'display') }) }}>
+        <Box classes={{ root: classnames(mergedClasses.avatarContainer, { [mergedClasses.hide]: (cardType !== 'display' || (cardType === 'display' && type === 'single')) }) }}>
           <Avatar classes={{ root: classnames(mergedClasses.avatarHeader, { [mergedClasses.hide]: ((cardType === 'display' && assets === 'No') || cardType === 'selectable' || cardType === 'clickable'), [mergedClasses.avatarMetricHeader]: (type === 'metric') }) }} variant="square">
             R
           </Avatar>
@@ -108,6 +108,7 @@ const CardWithInnerRef: FC<CardProps> = ({
                     }),
                   }}
                   disableRipple
+                  onClick={onIconCallback}
                 >
                   { cardType === 'selectable' && <CheckCircleRoundedIcon classes={{ root: classnames(mergedClasses.selectedIcon, { [mergedClasses.unSelectedIcon]: (cardType === 'selected' || isSelected) }) }} /> }
                   { cardType === 'display' && buttonType === 'icon' && <ErrorOutlineIcon classes={{ root: classnames(mergedClasses.selectedIcon) }} /> }

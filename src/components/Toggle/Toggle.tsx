@@ -49,6 +49,11 @@ const ToggleWithInnerRef: FC<ToggleProps> = ({
           colorPrimary: classnames(mergedClasses.colorPrimary),
           track: classnames(mergedClasses.track),
         }}
+        TouchRippleProps={{
+          classes: {
+            root: classes.ripple,
+          },
+        }}
         checked={buttonType === 'Selected'}
       />
     </Box>
