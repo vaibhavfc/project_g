@@ -1,10 +1,13 @@
 @import '../../sass/theme/default';
 
 .main {
-  border-bottom: 1px solid $main-border;
   border-right: 1px solid $main-border;
   border-left: 1px solid $main-border;
   width: 20rem;
+}
+
+.border {
+  border-bottom: 1px solid $main-border;
 }
 
 .wrapper {

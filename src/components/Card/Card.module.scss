@@ -61,7 +61,7 @@
 }
 
 .metricTitle {
- @include label-3;
+ @include label-2;
  color: $card-metric-title;
  width: 13.5rem;
 }
@@ -93,7 +93,7 @@
 }
 
 .subheader {
- @include label-3;
+ @include label-2;
  padding-top: 1rem;
  display: flex;
  width: 13.5rem;
@@ -102,7 +102,7 @@
 }
 
 .subheader1{
-  @include label-3;
+  @include label-2;
   padding-top: 1rem;
   display: flex;
   width: 5.5rem;

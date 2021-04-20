@@ -48,20 +48,12 @@ ErrorPercentageIndicator.args = {
 
 export const SuccessStepIndicator = Template.bind({});
 SuccessStepIndicator.args = {
-  type: 'success',
   progressIndicatorType: 'step',
   value: 100,
 };
 
 export const SuccessPercentageIndicator = Template.bind({});
 SuccessPercentageIndicator.args = {
-  type: 'success',
   progressIndicatorType: 'percentage',
   value: 100,
-};
-
-export const DemoPercentageIndicator = Template.bind({});
-DemoPercentageIndicator.args = {
-  type: 'progress',
-  progressIndicatorType: 'percentage',
 };

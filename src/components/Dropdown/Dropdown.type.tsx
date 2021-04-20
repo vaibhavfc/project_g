@@ -1,5 +1,5 @@
 // import { Ref } from 'react';
-import { FilledTextFieldProps as MuiTextFieldProps, TextFieldClassKey } from '@material-ui/core/TextField';
+import { FilledTextFieldProps as MuiDropdownProps, TextFieldClassKey } from '@material-ui/core/TextField';
 
 export interface DropdownStylingProps extends Partial<Record<TextFieldClassKey, string>> {
   /**
@@ -7,9 +7,10 @@ export interface DropdownStylingProps extends Partial<Record<TextFieldClassKey, 
    */
 }
 
-export interface DropdownProps extends MuiTextFieldProps {
+export interface DropdownProps extends MuiDropdownProps {
   /**
    * overriden BaseProps innerRef to HTMLButtonElement
    */
   // innerRef: Ref<HTMLInputElement>;
+  items: Array<{title: string, value: any}>;
 }

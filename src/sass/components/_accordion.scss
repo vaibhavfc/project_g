@@ -1,0 +1,9 @@
+@import '../main.scss';
+
+/// Default
+/// @group accordion
+$title-color: map-get($burgundy, 100);
+
+$description-color: map-get($grey, 80);
+
+$arrow-color: map-get($grey, 60);

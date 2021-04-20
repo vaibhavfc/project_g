@@ -84,7 +84,7 @@ const ButtonWithInnerRef: FC<ButtonProps> = ({
       <div
         style={{
           width: `${(progressValue <= 3) ? 0 : progressValue}%`,
-          borderRadius: `0.5rem ${(progressValue >= 95 && !isFlushButton) ? '0.5rem' : 0} ${(progressValue >= 95 && !isFlushButton) ? '0.5rem' : 0} 0.5rem`,
+          borderRadius: `${isFlushButton ? 0 : '0.5rem'} ${(progressValue >= 95 && !isFlushButton) ? '0.5rem' : 0} ${(progressValue >= 95 && !isFlushButton) ? '0.5rem' : 0} ${isFlushButton ? 0 : '0.5rem'}`,
         }}
         // style={{ width: `${progressValue}%` }}
         className={

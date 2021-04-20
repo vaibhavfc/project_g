@@ -1,3 +1,4 @@
+// eslint-disable-next-line object-curly-newline
 import React, { FC, forwardRef, useMemo } from 'react';
 import { MenuList as MuiMenuList, Paper as MuiPaper, MenuItem as MuiMenuItem } from '@material-ui/core';
 // import classnames from 'classnames';
@@ -11,7 +12,8 @@ const MenuWithInnerRef: FC<MenuProps> = ({
   // innerRef = null,
   classes: overrideClasses = {},
   items,
-  // ...props
+  getItemValue,
+  ...props
 }) => {
   const mergedClasses = useMemo(
     () => mergeClassesObjects<MenuStylingProps>(classes, overrideClasses),
@@ -25,7 +27,7 @@ const MenuWithInnerRef: FC<MenuProps> = ({
       }}
       data-testid="menu-main"
     >
-      <MuiMenuList>
+      <MuiMenuList {...props}>
         {
           items?.map((item) => (
             <MuiMenuItem
@@ -33,8 +35,9 @@ const MenuWithInnerRef: FC<MenuProps> = ({
                 root: mergedClasses.item,
               }}
               data-testid="menu-item"
+              value={item.value}
             >
-              {item}
+              {item.title}
             </MuiMenuItem>
           ))
         }

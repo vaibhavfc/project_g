@@ -31,8 +31,8 @@
 }
 
 .info {
-  background-color: $chip-bg__info;
-  color: $chip-text__info;
+  background-color: $chip-bg__info !important;
+  color: $chip-text__info !important;
 }
 
 //NUDGE CHIP STYLES

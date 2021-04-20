@@ -1,10 +1,19 @@
 // import { Ref } from 'react';
-import { DatePickerProps as MuiDatepickerProps } from '@material-ui/pickers/DatePicker';
+import {
+  FilledTextFieldProps as MuiDatepickerProps,
+  TextFieldClassKey as MuiTextFieldClassKey,
+} from '@material-ui/core/TextField';
+// import { MuiPickersComponentsToClassName } from '@material-ui/pickers/src/typings/overrides';
 
-export interface DatepickerStylingProps {
+export interface DatepickerStylingProps extends Partial<Record<MuiTextFieldClassKey, string>> {
+  root: string;
+  MuiPickersModal?: string;
 }
 
 export interface DatepickerProps extends MuiDatepickerProps {
   // innerRef: Ref<HTMLDivElement>;
   doneCallback?: () => void;
+  adornmentStart?: any;
+  adornmentEnd?: any ;
+  adornmentSuffix?: any
 }

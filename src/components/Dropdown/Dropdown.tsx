@@ -1,9 +1,17 @@
-import React, { FC, useMemo, useState } from 'react';
+import React, { FC, useMemo } from 'react';
+import {
+  FormControl,
+  IconButton,
+  InputAdornment,
+  TextField as MuiTextField,
+} from '@material-ui/core';
+
 import classnames from 'classnames';
 
-import { MenuItem } from '@material-ui/core';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
-import { TextField } from '..';
+import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
+
+import { Menu } from '..';
 
 import { DropdownProps, DropdownStylingProps } from './Dropdown.type';
 
@@ -12,87 +20,106 @@ import { mergeClassesObjects } from '../../helpers/styling/mergeClassesObjects';
 
 const Dropdown: FC<DropdownProps> = ({
   classes: overrideClasses = {},
-  helperText,
+  variant,
+  error,
   disabled,
+  label,
+  placeholder,
+  type,
+  helperText,
+  items,
 }) => {
-  // eslint-disable-next-line no-unused-vars
   const mergedClasses = useMemo(
     () => mergeClassesObjects<DropdownStylingProps>(classes, overrideClasses),
     [overrideClasses],
   );
 
-  const currencies = [
-    {
-      value: 'USD',
-      label: '$',
-    },
-    {
-      value: 'EUR',
-      label: '€',
-    },
-    {
-      value: 'BTC',
-      label: '฿',
-    },
-    {
-      value: 'JPY',
-      label: '¥',
-    },
-  ];
-
-  const [toggle, setToggle]: any = useState(false);
-  const [currency, setCurrency] = useState('EUR');
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setCurrency(event.target.value);
+  const handleBlur = () => {
+    if (inputText === '') {
+      return false;
+    }
+    return true;
   };
 
-  // const handleBlur = () => {
-  //   if (inputText === '') {
-  //     return false;
-  //   }
-  //   return true;
-  // };
-
-  // const [labelActive, setLabelActive] = React.useState(false);
-  // const [inputText, setInputText] = React.useState('');
+  const [labelActive, setLabelActive] = React.useState(false);
+  const [toggle, setToggle] = React.useState(false);
+  const [inputText, setInputText] = React.useState('');
 
   return (
-    <>
-      <TextField
-        onKeyPress={() => setToggle(!toggle)}
-        onClick={() => setToggle(!toggle)}
-        tabIndex={0}
-        role="button"
-        type="text"
-        variant="filled"
-        id="standard-select-currency"
-        select
-        label="Select"
-        value={currency}
-        onChange={handleChange}
-        helperText={helperText}
-        adornmentEnd={<ArrowDropDownIcon />}
+    <FormControl className={classnames(classes.margin, classes.withoutLabel, classes.textField)}>
+      <MuiTextField
+        type={type}
+        value={inputText}
+        onChange={(e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
+          setInputText(e.target.value);
+        }}
+        onFocus={() => setLabelActive(true)}
+        onBlur={() => setLabelActive(handleBlur)}
+        error={error}
+        variant={variant}
         disabled={disabled}
-        className={classes.root}
+        label={label}
+        placeholder={placeholder}
+        helperText={(!error) ? helperText : 'Error'}
+        data-testid="textfield-input"
+        classes={{
+          root: classnames(mergedClasses.root),
+        }}
+        FormHelperTextProps={{
+          classes: {
+            root: classes.helperText,
+          },
+        }}
+        InputLabelProps={{
+          shrink: labelActive,
+          classes: {
+            root: classnames(classes.labelRoot, {
+              [classes.labelRootError]: (error && labelActive),
+              [classes.shrink]: (labelActive),
+            }),
+            focused: classes.labelRootFocused,
+            disabled: classnames(classes.labelRootDisabled),
+          },
+        }}
+        InputProps={{
+          classes: {
+            root: classnames(
+              classes.inputRoot,
+              {
+                [classes.disabled]: disabled,
+                [classes.error]: error,
+              },
+            ),
+            disabled: classes.inputRootDisabled,
+            input: classnames(classes.inputStart),
+          },
+          endAdornment: (
+            <InputAdornment
+              position="end"
+              classes={{ root: classes.inputAdornment }}
+            >
+              <IconButton
+                className={classes.IconButton}
+                disableRipple
+                edge="end"
+                aria-label="Toggle Calendar"
+                onClick={() => setToggle(!toggle)}
+              >
+                {!toggle ? <ArrowDropDownIcon /> : <ArrowDropUpIcon />}
+              </IconButton>
+            </InputAdornment>
+          ),
+        }}
       />
       <div
-        className={
-          classnames({
-            [classes.hide]: (!toggle),
-            [classes.unhide]: (toggle),
-          })
-        }
+        className={toggle ? classes.show : classes.hide}
       >
-        {
-          currencies?.map((option) => (
-            <MenuItem key={option.value} value={option.value}>
-              {option.label}
-            </MenuItem>
-          ))
-        }
+        <Menu
+          open
+          items={items}
+        />
       </div>
-    </>
+    </FormControl>
   );
 };
 

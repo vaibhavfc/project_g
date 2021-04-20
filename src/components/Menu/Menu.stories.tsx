@@ -19,5 +19,18 @@ const Template: Story<MenuProps> = (args) => <Menu {...args} />;
 
 export const DefaultMenu = Template.bind({});
 DefaultMenu.args = {
-  items: ['Menu Item 1', 'Menu Item 2', 'Menu Item 3'],
+  items: [
+    {
+      title: 'Menu Item 1',
+      value: 1,
+    },
+    {
+      title: 'Menu Item 2',
+      value: 2,
+    },
+    {
+      title: 'Menu Item 3',
+      value: 3,
+    },
+  ],
 };
