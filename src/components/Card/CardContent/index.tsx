@@ -16,7 +16,7 @@ const CardLayoutWithInnerRef: FC<CardLayoutProps> = ({
 
   return (
     <Box
-      classes={{ root: classnames(mergedClasses.cardContent) }}
+      className={mergedClasses.cardContent}
       component="div"
     >
       <Box
@@ -25,7 +25,7 @@ const CardLayoutWithInnerRef: FC<CardLayoutProps> = ({
         <Avatar variant="square" classes={{ root: classnames(mergedClasses.cardAvatar) }} />
       </Box>
       <Box
-        classes={{ root: classnames(mergedClasses.cardLayoutBody) }}
+        className={mergedClasses.cardLayoutBody}
         component="div"
       >
         {data.content}

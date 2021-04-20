@@ -131,6 +131,6 @@ export interface CardProps extends MuiCardProps {
 
 export interface CardLayoutProps extends MuiCardProps {
   innerRef: Ref<HTMLDivElement>;
-  cardData: {avatar: string, content: string}[]
+  data: {avatar: string, content: string};
   doneCallback?: () => void;
 }

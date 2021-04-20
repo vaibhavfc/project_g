@@ -74,8 +74,8 @@ const CardWithInnerRef: FC<CardProps> = ({
         }),
       }}
     >
-      <Box classes={{ root: classnames(mergedClasses.cardWraper) }} component="div">
-        <Box classes={{ root: classnames(mergedClasses.avatarContainer, { [mergedClasses.hide]: (cardType !== 'display' || (cardType === 'display' && type === 'single')) }) }}>
+      <Box className={mergedClasses.cardWraper} component="div">
+        <Box className={classnames(mergedClasses.avatarContainer, { [mergedClasses.hide]: (cardType !== 'display' || (cardType === 'display' && type === 'single')) })}>
           <Avatar classes={{ root: classnames(mergedClasses.avatarHeader, { [mergedClasses.hide]: ((cardType === 'display' && assets === 'No') || cardType === 'selectable' || cardType === 'clickable'), [mergedClasses.avatarMetricHeader]: (type === 'metric') }) }} variant="square">
             R
           </Avatar>
@@ -110,7 +110,7 @@ const CardWithInnerRef: FC<CardProps> = ({
                   disableRipple
                   onClick={onIconCallback}
                 >
-                  { cardType === 'selectable' && <CheckCircleRoundedIcon classes={{ root: classnames(mergedClasses.selectedIcon, { [mergedClasses.unSelectedIcon]: (cardType === 'selected' || isSelected) }) }} /> }
+                  { cardType === 'selectable' && <CheckCircleRoundedIcon classes={{ root: classnames(mergedClasses.selectedIcon, { [mergedClasses.unSelectedIcon]: (isSelected) }) }} /> }
                   { cardType === 'display' && buttonType === 'icon' && <ErrorOutlineIcon classes={{ root: classnames(mergedClasses.selectedIcon) }} /> }
                   { cardType === 'clickable' && <ArrowForward /> }
                   { cardType === 'display' && buttonType === 'text' && <Button classes={{ root: classnames(mergedClasses.textButton) }} variant="text" disableRipple> Action </Button> }
@@ -129,18 +129,16 @@ const CardWithInnerRef: FC<CardProps> = ({
             }}
           >
             <Box
-              classes={{
-                root: classnames(mergedClasses.boxLabel),
-              }}
+              className={mergedClasses.boxLabel}
               component="div"
             >
               <Box
-                classes={{
-                  root: classnames(mergedClasses.caption, {
+                className={
+                  classnames(mergedClasses.caption, {
                     [mergedClasses.contentWraper2]: (assets === 'Yes'),
                     [mergedClasses.contentWraper]: (type === 'label-2'),
-                  }),
-                }}
+                  })
+                }
                 component="div"
               >
                 <Typography
@@ -168,12 +166,12 @@ const CardWithInnerRef: FC<CardProps> = ({
                 </Typography>
               </Box>
               <Box
-                classes={{
-                  root: classnames(mergedClasses.contentWraper, {
+                className={
+                  classnames(mergedClasses.contentWraper, {
                     [mergedClasses.contentWraper2]: (assets === 'Yes'),
                     [mergedClasses.hide]: (type === 'label' || type === 'extended' || type === 'single' || type === 'no-label' || type === 'metric'),
-                  }),
-                }}
+                  })
+                }
                 component="div"
               >
                 <Typography
@@ -204,7 +202,7 @@ const CardWithInnerRef: FC<CardProps> = ({
         </Box>
       </Box>
       <Divider classes={{ root: classnames(mergedClasses.divider, { [classes.hide]: (type === 'single' || type === 'label' || type === 'no-label' || type === 'label-2' || type === 'metric') }) }} />
-      {type === 'extended' && cardData?.map((item) => <CardLayout key={item} data={item} />)}
+      {type === 'extended' && cardData?.map((item) => <CardLayout data={item} />)}
     </MuiCard>
   );
 };

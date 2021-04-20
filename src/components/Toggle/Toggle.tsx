@@ -26,9 +26,7 @@ const ToggleWithInnerRef: FC<ToggleProps> = ({
 
   return (
     <Box
-      classes={{
-        root: classnames(mergedClasses.rootBtn),
-      }}
+      className={mergedClasses.rootBtn}
       component="div"
     >
       <Switch
