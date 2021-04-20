@@ -1,0 +1,47 @@
+@import '../../sass/theme/default';
+
+.rootContainer {
+    display: flex;
+    flex-direction: column;
+    max-width: 18rem;
+}
+
+.inputWraper {
+  display: flex;
+  flex-direction: row;
+  width: 18rem;
+}
+
+.valueWraper {
+  margin: 0.5rem 0.5rem 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #F9F9F9;
+  border-radius: 0.25rem;
+  width: 5.666875rem;
+  height: 2.25rem;
+}
+
+.valueWraperSelected {
+    margin: 0.5rem 0.5rem 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #12877F;
+    border-radius: 0.25rem;
+    width: 5.666875rem;
+    height: 2.25rem;
+  }
+
+  .valueSpanSelected {
+    @include body-2;
+    color: #F9F9F9;
+    margin: 0.5rem 1.145625rem;
+}
+
+.valueSpan {
+    @include body-2;
+    color: #12877F;
+    margin: 0.5rem 1.145625rem;
+}

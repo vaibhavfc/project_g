@@ -17,14 +17,14 @@ export default {
 
 const Template: Story<ToggleProps> = (args) => <Toggle {...args} />;
 
-export const DefaultAndToggle = Template.bind({});
-DefaultAndToggle.args = {
-  type: 'default',
+export const Selected = Template.bind({});
+Selected.args = {
   buttonType: 'Selected',
+  checked: true,
 };
 
-export const DefaultAndUnSelected = Template.bind({});
-DefaultAndUnSelected.args = {
-  type: 'default',
+export const UnSelected = Template.bind({});
+UnSelected.args = {
   buttonType: 'Unselected',
+  checked: false,
 };

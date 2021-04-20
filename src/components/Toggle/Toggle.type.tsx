@@ -52,5 +52,5 @@ export interface ToggleProps extends MuiSwitchProps {
     innerRef: Ref<HTMLDivElement>;
     buttonType: 'Selected' | 'Unselected';
     checked: boolean;
-    doneCallback?: () => void;
+    toggleCallback?: () => void;
   }

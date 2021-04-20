@@ -15,7 +15,7 @@ const ToggleWithInnerRef: FC<ToggleProps> = ({
 
   // props
   checked = false,
-  buttonType,
+  // buttonType,
   toggleCallback = () => undefined,
   // type,
 
@@ -33,17 +33,17 @@ const ToggleWithInnerRef: FC<ToggleProps> = ({
       <Switch
         classes={{
           root: classnames(mergedClasses.switchBtn, {
-            [mergedClasses.switchBtn1]: (buttonType === 'Selected'),
+            [mergedClasses.switchBtn1]: (checked === true),
           }),
           switchBase: classnames(mergedClasses.switchBase, {
-            [mergedClasses.switchBase1]: (buttonType === 'Selected'),
+            [mergedClasses.switchBase1]: (checked === true),
           }),
           checked: classnames(mergedClasses.checked),
           thumb: classnames(mergedClasses.thumb, {
-            [mergedClasses.unselectedThumb]: (buttonType === 'Unselected'),
+            [mergedClasses.unselectedThumb]: (checked === false),
           }),
           colorSecondary: classnames(mergedClasses.colorSecondary, {
-            [mergedClasses.colorSecondary1]: (buttonType === 'Selected'),
+            [mergedClasses.colorSecondary1]: (checked === true),
           }),
           colorPrimary: classnames(mergedClasses.colorPrimary),
           track: classnames(mergedClasses.track),
