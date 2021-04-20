@@ -119,6 +119,11 @@ export interface CardProps extends MuiCardProps {
   buttonType: 'icon' | 'text' | 'none' | 'switch' | 'toggle';
   switchValue?: false;
   assets: 'Yes' | 'No';
+  subheader?: string;
+  content?: string;
+  content2?: string;
+  subheader2?: string;
+  cardData: {avatar: string, content: string}[];
   link?: string;
   onIconCallback?: () => void;
 }
