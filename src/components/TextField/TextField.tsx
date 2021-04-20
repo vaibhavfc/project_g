@@ -61,7 +61,7 @@ const TextField: FC<TextFieldProps> = ({
         }}
         FormHelperTextProps={{
           classes: {
-            root: classnames(classes.helperText),
+            root: classes.helperText,
           },
         }}
         InputLabelProps={{

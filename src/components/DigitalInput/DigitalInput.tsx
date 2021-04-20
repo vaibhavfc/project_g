@@ -11,12 +11,13 @@ const DigitalInput: FC<DigitalInputProps> = ({
   error,
   disabled,
   placeholder,
+  // value,
 }) => {
   const [otp, setOtp] = useState('');
 
   useEffect(() => {
     setOtp(otp);
-    // console.log(otp);
+    console.log(otp);
   }, [otp]);
 
   const handleChange = (e: any) => {

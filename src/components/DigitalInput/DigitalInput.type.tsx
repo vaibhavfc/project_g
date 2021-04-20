@@ -7,4 +7,5 @@ export interface DigitalInputProps {
   error?: boolean;
   disabled?: boolean;
   placeholder?: string;
+  value: string;
 }

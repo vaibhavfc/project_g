@@ -32,7 +32,14 @@ const ProgressTracker: FC<ProgressTrackerProps> = ({
   const progress: number = +((100 / steps.length) * currStep).toFixed();
 
   return (
-    <div className="main">
+    <div
+      className={
+        classnames({
+          main: true,
+          border: stepsSec,
+        })
+      }
+    >
       <div className="wrapper">
         <div
           className="wrapper-indicator"

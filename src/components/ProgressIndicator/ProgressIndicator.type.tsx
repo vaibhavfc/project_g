@@ -30,7 +30,11 @@ export interface ProgressIndicatorStylingProps extends Partial<Record<CircularPr
 
 export interface ProgressIndicatorProps extends MuiProgressIndicatorProps {
   // innerRef: Ref<HTMLAnchorElement>;
-  type: 'progress' | 'error' | 'success';
+  type: 'progress' | 'error';
   progressIndicatorType: 'step' | 'percentage';
   progressStepLabel?: string;
+}
+
+export interface IconProps {
+  progressIndicatorType: 'step' | 'percentage';
 }

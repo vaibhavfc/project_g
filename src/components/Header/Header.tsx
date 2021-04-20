@@ -8,18 +8,16 @@ import classes from './Header.module.scss';
 import { mergeClassesObjects } from '../../helpers/styling/mergeClassesObjects';
 
 const HeaderWithInnerRef: FC<HeaderProps> = ({
-  // innerRef = null,
   classes: overrideClasses = {},
-  // children = 'Header',
   size,
-  // ...props
+  href = '#',
 }) => {
   const mergedClasses = useMemo(
     () => mergeClassesObjects<HeaderStylingProps>(classes, overrideClasses),
     [overrideClasses],
   );
   return (
-    <>
+    <a href={href}>
       { size === 'medium' ? (
         <MuiSvgIcon
           width="320"
@@ -60,7 +58,7 @@ const HeaderWithInnerRef: FC<HeaderProps> = ({
             <path d="M290 0V25.2126H1043.56V8.31942e-05L290 0Z" fill="#97144D" />
           </MuiSvgIcon>
         )}
-    </>
+    </a>
   );
 };
 

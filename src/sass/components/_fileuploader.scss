@@ -1,0 +1,19 @@
+@import '../main.scss';
+
+$file-uploader-border-color: map-get($aqua-deep, 20);
+
+$file-uploader-hover-bg: $aqua-haze-1;
+
+$file-uploader-title-color: map-get($map: $pink, $key: 100);
+
+$file-uploader-details-color: map-get($map: $grey, $key: 60);
+
+$uploading-status-card-bg: $white;
+
+$uploading-status-card-hover-bg: $aqua-haze-1;
+
+$uploading-status-card-title: $charcoal;
+
+$uploading-status-card-filesize: map-get($map: $grey, $key: 60);
+
+$cancel-icon-color: map-get($map: $grey, $key: 60); 
