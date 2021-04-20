@@ -14,8 +14,9 @@ const ToggleWithInnerRef: FC<ToggleProps> = ({
   classes: overrideClasses = {},
 
   // props
-  // checked,
+  checked = false,
   buttonType,
+  toggleCallback = () => undefined,
   // type,
 
 }) => {
@@ -52,7 +53,8 @@ const ToggleWithInnerRef: FC<ToggleProps> = ({
             root: classes.ripple,
           },
         }}
-        checked={buttonType === 'Selected'}
+        checked={checked}
+        onChange={toggleCallback}
       />
     </Box>
   );

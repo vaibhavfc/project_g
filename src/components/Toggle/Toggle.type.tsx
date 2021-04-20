@@ -50,8 +50,7 @@ export interface ToggleStylingProps extends Partial<Record<SwitchClassKey, strin
 
 export interface ToggleProps extends MuiSwitchProps {
     innerRef: Ref<HTMLDivElement>;
-    type: 'default' |'hover' | 'focus' | 'pressed';
     buttonType: 'Selected' | 'Unselected';
-    checked?: boolean;
+    checked: boolean;
     doneCallback?: () => void;
   }
