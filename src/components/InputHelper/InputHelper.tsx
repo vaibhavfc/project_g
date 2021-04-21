@@ -43,6 +43,7 @@ const InputHelperWithInnerRef: FC<InputHelperProps> = ({
       component="div"
     >
       <TextField
+        adornmentStart="₹"
         label="Label"
         placeholder="Placeholder text"
         type="text"

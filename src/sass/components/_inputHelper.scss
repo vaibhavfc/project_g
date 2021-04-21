@@ -1,0 +1,6 @@
+@import '../main.scss';
+
+$inputHelper-valueWrapper-bg: map-get($map: $grey, $key: 10);
+
+$inputHelper-valueWrapper-bg-selected: map-get($map: $aqua-deep, $key: 100);
+
