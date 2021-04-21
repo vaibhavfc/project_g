@@ -4,6 +4,9 @@ import {
   IconButton,
   InputAdornment,
   TextField as MuiTextField,
+  MenuList as MuiMenuList,
+  Paper as MuiPaper,
+  MenuItem as MuiMenuItem,
 } from '@material-ui/core';
 
 import classnames from 'classnames';
@@ -11,7 +14,7 @@ import classnames from 'classnames';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
 
-import { Menu } from '..';
+// import { Menu } from '..';
 
 import { DropdownProps, DropdownStylingProps } from './Dropdown.type';
 
@@ -45,14 +48,20 @@ const Dropdown: FC<DropdownProps> = ({
   const [toggle, setToggle] = React.useState(false);
   const [inputText, setInputText] = React.useState('');
 
+  const handleSelection = (itemValue) => {
+    setInputText(itemValue);
+    setLabelActive(true);
+    setToggle(!toggle);
+  };
+
   return (
     <FormControl className={classnames(classes.margin, classes.withoutLabel, classes.textField)}>
       <MuiTextField
         type={type}
         value={inputText}
-        onChange={(e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
-          setInputText(e.target.value);
-        }}
+        // onChange={(e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
+        //   setInputText(e.target.value);
+        // }}
         onFocus={() => setLabelActive(true)}
         onBlur={() => setLabelActive(handleBlur)}
         error={error}
@@ -61,7 +70,7 @@ const Dropdown: FC<DropdownProps> = ({
         label={label}
         placeholder={placeholder}
         helperText={(!error) ? helperText : 'Error'}
-        data-testid="textfield-input"
+        data-testid="dropdown-main"
         classes={{
           root: classnames(mergedClasses.root),
         }}
@@ -114,10 +123,29 @@ const Dropdown: FC<DropdownProps> = ({
       <div
         className={toggle ? classes.show : classes.hide}
       >
-        <Menu
-          open
-          items={items}
-        />
+        <MuiPaper
+          classes={{
+            root: mergedClasses.paperRoot,
+          }}
+          data-testid="menu-main"
+        >
+          <MuiMenuList>
+            {
+              items?.map((item) => (
+                <MuiMenuItem
+                  onClick={() => handleSelection(item)}
+                  classes={{
+                    root: mergedClasses.item,
+                  }}
+                  data-testid="menu-item"
+                  value={item}
+                >
+                  {item}
+                </MuiMenuItem>
+              ))
+            }
+          </MuiMenuList>
+        </MuiPaper>
       </div>
     </FormControl>
   );
