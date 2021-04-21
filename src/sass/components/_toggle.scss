@@ -1,11 +1,11 @@
 @import '../main.scss';
 
-$toggle-border: map-get($map: $grey, $key: 20);
-$toggle-border__hover: map-get($map: $pink, $key: 20);
-$toggle-border__focus: map-get($map: $pink, $key: 60);
+$toggle-border: map-get($grey, 20);
+$toggle-border__hover: map-get($pink, 20);
+$toggle-border__focus: map-get($pink, 60);
 
-$toggle-selected: map-get($map: $pink, $key: 100);
-$toggle-disabled-selected: map-get($map: $grey, $key: 50);
-$toggle-disabled-unselected: map-get($map: $grey, $key: 60);
+$toggle-selected: map-get($pink, 100);
+$toggle-disabled-selected: map-get($grey, 50);
+$toggle-disabled-unselected: map-get($grey, 60);
 
 $toggle-selected-label: $white;

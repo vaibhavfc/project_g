@@ -75,7 +75,7 @@ const CardWithInnerRef: FC<CardProps> = ({
     } if (cardType === 'display' && buttonType === 'text') {
       return <Button classes={{ root: classnames(mergedClasses.textButton) }} variant="text" disableRipple> Action </Button>;
     } if (cardType === 'display' && buttonType === 'toggle') {
-      return <Toggle buttonType="Selected" edge="end" onFocusVisible={() => {}} type="pressed" />;
+      return <Toggle default={true} />;
     } if (cardType === 'display' && buttonType === 'switch') {
       return <YesNoSwitch defaultValue={switchValue} />;
     }
@@ -106,8 +106,8 @@ const CardWithInnerRef: FC<CardProps> = ({
             classes={{
               root: classnames(mergedClasses.header, {
                 [mergedClasses.headerWithAssets]: (cardType === 'display' && assets === 'Yes'),
-                [mergedClasses.Card_header]: ((cardType === 'display' && assets === 'No')),
-                [mergedClasses.Card_headersingle]: (cardType === 'display' && type === 'single'),
+                [mergedClasses.cardHeader]: ((cardType === 'display' && assets === 'No')),
+                [mergedClasses.cardHeaderSingle]: (cardType === 'display' && type === 'single'),
               }),
               title: classnames(mergedClasses.title, {
                 [mergedClasses.selectedTitle]: (cardType === 'selectable' && !isSelected),

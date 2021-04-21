@@ -48,7 +48,9 @@
 }
 
 .checked {
-    transform: translateX(1.25rem);
+    color: $toggle-selected !important;
+    background-color: $toggle-selected !important; ;
+    opacity: 1;
 }
 
 .thumb {

@@ -7,13 +7,14 @@ export interface CardStylingProps extends Partial<Record<CardClassKey, string>> 
   rootSelectable?: string
   rootDisplay?: string
   /**
-   * card header style && headerTitle
+   * card header style && headerTitle && metricContentNoAssets
    */
   title?: string
   headerTitle?: string
   metricTitle?: string
-  Card_header?: string
-  Card_headersingle?: string
+  metricContentNoAssets?: string
+  cardHeader?: string
+  cardHeaderSingle?: string
   /**
    *  card subheader style
    */
