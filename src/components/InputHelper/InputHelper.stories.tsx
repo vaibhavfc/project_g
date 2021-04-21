@@ -19,5 +19,5 @@ const Template: Story<InputHelperProps> = (args) => <InputHelper {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  inputValues: [10000, 200000, 3000000, 500000000],
+  inputValues: [10000, 20000, 30000],
 };

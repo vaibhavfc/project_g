@@ -52,14 +52,14 @@
 }
 
 .thumb {
-    background-color: $toggle-selected-label;
-    transform: translate(-0.625rem, -0.5625rem);
-    color: $toggle-selected;
+    width: 16px;
+    height: 16px;
+    background-color: #fff;
 }
 
 .unselectedThumb {
     background-color: $toggle-selected-label;
-    transform: translate(-0.625rem, 0.1rem);
+    transform: translate(-0.625rem, 0.125rem);
     color: $toggle-selected;
     &:hover {
         background-color: $toggle-selected-label;
@@ -94,12 +94,21 @@
     }
 }
 .track {
-    opacity: 1;
+    transform: translate(0px, -0.35rem);
+    padding: 0 0 7px 0;
+    border-radius: 10px;
+    background-color: $toggle-selected;
+}
+
+.unselectedtrack {
+    transform: translate(-3px, -0.35rem);
+    padding: 0 0 7px 0;
+    border-radius: 10px;
     background-color:$toggle-disabled-unselected;
 }
 
 .ripple {
-    color: green;
-    transform: translate(-5px, -10px) scale(1.25);
+    color: $toggle-selected-label;
+    // transform: translate(-5px, -10px);
     z-index: 5;
 }

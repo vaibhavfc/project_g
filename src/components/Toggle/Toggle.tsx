@@ -3,6 +3,7 @@ import React, {
   FC,
   forwardRef,
   useMemo,
+  useState,
 } from 'react';
 import classnames from 'classnames';
 import { ToggleProps, ToggleStylingProps } from './Toggle.type';
@@ -14,9 +15,9 @@ const ToggleWithInnerRef: FC<ToggleProps> = ({
   classes: overrideClasses = {},
 
   // props
-  checked = false,
+  // checked = false,
   // buttonType,
-  toggleCallback = () => undefined,
+  // toggleCallback = () => undefined,
   // type,
 
 }) => {
@@ -25,6 +26,12 @@ const ToggleWithInnerRef: FC<ToggleProps> = ({
     [overrideClasses],
   );
 
+  const [isChecked, setIsChecked] = useState(false);
+
+  const toggleHandler = () => {
+    setIsChecked(!isChecked);
+  };
+
   return (
     <Box
       className={mergedClasses.rootBtn}
@@ -32,29 +39,17 @@ const ToggleWithInnerRef: FC<ToggleProps> = ({
     >
       <Switch
         classes={{
-          root: classnames(mergedClasses.switchBtn, {
-            [mergedClasses.switchBtn1]: (checked === true),
+          thumb: classnames(mergedClasses.thumb),
+          track: classnames(mergedClasses.track, {
+            [mergedClasses.unselectedtrack]: (isChecked === false),
           }),
-          switchBase: classnames(mergedClasses.switchBase, {
-            [mergedClasses.switchBase1]: (checked === true),
-          }),
-          checked: classnames(mergedClasses.checked),
-          thumb: classnames(mergedClasses.thumb, {
-            [mergedClasses.unselectedThumb]: (checked === false),
-          }),
-          colorSecondary: classnames(mergedClasses.colorSecondary, {
-            [mergedClasses.colorSecondary1]: (checked === true),
-          }),
-          colorPrimary: classnames(mergedClasses.colorPrimary),
-          track: classnames(mergedClasses.track),
         }}
-        TouchRippleProps={{
-          classes: {
-            root: classes.ripple,
-          },
-        }}
-        checked={checked}
-        onChange={toggleCallback}
+        // TouchRippleProps={{
+        //   classes: {
+        //     root: classes.ripple,
+        //   },
+        checked={isChecked}
+        onClick={toggleHandler}
       />
     </Box>
   );

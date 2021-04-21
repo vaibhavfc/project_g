@@ -38,9 +38,10 @@ export interface ToggleStylingProps extends Partial<Record<SwitchClassKey, strin
    colorPrimary?: string
 
    /**
-    *track 
+    *track && unselectedtrack
     */
     track?: string
+    unselectedtrack?: string
   /**
    * checked1
    */
@@ -50,7 +51,6 @@ export interface ToggleStylingProps extends Partial<Record<SwitchClassKey, strin
 
 export interface ToggleProps extends MuiSwitchProps {
     innerRef: Ref<HTMLDivElement>;
-    buttonType: 'Selected' | 'Unselected';
-    checked: boolean;
+    default: boolean;
     toggleCallback?: () => void;
   }

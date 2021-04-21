@@ -43,11 +43,12 @@ const InputHelperWithInnerRef: FC<InputHelperProps> = ({
       component="div"
     >
       <TextField
+        adornmentStart="₹"
         label="Label"
         placeholder="Placeholder text"
         type="text"
         variant="filled"
-        textFieldValue={value}
+        value={value}
       />
       <Box
         className={mergedClasses.inputWraper}
