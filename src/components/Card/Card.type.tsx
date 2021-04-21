@@ -12,6 +12,8 @@ export interface CardStylingProps extends Partial<Record<CardClassKey, string>> 
   title?: string
   headerTitle?: string
   metricTitle?: string
+  Card_header?: string
+  Card_headersingle?: string
   /**
    *  card subheader style
    */
@@ -27,9 +29,10 @@ export interface CardStylingProps extends Partial<Record<CardClassKey, string>> 
   actionContainer?: string
   actionTextContainer?: string
   /**
-    * content style && metricContent
+    * content style && metricContent && contentSelectable
     */
   content?: string
+  contentSelectable?: string
   metricContent?: string
     /**
      * header && headerWithAssets
@@ -104,6 +107,8 @@ export interface CardStylingProps extends Partial<Record<CardClassKey, string>> 
     */
     iconButton?: string
     iconButton1?: string
+    iconTextButton?: string
+    iconClickableButton?: string
    /**
     * switchBase
     */

@@ -64,6 +64,7 @@
  @include label-2;
  color: $card-metric-title;
  width: 13.5rem;
+ text-transform: uppercase;
 }
 
 .headerTitle {
@@ -84,7 +85,15 @@
   width: 13.5rem;
 }
 
-.header{
+.header {
+  padding: 1rem 1rem 0 1rem;
+}
+
+.Card_header {
+  padding: 1rem 1rem 0 0rem;
+}
+
+.Card_headersingle {
   padding: 1rem 1rem 0 1rem;
 }
 
@@ -133,6 +142,14 @@
 }
 
 .content {
+  padding: 0.25rem 1rem 1rem 0rem;
+  max-width: 13.5rem;
+  &:last-child {
+    padding-bottom: 1rem;
+  }
+}
+
+.contentSelectable {
   padding: 0.25rem 1rem 1rem 1rem;
   max-width: 13.5rem;
   &:last-child {
@@ -147,6 +164,13 @@
 
 .metricContent {
   @include h4;
+  padding: 0.25rem 1rem 0rem 1rem;
+  max-width: 13.5rem;
+  color: $primary-black;
+}
+
+.metricContentNoAssets {
+  @include h4;
   padding: 0.25rem 1rem 0rem 0rem;
   max-width: 13.5rem;
   color: $primary-black;
@@ -160,7 +184,23 @@
 }
 
 .iconButton {
-  padding-top: 0.72rem;
+  padding-top: 0.5rem;
+  &:hover {
+    background-color: transparent !important;
+    color: transparent;
+  }
+}
+
+.iconTextButton {
+  padding-top: 0.75rem;
+  &:hover {
+    background-color: transparent !important;
+    color: transparent;
+  }
+}
+
+.iconClickableButton {
+  padding-top: 0.73rem;
   &:hover {
     background-color: transparent !important;
     color: transparent;
@@ -281,29 +321,6 @@
 .cardWraper {
   display: flex;
   flex-direction: row;
-}
-
-.switchBase {
-  padding: 1rem;
-  transform: translate(-0.25rem,-0.4375rem);
-  color: $white;
-  &:checked{
-    color:$white;
-    transform: translate(1rem,-0.4375rem);
-    opacity: 1;
-  }
-} 
-
-.track {   
- background-color: $selected-heading;
- border-radius: 26/2;
- opacity: 1;
-}
-
-.checked {
-  color:$white;
-  transform: translate(-0.25rem,-0.4375rem);
-  opacity: 1;
 }
 
 

@@ -1,7 +1,7 @@
 @import '../../sass/theme/default';
 
 .accordion {
-  border-radius: 0.5rem;
+  // border-radius: 0.5rem;
 }
 
 .root {
@@ -20,9 +20,9 @@
     height: min-content;
   }
 
-  &:before {
-    background-color: $accordion-divider;
-  }
+ // &:before {
+  //  background-color: $accordion-divider;
+ // }
 
   &:first-child {
     border-radius: 0.5rem 0.5rem 0 0;

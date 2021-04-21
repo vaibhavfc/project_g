@@ -15,13 +15,15 @@ import {
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
-import CheckCircleRoundedIcon from '@material-ui/icons/CheckCircleRounded';
-import ErrorOutlineIcon from '@material-ui/icons/ErrorOutline';
+// import CheckCircleRoundedIcon from '@material-ui/icons/CheckCircleRounded';
+// import ErrorOutlineIcon from '@material-ui/icons/ErrorOutline';
 import classnames from 'classnames';
 import { CardProps, CardStylingProps } from './Card.type';
 import { YesNoSwitch, Toggle } from '..';
-// import { ReactComponent as CheckImg } from './assets/check.svg';
-import { ReactComponent as ArrowForward } from './assets/arrow_forward.svg';
+import { ReactComponent as CheckImgSelected } from './assets/checkSelected.svg';
+import { ReactComponent as ArrowForward } from './assets/arrowForward.svg';
+import { ReactComponent as CheckImgunSelected } from './assets/checkUnSelected.svg';
+import { ReactComponent as ErrorOutlineIcon } from './assets/Vector.svg';
 
 import classes from './Card.module.scss';
 
@@ -61,6 +63,25 @@ const CardWithInnerRef: FC<CardProps> = ({
   //   return 'small';
   // };
 
+  const renderIcon = () => {
+    if (cardType === 'selectable' && !isSelected) {
+      return <CheckImgSelected />;
+    } if (cardType === 'selectable' && isSelected) {
+      return <CheckImgunSelected />;
+    } if (cardType === 'display' && buttonType === 'icon') {
+      return <ErrorOutlineIcon />;
+    } if (cardType === 'clickable') {
+      return <ArrowForward />;
+    } if (cardType === 'display' && buttonType === 'text') {
+      return <Button classes={{ root: classnames(mergedClasses.textButton) }} variant="text" disableRipple> Action </Button>;
+    } if (cardType === 'display' && buttonType === 'toggle') {
+      return <Toggle buttonType="Selected" edge="end" onFocusVisible={() => {}} type="pressed" />;
+    } if (cardType === 'display' && buttonType === 'switch') {
+      return <YesNoSwitch defaultValue={switchValue} />;
+    }
+    return null;
+  };
+
   return (
     <MuiCard
       onClick={() => { setIsSelected(!isSelected); }}
@@ -75,7 +96,7 @@ const CardWithInnerRef: FC<CardProps> = ({
       }}
     >
       <Box className={mergedClasses.cardWraper} component="div">
-        <Box className={classnames(mergedClasses.avatarContainer, { [mergedClasses.hide]: (cardType !== 'display' || (cardType === 'display' && type === 'single')) })}>
+        <Box className={classnames(mergedClasses.avatarContainer, { [mergedClasses.hide]: (cardType !== 'display' || (cardType === 'display' && assets === 'No' && type === 'single')) })}>
           <Avatar classes={{ root: classnames(mergedClasses.avatarHeader, { [mergedClasses.hide]: ((cardType === 'display' && assets === 'No') || cardType === 'selectable' || cardType === 'clickable'), [mergedClasses.avatarMetricHeader]: (type === 'metric') }) }} variant="square">
             R
           </Avatar>
@@ -85,6 +106,8 @@ const CardWithInnerRef: FC<CardProps> = ({
             classes={{
               root: classnames(mergedClasses.header, {
                 [mergedClasses.headerWithAssets]: (cardType === 'display' && assets === 'Yes'),
+                [mergedClasses.Card_header]: ((cardType === 'display' && assets === 'No')),
+                [mergedClasses.Card_headersingle]: (cardType === 'display' && type === 'single'),
               }),
               title: classnames(mergedClasses.title, {
                 [mergedClasses.selectedTitle]: (cardType === 'selectable' && !isSelected),
@@ -105,17 +128,14 @@ const CardWithInnerRef: FC<CardProps> = ({
                   classes={{
                     root: classnames(mergedClasses.iconButton, {
                       [mergedClasses.iconButton1]: ((cardType === 'display' && buttonType === 'switch') || (cardType === 'display' && buttonType === 'toggle')),
+                      [mergedClasses.iconTextButton]: (buttonType === 'text'),
+                      [mergedClasses.iconClickableButton]: (cardType === 'clickable'),
                     }),
                   }}
                   disableRipple
                   onClick={onIconCallback}
                 >
-                  { cardType === 'selectable' && <CheckCircleRoundedIcon classes={{ root: classnames(mergedClasses.selectedIcon, { [mergedClasses.unSelectedIcon]: (isSelected) }) }} /> }
-                  { cardType === 'display' && buttonType === 'icon' && <ErrorOutlineIcon classes={{ root: classnames(mergedClasses.selectedIcon) }} /> }
-                  { cardType === 'clickable' && <ArrowForward /> }
-                  { cardType === 'display' && buttonType === 'text' && <Button classes={{ root: classnames(mergedClasses.textButton) }} variant="text" disableRipple> Action </Button> }
-                  { cardType === 'display' && buttonType === 'toggle' && <Toggle buttonType="Selected" edge="end" onFocusVisible={() => {}} type="pressed" /> }
-                  { cardType === 'display' && buttonType === 'switch' && <YesNoSwitch defaultValue={switchValue} /> }
+                  {renderIcon()}
                 </IconButton>
               )
             }
@@ -125,6 +145,7 @@ const CardWithInnerRef: FC<CardProps> = ({
             classes={{
               root: classnames(mergedClasses.content, {
                 [classes.hide]: (type === 'single'),
+                [mergedClasses.contentSelectable]: (cardType === 'selectable' || cardType === 'clickable'),
               }),
             }}
           >
@@ -158,6 +179,7 @@ const CardWithInnerRef: FC<CardProps> = ({
                       [mergedClasses.captionWraper]: (assets === 'Yes'),
                       [mergedClasses.captionWraper1]: (type === 'metric'),
                       [mergedClasses.caption]: (type !== 'metric'),
+                      [mergedClasses.metricContentNoAssets]: (assets === 'No'),
                     }),
                   }}
                   component="p"
