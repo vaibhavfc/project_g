@@ -47,7 +47,7 @@ const InputHelperWithInnerRef: FC<InputHelperProps> = ({
         placeholder="Placeholder text"
         type="text"
         variant="filled"
-        value={value}
+        textFieldValue={value}
       />
       <Box
         className={mergedClasses.inputWraper}

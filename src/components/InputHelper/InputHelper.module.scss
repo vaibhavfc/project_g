@@ -10,6 +10,8 @@
   display: flex;
   flex-direction: row;
   width: 18rem;
+  overflow-x: scroll;
+  scrollbar-width: none;
 }
 
 .valueWraper {
@@ -17,10 +19,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #F9F9F9;
+  background: $input-helper-background-color;
   border-radius: 0.25rem;
   width: 5.666875rem;
   height: 2.25rem;
+
+  &:last-child {
+    margin: 0.5rem 0rem 0 0;
+  }
 }
 
 .valueWraperSelected {
@@ -28,20 +34,23 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #12877F;
+    background: $input-helper-selected-background-color;
     border-radius: 0.25rem;
     width: 5.666875rem;
     height: 2.25rem;
+    &:last-child {
+        margin: 0.5rem 0rem 0 0;
+      }
   }
 
   .valueSpanSelected {
     @include body-2;
-    color: #F9F9F9;
+    color: $input-helper-background-color;
     margin: 0.5rem 1.145625rem;
 }
 
 .valueSpan {
     @include body-2;
-    color: #12877F;
+    color: $input-helper-selected-color;
     margin: 0.5rem 1.145625rem;
 }
