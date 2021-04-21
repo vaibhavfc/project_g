@@ -157,3 +157,25 @@
 .hide {
   display: none;
 }
+
+
+//* MENU STYLES
+
+.paperRoot {
+  @include dp-4;
+}
+
+.item {
+  @include body-1;
+  color: $menuItem-color;
+  width: 18rem;
+  height: 3rem;
+
+  &:hover, &:focus {
+    background-color: $menuItem-hover !important;
+  }
+
+  & > span {
+    color: $menuItem-ripple;
+  }
+}

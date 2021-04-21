@@ -20,9 +20,9 @@ const AccordionWithInnerRef: FC<AccordionProps> = ({
   );
 
   return (
-    <div className={mergedClasses.accordion}>
+    <div className={mergedClasses.accordion} data-testid="accordion-main">
       {
-        items?.map(({ title, description }) => <AccordionItem title={title} description={description} />)
+        items?.map(({ title, description }) => <AccordionItem title={title} description={description} data-testid="accordion-menu" />)
       }
     </div>
   );

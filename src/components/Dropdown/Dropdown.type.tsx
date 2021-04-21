@@ -5,6 +5,9 @@ export interface DropdownStylingProps extends Partial<Record<TextFieldClassKey, 
   /**
    * override root(button itself) when done is true
    */
+  item?: string;
+  paperRoot?: string;
+  rippleClasses?: string;
 }
 
 export interface DropdownProps extends MuiDropdownProps {
@@ -12,5 +15,5 @@ export interface DropdownProps extends MuiDropdownProps {
    * overriden BaseProps innerRef to HTMLButtonElement
    */
   // innerRef: Ref<HTMLInputElement>;
-  items: Array<{title: string, value: any}>;
+  items: any[];
 }

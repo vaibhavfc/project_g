@@ -1,9 +1,15 @@
 import { MuiPickersOverrides } from '@material-ui/pickers/typings/overrides';
 
 type overridesNameToClassKey = {
-  [P in keyof MuiPickersOverrides]: keyof Required<MuiPickersOverrides>[P];
+  [P in keyof MuiPickersOverrides]: keyof MuiPickersOverrides[P];
 };
+
+type CustomType = {
+  MuiPickersModal: any;
+  MuiPickersToolbarText: any;
+};
+
 declare module '@material-ui/core/styles/overrides' {
-  export interface ComponentNameToClassKey
-    extends Required<overridesNameToClassKey> {}
+  interface ComponentNameToClassKey extends overridesNameToClassKey {}
+  export interface ComponentNameToClassKey extends CustomType {}
 }
