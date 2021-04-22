@@ -1,10 +1,10 @@
-import { Box, Switch } from '@material-ui/core';
 import React, {
   FC,
   forwardRef,
   useMemo,
   useState,
 } from 'react';
+import { Box, Switch } from '@material-ui/core';
 import classnames from 'classnames';
 import { ToggleProps, ToggleStylingProps } from './Toggle.type';
 import { mergeClassesObjects } from '../../helpers/styling/mergeClassesObjects';
@@ -39,15 +39,19 @@ const ToggleWithInnerRef: FC<ToggleProps> = ({
     >
       <Switch
         classes={{
-          thumb: classnames(mergedClasses.thumb),
+          root: mergedClasses.root,
+          thumb: classnames(mergedClasses.thumb, {
+            [mergedClasses.unselectedThumb]: (isChecked === false),
+          }),
           track: classnames(mergedClasses.track, {
             [mergedClasses.unselectedtrack]: (isChecked === false),
           }),
         }}
-        // TouchRippleProps={{
-        //   classes: {
-        //     root: classes.ripple,
-        //   },
+        TouchRippleProps={{
+          classes: {
+            root: classes.ripple,
+          },
+        }}
         checked={isChecked}
         onClick={toggleHandler}
       />

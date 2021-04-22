@@ -1,5 +1,9 @@
 @import '../../sass/theme/default';
 
+.root {
+    width: 67px;
+}
+
 .rootBtn {
     color: $toggle-selected;
     width: 2.38rem;
@@ -58,15 +62,15 @@
     height: 16px;
     background-color: #fff;
     box-shadow: none;
+    transform: translateX(0.5rem);
 }
 
 .unselectedThumb {
-    background-color: $toggle-selected-label;
-    transform: translate(-0.625rem, 0.125rem);
-    color: $toggle-selected;
-    &:hover {
-        background-color: $toggle-selected-label;
-    }
+    width: 16px;
+    height: 16px;
+    background-color: #fff;
+    box-shadow: none;
+    transform: translateX(0.1rem);
 }
 
 .colorSecondary {
@@ -101,6 +105,7 @@
     padding: 0 0 7px 0;
     border-radius: 10px;
     background-color: $toggle-selected;
+    opacity: 1 !important;
 }
 
 .unselectedtrack {
@@ -110,8 +115,6 @@
     background-color:$toggle-disabled-unselected;
 }
 
-.ripple {
-    color: $toggle-selected-label;
-    // transform: translate(-5px, -10px);
-    z-index: 5;
+.ripple { 
+    transform: translateX(0.5rem);
 }
