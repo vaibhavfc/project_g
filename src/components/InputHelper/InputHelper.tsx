@@ -66,7 +66,7 @@ const InputHelperWithInnerRef: FC<InputHelperProps> = ({
                 <Box
                   component="span"
                   className={classnames(mergedClasses.valueSpanSelected, {
-                    [mergedClasses.valueSpan]: ((amount !== value)),
+                    [mergedClasses.valueSpan]: (amount !== value),
                   })}
                 >
                   {amount}

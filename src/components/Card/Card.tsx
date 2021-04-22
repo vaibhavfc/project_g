@@ -64,17 +64,23 @@ const CardWithInnerRef: FC<CardProps> = ({
   const renderIcon = () => {
     if (cardType === 'selectable' && !isSelected) {
       return <CheckImgSelected />;
-    } if (cardType === 'selectable' && isSelected) {
+    }
+    if (cardType === 'selectable' && isSelected) {
       return <CheckImgunSelected />;
-    } if (cardType === 'display' && buttonType === 'icon') {
+    }
+    if (cardType === 'display' && buttonType === 'icon') {
       return <ErrorOutlineIcon />;
-    } if (cardType === 'clickable') {
+    }
+    if (cardType === 'clickable') {
       return <ArrowForward />;
-    } if (cardType === 'display' && buttonType === 'text') {
+    }
+    if (cardType === 'display' && buttonType === 'text') {
       return <Button classes={{ root: classnames(mergedClasses.textButton) }} variant="text" disableRipple> Action </Button>;
-    } if (cardType === 'display' && buttonType === 'toggle') {
+    }
+    if (cardType === 'display' && buttonType === 'toggle') {
       return <Toggle checked={false} />;
-    } if (cardType === 'display' && buttonType === 'switch') {
+    }
+    if (cardType === 'display' && buttonType === 'switch') {
       return <YesNoSwitch defaultValue={switchValue} />;
     }
     return null;
@@ -104,7 +110,7 @@ const CardWithInnerRef: FC<CardProps> = ({
             classes={{
               root: classnames(mergedClasses.header, {
                 [mergedClasses.headerWithAssets]: (cardType === 'display' && assets === 'Yes'),
-                [mergedClasses.cardHeader]: ((cardType === 'display' && assets === 'No')),
+                [mergedClasses.cardHeader]: (cardType === 'display' && assets === 'No'),
                 [mergedClasses.cardHeaderSingle]: (cardType === 'display' && type === 'single'),
               }),
               title: classnames(mergedClasses.title, {
