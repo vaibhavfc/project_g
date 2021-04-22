@@ -47,6 +47,7 @@ export interface CardStylingProps extends Partial<Record<CardClassKey, string>> 
   caption?: string
   captionWraper?: string
   captionWraper1?: string
+  captionWraper2?: string
     /**
      * selectedTitle
      * unSelectedTitle
