@@ -1,6 +1,5 @@
 import { Ref } from 'react';
 import { CardProps as MuiCardProps, CardClassKey } from '@material-ui/core/Card';
-import { StyleRulesCallback } from '@material-ui/styles';
 
 export interface CardStylingProps extends Partial<Record<CardClassKey, string>> {
   rootClickable?: string
@@ -20,6 +19,7 @@ export interface CardStylingProps extends Partial<Record<CardClassKey, string>> 
    */
   subheader?: string
   subheader1?: string
+  subheader2?: string
   /**
    * card hide style
    */
@@ -85,7 +85,7 @@ export interface CardStylingProps extends Partial<Record<CardClassKey, string>> 
    */
    boxLabel?: string
    /**
-    * contentWraper && contentWraper2 
+    * contentWraper && contentWraper2
     */
   contentWraper?: string
   contentWraper2 ?: string
@@ -133,7 +133,6 @@ export interface CardProps extends MuiCardProps {
   link?: string;
   onIconCallback?: () => void;
 }
-
 
 export interface CardLayoutProps extends MuiCardProps {
   innerRef: Ref<HTMLDivElement>;

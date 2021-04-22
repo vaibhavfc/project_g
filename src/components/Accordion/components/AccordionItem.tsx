@@ -9,7 +9,7 @@ import {
 import ExpandMoreRoundedIcon from '@material-ui/icons/ExpandMoreRounded';
 import ExpandLessRoundedIcon from '@material-ui/icons/ExpandLessRounded';
 
-import classnames from 'classnames';
+// import classnames from 'classnames';
 
 import { AccordionItemProps } from '../Accordion.type';
 
@@ -24,9 +24,7 @@ const AccordionItem: FC<AccordionItemProps> = ({
   return (
     <MuiAccordion
       classes={{
-        root: classnames(classes.root, {
-          [classes.expandSingleBorder]: toggle,
-        }),
+        root: classes.root,
         expanded: classes.expanded,
       }}
     >
@@ -40,7 +38,7 @@ const AccordionItem: FC<AccordionItemProps> = ({
         id="panel1a-header"
         onClick={() => setToggle(!toggle)}
       >
-        <MuiTypography className={classes}>{title}</MuiTypography>
+        <MuiTypography className={classes.title}>{title}</MuiTypography>
         <div className={classes.arrow}>
           {toggle ? <ExpandLessRoundedIcon /> : <ExpandMoreRoundedIcon />}
         </div>

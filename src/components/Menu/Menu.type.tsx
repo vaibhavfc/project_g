@@ -10,5 +10,4 @@ export interface MenuStylingProps extends Partial<Record<MenuClassKey, string>> 
 export interface MenuProps extends MuiMenuProps {
   innerRef: Ref<HTMLDivElement>;
   items: Array<{title: string, value: any}>;
-  getItemValue?: () => any;
 }

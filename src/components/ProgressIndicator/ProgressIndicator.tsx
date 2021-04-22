@@ -44,6 +44,7 @@ const ProgressIndicator: FC<ProgressIndicatorProps> = ({
       <div className={progressIndicatorType === 'step' ? classes.outlineStep : classes.outlinePercentage}>
         <MuiCircularProgress
           variant="determinate"
+          style={{ backgroundColor: 'white', borderRadius: '50%', zIndex: 0 }}
           value={value}
           classes={{
             root: classnames({
@@ -87,9 +88,6 @@ const ProgressIndicator: FC<ProgressIndicatorProps> = ({
             {progressIndicatorType === 'step' && type === 'progress' && value !== 100 ? progressStepLabel : ''}
             {(type === 'error' && value !== 100) ? <PriorityHighRoundedIcon className={classnames({ [classes.stepIcon]: progressIndicatorType === 'step', [classes.percentageIcon]: progressIndicatorType === 'percentage' })} /> : ''}
             {value === 100 ? <DoneRoundedIcon className={classnames({ [classes.stepIcon]: progressIndicatorType === 'step', [classes.percentageIcon]: progressIndicatorType === 'percentage' })} /> : ''}
-            {/* {(type === 'error' && value !== 100) ? <Error className={classnames({ [classes.stepIcon]: progressIndicatorType === 'step', [classes.percentageIcon]: progressIndicatorType === 'percentage' })} /> : ''}
-            {value === 100 ? <Success className={classnames({ [classes.stepIcon]: progressIndicatorType === 'step', [classes.percentageIcon]: progressIndicatorType === 'percentage' })} /> : ''} */}
-            {/* {(!value) ? `${progress}` : ''} */}
           </MuiTypography>
         </MuiBox>
         <MuiBox
@@ -102,7 +100,7 @@ const ProgressIndicator: FC<ProgressIndicatorProps> = ({
           display="flex"
           position="absolute"
         >
-          <sup className={mergedClasses.sup}>{((progressIndicatorType === 'percentage' && type === 'progress' && value !== 100)) ? '%' : ''}</sup>
+          <sup className={mergedClasses.sup}>{(progressIndicatorType === 'percentage' && type === 'progress' && value !== 100) ? '%' : ''}</sup>
         </MuiBox>
       </MuiBox>
     </MuiBox>

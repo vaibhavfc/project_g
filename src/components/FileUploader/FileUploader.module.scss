@@ -12,6 +12,9 @@
     border-radius: 1rem;
     background: white;
     border: 1px dashed $file-uploader-border-color;
+    // border-image-source: url("https://i.ibb.co/fp70j6P/file-uploader-border.png");
+    // border-image-slice: 2;
+    // border-image-repeat: round;  
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -12,8 +12,6 @@ const MenuWithInnerRef: FC<MenuProps> = ({
   // innerRef = null,
   classes: overrideClasses = {},
   items,
-  getItemValue,
-  ...props
 }) => {
   const mergedClasses = useMemo(
     () => mergeClassesObjects<MenuStylingProps>(classes, overrideClasses),
@@ -27,7 +25,7 @@ const MenuWithInnerRef: FC<MenuProps> = ({
       }}
       data-testid="menu-main"
     >
-      <MuiMenuList {...props}>
+      <MuiMenuList>
         {
           items?.map((item) => (
             <MuiMenuItem

@@ -26,13 +26,6 @@ import classes from './Datepicker.module.scss';
 
 const materialTheme = createMuiTheme({
   overrides: {
-    MuiPickersModal: {
-      dialogRoot: {
-        width: '284px',
-        minWidth: '284px',
-      },
-    },
-    //* TODO VAIBHAV
     MuiPickersToolbar: {
       toolbar: {
         backgroundColor: '#F9F9F9',

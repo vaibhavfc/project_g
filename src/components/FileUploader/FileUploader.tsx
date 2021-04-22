@@ -13,10 +13,17 @@ import classes from './FileUploader.module.scss';
 
 import { ProgressIndicator } from '..';
 
-import { ReactComponent as UploadIcon } from './assets/uploadIcon.svg';
-import { ReactComponent as DocumentIcon } from './assets/document.svg';
-import { ReactComponent as ImageIcon } from './assets/image.svg';
-import { ReactComponent as VideoIcon } from './assets/video.svg';
+//* IMPORT SVG
+// import { ReactComponent as UploadIcon } from './assets/uploadIcon.svg';
+// import { ReactComponent as DocumentIcon } from './assets/document.svg';
+// import { ReactComponent as ImageIcon } from './assets/image.svg';
+// import { ReactComponent as VideoIcon } from './assets/video.svg';
+
+//* IMPORTING SVG AS COMPONENT
+import UploadComp from './assets/UploadComp';
+import DocumentComp from './assets/DocumentComp';
+import ImageComp from './assets/ImageComp';
+import VideoComp from './assets/VideoComp';
 
 const FileUploader: FC<FileUploaderProps> = ({
   type = 'pdf',
@@ -24,8 +31,8 @@ const FileUploader: FC<FileUploaderProps> = ({
 }) => {
   const [isCardVisible, setIsCardVisible] = useState(false);
   const [fileName, setFileName] = useState('');
-  const [fileSize, setFileSize] = useState<number | number>(0);
-  const [convertedFileSize, setConvertedFileSize] = useState<number | number>(0);
+  const [fileSize, setFileSize] = useState(0);
+  const [convertedFileSize, setConvertedFileSize] = useState(0);
   const [filesizeType, setFilesizeType] = useState('');
   const file = useRef(null);
 
@@ -75,11 +82,11 @@ const FileUploader: FC<FileUploaderProps> = ({
   const handleIcon = (iconType): any => {
     switch (iconType) {
       case 'image':
-        return <ImageIcon />;
+        return <ImageComp />;
       case 'video':
-        return <VideoIcon />;
+        return <VideoComp />;
       default:
-        return <DocumentIcon />;
+        return <DocumentComp />;
     }
   };
 
@@ -107,7 +114,8 @@ const FileUploader: FC<FileUploaderProps> = ({
                 className={classes.fileuploaderInput}
               >
                 <div className={classes.fileuploaderInputTop}>
-                  <UploadIcon />
+                  {/* <UploadIcon /> */}
+                  <UploadComp />
                   <p>UPLOAD DOCUMENT</p>
                 </div>
                 <div className={classes.fileuploaderInputBottom}>

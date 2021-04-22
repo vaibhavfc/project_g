@@ -4,6 +4,14 @@
 /// @group accordion
 $title-color: map-get($burgundy, 100);
 
+/// Default
+/// @group accordion
 $description-color: map-get($grey, 80);
 
+/// Default
+/// @group accordion
 $arrow-color: map-get($grey, 60);
+
+/// Default
+/// @group accordion
+$accordion-divider: map-get($grey, 20);

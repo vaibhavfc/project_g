@@ -1,80 +1,14 @@
 @import '../../sass/theme/default';
 
-.accordion {
-  // border-radius: 0.5rem;
-}
-
-.root {
-  width: 16.375rem;
-  height: min-content !important;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 0.75rem;
-  box-shadow: none;
-  // border-radius: 0.5rem 0.5rem !important;
-  border-bottom: 0;
-
-  &:target .description{
-    height: min-content;
-  }
-
- // &:before {
-  //  background-color: $accordion-divider;
- // }
-
-  &:first-child {
-    border-radius: 0.5rem 0.5rem 0 0;
-  }
-
-  &:last-child {
-    border-radius: 0 0 0.5rem 0.5rem;
-  }
-}
-
-.expandSingleBorder {
-  border-radius: 0.5rem !important;
-
-  & + * {
-    border-radius: 0.5rem 0.5rem 0 0;
-    
-    &:last-child {
-      border-radius: 0.5rem;
-    }
-    
-    &:first-child {
-      border-radius: 0.5rem !important;
-    }
-  }
-
-  &:hover ~ .expandSingleBorder {
-    border-radius: 0.5rem;
-  }
-
-  & > *:not(expandSingleBorder) {
-    border-radius: 0.5rem !important;
-  }
-
-  &:first-child {
-    border-radius: 0 0 0.5rem 0.5rem;
-    border-radius: 0.5rem;
-  }
-  
-  &:last-child {
-    border-radius: 0.5rem 0.5rem 0 0;
-  }
-}
-
 .title {
   @include body-3;
   color: $title-color;
-  margin-bottom: 0.25rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0;
-  margin: 0;
+  margin: 0 0 0.25rem 0 !important;
+  transform: translateY(2px);
 
   &:first-child {
     margin: 0;
@@ -82,18 +16,52 @@
 }
 
 .description {
-  @include body-3;
   padding: 0 !important;
   margin-right: 0;
   width: 16.5rem;
-  padding: 0 0.75rem 0 0.75rem;
-  color: $description-color;
+
+  & > * {
+    @include body-3;
+    color: $description-color !important;
+  }
+}
+
+.accordion {
+  border-radius: 0.5rem !important;
+}
+
+.root {
+  width: 16.375rem;
+  height: min-content !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0.75rem;
+  box-shadow: none;
+  border-bottom: 0;
+
+  &:target .description{
+    height: min-content;
+  }
+
+  &:before {
+    background-color: $accordion-divider;
+  }
+
+  &:first-child {
+    border-radius: 0.5rem 0.5rem 0 0;
+  }
+
+  &:last-child {
+    border-radius: 0 0 0.5rem 0.5rem;
+  }
 }
 
 .arrow {
   color: $arrow-color;
   padding-right: 0;
   padding-left: 0.5rem;
+  transform: translateY(2px);
 }
 
 .accordionSummaryRoot {
@@ -105,8 +73,16 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 14px;
 }
 
 .expanded {
   min-height: 0 !important;
+  margin: 0 !important;
+  &:not(:last-child) {
+    border-bottom: 1px solid $accordion-divider;
+  }
+  &:not(:first-child) {
+    border-top: 1px solid $accordion-divider;
+  }
 }

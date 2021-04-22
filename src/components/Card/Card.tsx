@@ -11,17 +11,20 @@ import {
   CardHeader,
   IconButton,
   Avatar,
+  CardContent,
+  Typography,
+  Divider,
 } from '@material-ui/core';
-import CardContent from '@material-ui/core/CardContent';
-import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
+
 import classnames from 'classnames';
 import { CardProps, CardStylingProps } from './Card.type';
 import { YesNoSwitch, Toggle } from '..';
-import { ReactComponent as CheckImgSelected } from './assets/checkSelected.svg';
-import { ReactComponent as ArrowForward } from './assets/arrowForward.svg';
-import { ReactComponent as CheckImgunSelected } from './assets/checkUnSelected.svg';
-import { ReactComponent as ErrorOutlineIcon } from './assets/Vector.svg';
+
+//* SVGS AS COMPS
+import ArrowForwardComp from './assets/ArrowForwardComp';
+import CheckSelectedComp from './assets/CheckSelectedComp';
+import CheckUnSelectedComp from './assets/CheckUnSelectedComp';
+import ErrorOutlineComp from './assets/ErrorOutlineComp';
 
 import classes from './Card.module.scss';
 
@@ -63,16 +66,16 @@ const CardWithInnerRef: FC<CardProps> = ({
 
   const renderIcon = () => {
     if (cardType === 'selectable' && !isSelected) {
-      return <CheckImgSelected />;
+      return <CheckSelectedComp />;
     }
     if (cardType === 'selectable' && isSelected) {
-      return <CheckImgunSelected />;
+      return <CheckUnSelectedComp />;
     }
     if (cardType === 'display' && buttonType === 'icon') {
-      return <ErrorOutlineIcon />;
+      return <ErrorOutlineComp />;
     }
     if (cardType === 'clickable') {
-      return <ArrowForward />;
+      return <ArrowForwardComp />;
     }
     if (cardType === 'display' && buttonType === 'text') {
       return <Button classes={{ root: classnames(mergedClasses.textButton) }} variant="text" disableRipple> Action </Button>;
@@ -170,6 +173,7 @@ const CardWithInnerRef: FC<CardProps> = ({
                   classes={{
                     root: classnames(mergedClasses.subheader, {
                       [mergedClasses.subheader1]: (assets === 'Yes'),
+                      [mergedClasses.subheader2]: (cardType === 'display' && assets === 'Yes'),
                       [classes.hide]: (type === 'single' || type === 'no-label' || type === 'metric'),
                     }),
                   }}
@@ -181,6 +185,7 @@ const CardWithInnerRef: FC<CardProps> = ({
                   classes={{
                     root: classnames(mergedClasses.metricContent, {
                       [mergedClasses.captionWraper]: (assets === 'Yes'),
+                      [mergedClasses.captionWraper2]: ((cardType === 'selectable' && assets === 'Yes') || (cardType === 'clickable' && assets === 'Yes')),
                       [mergedClasses.captionWraper1]: (type === 'metric'),
                       [mergedClasses.caption]: (type !== 'metric'),
                       [mergedClasses.metricContentNoAssets]: (assets === 'No'),
@@ -236,4 +241,5 @@ const CardWithInnerRef: FC<CardProps> = ({
 const Card = forwardRef<HTMLDivElement, Omit<CardProps, 'innerRef'>>(
   (props, ref) => <CardWithInnerRef innerRef={ref} {...props} />,
 );
+
 export default Card;
