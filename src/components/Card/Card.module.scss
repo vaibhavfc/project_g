@@ -5,7 +5,7 @@
   @include dp-8;
   cursor: pointer;
   width: 18rem;
-  min-height: 3.5rem;
+  min-height: 3.1rem;
   border: 1px solid $card-border;
   border-radius: 0.5rem;
   position: relative;
@@ -119,6 +119,16 @@
   text-transform: uppercase;
  }
 
+ .subheader2{
+  @include label-2;
+  padding: 1rem 0 0 1rem;
+  display: flex;
+  width: 5.5rem;
+  word-wrap: break-word;
+  text-transform: uppercase;
+ }
+ 
+
 .show {
   display: block;
 }
@@ -142,7 +152,7 @@
 }
 
 .content {
-  padding: 0.25rem 1rem 1rem 0rem;
+  padding: 0rem 1rem 1rem 0rem;
   max-width: 13.5rem;
   &:last-child {
     padding-bottom: 1rem;
@@ -171,7 +181,7 @@
 
 .metricContentNoAssets {
   @include h4;
-  padding: 0.25rem 1rem 0rem 0rem;
+  padding: 0rem 1rem 0rem 0rem;
   max-width: 13.5rem;
   color: $primary-black;
 }
@@ -184,7 +194,7 @@
 }
 
 .iconButton {
-  padding-top: 0.5rem;
+  padding: 0.5rem 1rem 0 1rem;
   &:hover {
     background-color: transparent !important;
     color: transparent;
@@ -267,6 +277,13 @@
   word-wrap: break-word;
 }
 
+.contentassetsWraper2 {
+  position: relative;
+  max-width: 5.875rem;
+  word-wrap: break-word;
+  padding: 0.25rem 0 ;
+}
+
 .captionWraper {
   width: 9.875rem;
   height: 2.5rem;
@@ -290,6 +307,16 @@
   word-wrap: break-word;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.captionWraper2 {
+  width: 9.875rem;
+  height: 1.75rem;
+  position: relative;
+  word-wrap: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0.25rem 0;
 }
 
 .textButton {

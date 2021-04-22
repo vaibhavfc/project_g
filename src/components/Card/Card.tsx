@@ -170,6 +170,7 @@ const CardWithInnerRef: FC<CardProps> = ({
                   classes={{
                     root: classnames(mergedClasses.subheader, {
                       [mergedClasses.subheader1]: (assets === 'Yes'),
+                      [mergedClasses.subheader2]: (cardType === 'display' && assets === 'Yes'),
                       [classes.hide]: (type === 'single' || type === 'no-label' || type === 'metric'),
                     }),
                   }}
@@ -181,6 +182,7 @@ const CardWithInnerRef: FC<CardProps> = ({
                   classes={{
                     root: classnames(mergedClasses.metricContent, {
                       [mergedClasses.captionWraper]: (assets === 'Yes'),
+                      [mergedClasses.captionWraper2]: ((cardType === 'selectable' && assets === 'Yes') || (cardType === 'clickable' && assets === 'Yes')),
                       [mergedClasses.captionWraper1]: (type === 'metric'),
                       [mergedClasses.caption]: (type !== 'metric'),
                       [mergedClasses.metricContentNoAssets]: (assets === 'No'),

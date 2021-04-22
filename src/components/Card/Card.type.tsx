@@ -20,6 +20,7 @@ export interface CardStylingProps extends Partial<Record<CardClassKey, string>> 
    */
   subheader?: string
   subheader1?: string
+  subheader2?: string
   /**
    * card hide style
    */
