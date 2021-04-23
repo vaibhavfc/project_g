@@ -39,6 +39,16 @@
   border: 1px solid $card-border;
 }
 
+.disabledCard {
+  @include dp-8;
+  width: 18rem;
+  min-height: 3.5rem;
+  border-radius: 0.5rem;
+  position: relative;
+  border: 1px solid $card-border;
+  box-shadow: none;
+}
+
 .selectedIcon {
   color: $selected-heading;
   &:hover {
@@ -84,6 +94,13 @@
   color: $card-heading;
   width: 13.5rem;
 }
+
+.disabledTitle {
+  @include h6;
+  color: $card-unselected;
+  width: 13.5rem;
+}
+
 
 .header {
   padding: 1rem 1rem 0 1rem;
@@ -193,6 +210,13 @@
   max-width: 95%;
 }
 
+.disabledcaption {
+  @include body-2;
+  word-wrap: break-word;
+  color: $card-unselected;
+  max-width: 95%;
+}
+
 .iconButton {
   padding: 0.5rem 1rem 0 1rem;
   &:hover {
@@ -210,7 +234,6 @@
 }
 
 .iconClickableButton {
-  padding-top: 0.73rem;
   &:hover {
     background-color: transparent !important;
     color: transparent;
@@ -249,12 +272,29 @@
   height: 1.5rem;
 }
 
+.cardDisabledAvatar{
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: $card-unselected;
+}
+
 .cardLayoutBody {
   @include body-3;
   display: flex;
   justify-content: center;
   align-items: center;
   color: $card-content;
+  max-width:12.75rem;
+  word-wrap: break-word;
+  padding: 0 0.65rem;
+}
+
+.cardDisabledLayoutBody {
+  @include body-3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $card-unselected;
   max-width:12.75rem;
   word-wrap: break-word;
   padding: 0 0.65rem;

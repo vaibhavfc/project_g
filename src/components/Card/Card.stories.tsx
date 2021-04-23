@@ -154,6 +154,7 @@ SelectableAndExtended.args = {
   title: 'Extended',
   subheader: 'Label',
   content: 'content',
+  disabled: true,
   cardData: [
     { avatar: 'A', content: 'cardData cardData cardData' },
     { avatar: 'A', content: 'cardData cardData cardData' },

@@ -8,6 +8,7 @@ import classes from '../Card.module.scss';
 const CardLayoutWithInnerRef: FC<CardLayoutProps> = ({
   classes: overrideClasses = {},
   data,
+  disabled,
 }) => {
   const mergedClasses = useMemo(
     () => mergeClassesObjects<CardStylingProps>(classes, overrideClasses),
@@ -22,10 +23,19 @@ const CardLayoutWithInnerRef: FC<CardLayoutProps> = ({
       <Box
         component="div"
       >
-        <Avatar variant="square" classes={{ root: classnames(mergedClasses.cardAvatar) }} />
+        <Avatar
+          variant="square"
+          classes={{
+            root: classnames(mergedClasses.cardAvatar, {
+              [mergedClasses.cardDisabledAvatar]: (disabled === true),
+            }),
+          }}
+        />
       </Box>
       <Box
-        className={mergedClasses.cardLayoutBody}
+        className={classnames(mergedClasses.cardLayoutBody, {
+          [mergedClasses.cardDisabledLayoutBody]: (disabled === true),
+        })}
         component="div"
       >
         {data.content}

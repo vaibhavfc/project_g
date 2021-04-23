@@ -47,18 +47,21 @@ export interface CardStylingProps extends Partial<Record<CardClassKey, string>> 
   captionWraper?: string
   captionWraper1?: string
   captionWraper2?: string
+  disabledcaption?: string
     /**
      * selectedTitle
      * unSelectedTitle
      */
   selectedTitle?: string
   unSelectedTitle?:string
+  disabledTitle?:string
     /**
      * selectedCard &&  unSelectedCard && display
      */
   selectedCard?: string
   display?: string
   unSelectedCard?: string
+  disabledCard?: string
   /**
    * divider
    */
@@ -77,10 +80,12 @@ export interface CardStylingProps extends Partial<Record<CardClassKey, string>> 
    */
    cardContent?: string
   /**
-   * cardAvatar && cardLayoutBody
+   * cardAvatar && cardLayoutBody && cardDisabledLayoutBody && cardDisabledAvatar
    */
    cardAvatar?: string
+   cardDisabledAvatar?: string
    cardLayoutBody?: string
+   cardDisabledLayoutBody?: string
   /**
    * boxLabel
    */
@@ -130,6 +135,7 @@ export interface CardProps extends MuiCardProps {
   content?: string;
   content2?: string;
   subheader2?: string;
+  disabled?:boolean;
   cardData: {avatar: string, content: string}[];
   link?: string;
   onIconCallback?: () => void;
@@ -138,5 +144,6 @@ export interface CardProps extends MuiCardProps {
 export interface CardLayoutProps extends MuiCardProps {
   innerRef: Ref<HTMLDivElement>;
   data: {avatar: string, content: string};
+  disabled?:boolean;
   doneCallback?: () => void;
 }

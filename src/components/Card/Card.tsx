@@ -46,6 +46,7 @@ const CardWithInnerRef: FC<CardProps> = ({
   subheader2,
   buttonType,
   switchValue,
+  disabled = false,
   type,
   assets = 'No',
   onIconCallback = () => undefined,
@@ -65,10 +66,10 @@ const CardWithInnerRef: FC<CardProps> = ({
   // };
 
   const renderIcon = () => {
-    if (cardType === 'selectable' && !isSelected) {
+    if ((cardType === 'selectable' && !isSelected && !disabled)) {
       return <CheckSelectedComp />;
     }
-    if (cardType === 'selectable' && isSelected) {
+    if ((cardType === 'selectable' && isSelected) || (cardType === 'selectable' && !isSelected && disabled) || (cardType === 'selectable' && isSelected && disabled)) {
       return <CheckUnSelectedComp />;
     }
     if (cardType === 'display' && buttonType === 'icon') {
@@ -99,6 +100,7 @@ const CardWithInnerRef: FC<CardProps> = ({
           [mergedClasses.display]: (cardType === 'display'),
           [mergedClasses.selectedCard]: (cardType === 'selectable' && !isSelected),
           [mergedClasses.unSelectedCard]: (cardType === 'selectable' && isSelected),
+          [mergedClasses.disabledCard]: ((cardType === 'selectable' && disabled && !isSelected) || (cardType === 'selectable' && disabled && isSelected)),
         }),
       }}
     >
@@ -121,6 +123,7 @@ const CardWithInnerRef: FC<CardProps> = ({
                 [mergedClasses.unSelectedTitle]: (cardType === 'selectable' && isSelected),
                 [mergedClasses.headerTitle]: (cardType === 'display' && buttonType === 'text' && type !== 'metric'),
                 [mergedClasses.metricTitle]: (cardType === 'display' && type === 'metric'),
+                [mergedClasses.disabledTitle]: ((cardType === 'selectable' && disabled && !isSelected) || (cardType === 'selectable' && disabled && isSelected)),
               }),
               subheader: classnames(mergedClasses.subheader, {
                 [classes.hide]: (type === 'single' || type === 'no-label' || type === 'metric'),
@@ -189,6 +192,7 @@ const CardWithInnerRef: FC<CardProps> = ({
                       [mergedClasses.captionWraper1]: (type === 'metric'),
                       [mergedClasses.caption]: (type !== 'metric'),
                       [mergedClasses.metricContentNoAssets]: (assets === 'No'),
+                      [mergedClasses.disabledcaption]: ((cardType === 'selectable' && disabled && !isSelected) || (cardType === 'selectable' && disabled && isSelected)),
                     }),
                   }}
                   component="p"
@@ -233,7 +237,7 @@ const CardWithInnerRef: FC<CardProps> = ({
         </Box>
       </Box>
       <Divider classes={{ root: classnames(mergedClasses.divider, { [classes.hide]: (type === 'single' || type === 'label' || type === 'no-label' || type === 'label-2' || type === 'metric') }) }} />
-      {type === 'extended' && cardData?.map((item) => <CardLayout data={item} />)}
+      {type === 'extended' && cardData?.map((item) => <CardLayout data={item} disabled={disabled} />)}
     </MuiCard>
   );
 };
