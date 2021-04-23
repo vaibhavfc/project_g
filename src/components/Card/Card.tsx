@@ -25,6 +25,7 @@ import ArrowForwardComp from './assets/ArrowForwardComp';
 import CheckSelectedComp from './assets/CheckSelectedComp';
 import CheckUnSelectedComp from './assets/CheckUnSelectedComp';
 import ErrorOutlineComp from './assets/ErrorOutlineComp';
+import DisableArrow from './assets/DisableArrow';
 
 import classes from './Card.module.scss';
 
@@ -75,7 +76,7 @@ const CardWithInnerRef: FC<CardProps> = ({
     if (cardType === 'display' && buttonType === 'icon') {
       return <ErrorOutlineComp />;
     }
-    if (cardType === 'clickable') {
+    if (cardType === 'clickable' && !disabled) {
       return <ArrowForwardComp />;
     }
     if (cardType === 'display' && buttonType === 'text') {
@@ -86,6 +87,9 @@ const CardWithInnerRef: FC<CardProps> = ({
     }
     if (cardType === 'display' && buttonType === 'switch') {
       return <YesNoSwitch defaultValue={switchValue} />;
+    }
+    if (cardType === 'clickable' && disabled) {
+      return <DisableArrow />;
     }
     return null;
   };
@@ -100,7 +104,7 @@ const CardWithInnerRef: FC<CardProps> = ({
           [mergedClasses.display]: (cardType === 'display'),
           [mergedClasses.selectedCard]: (cardType === 'selectable' && !isSelected),
           [mergedClasses.unSelectedCard]: (cardType === 'selectable' && isSelected),
-          [mergedClasses.disabledCard]: ((cardType === 'selectable' && disabled && !isSelected) || (cardType === 'selectable' && disabled && isSelected)),
+          [mergedClasses.disabledCard]: ((cardType === 'selectable' && disabled && !isSelected) || (cardType === 'selectable' && disabled && isSelected) || (cardType === 'clickable' && disabled)),
         }),
       }}
     >
@@ -123,7 +127,7 @@ const CardWithInnerRef: FC<CardProps> = ({
                 [mergedClasses.unSelectedTitle]: (cardType === 'selectable' && isSelected),
                 [mergedClasses.headerTitle]: (cardType === 'display' && buttonType === 'text' && type !== 'metric'),
                 [mergedClasses.metricTitle]: (cardType === 'display' && type === 'metric'),
-                [mergedClasses.disabledTitle]: ((cardType === 'selectable' && disabled && !isSelected) || (cardType === 'selectable' && disabled && isSelected)),
+                [mergedClasses.disabledTitle]: ((cardType === 'selectable' && disabled && !isSelected) || (cardType === 'selectable' && disabled && isSelected) || (cardType === 'clickable' && disabled)),
               }),
               subheader: classnames(mergedClasses.subheader, {
                 [classes.hide]: (type === 'single' || type === 'no-label' || type === 'metric'),
@@ -192,7 +196,7 @@ const CardWithInnerRef: FC<CardProps> = ({
                       [mergedClasses.captionWraper1]: (type === 'metric'),
                       [mergedClasses.caption]: (type !== 'metric'),
                       [mergedClasses.metricContentNoAssets]: (assets === 'No'),
-                      [mergedClasses.disabledcaption]: ((cardType === 'selectable' && disabled && !isSelected) || (cardType === 'selectable' && disabled && isSelected)),
+                      [mergedClasses.disabledcaption]: ((cardType === 'selectable' && disabled && !isSelected) || (cardType === 'selectable' && disabled && isSelected) || (cardType === 'clickable' && disabled)),
                     }),
                   }}
                   component="p"
