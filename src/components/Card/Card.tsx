@@ -83,7 +83,7 @@ const CardWithInnerRef: FC<CardProps> = ({
       return <Button classes={{ root: classnames(mergedClasses.textButton) }} variant="text" disableRipple> Action </Button>;
     }
     if (cardType === 'display' && buttonType === 'toggle') {
-      return <Toggle checked={false} />;
+      return <Toggle default={false} />;
     }
     if (cardType === 'display' && buttonType === 'switch') {
       return <YesNoSwitch defaultValue={switchValue} />;
