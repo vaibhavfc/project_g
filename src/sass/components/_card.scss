@@ -1,0 +1,39 @@
+@import '../main.scss';
+
+/// DEFAULT CARD STATE
+/// @group Card
+$card-heading: $charcoal;
+
+/// CARD body
+/// @group Card
+$card-body: map-get($grey, 100);
+
+/// UnSelected Icon
+/// @group Card
+$card-unselected: map-get($grey, 50);
+
+// card content
+/// @group Card
+$card-content: map-get($grey, 70);
+
+// Secondary
+/// @group Card
+$card-border: map-get($grey, 20 );
+
+// Metric
+/// @group Card
+$card-metric-title: map-get($grey, 80 );
+
+// Metric
+/// @group Card
+$card-body-content: map-get($grey, 80 );
+
+// Selected-heading
+/// @group Card
+$selected-heading: map-get($pink, 100 );
+
+// Primary-black
+/// @group Card
+$primary-black: $charcoal
+
+

@@ -1,10 +1,14 @@
 @import '../../sass/theme/default';
 
 .main {
-  border-bottom: 1px solid $main-border;
   border-right: 1px solid $main-border;
   border-left: 1px solid $main-border;
   width: 20rem;
+  background-color: $white;
+}
+
+.border {
+  border-bottom: 1px solid $main-border;
 }
 
 .wrapper {
@@ -16,9 +20,12 @@
   padding: 1rem;
   border-top: 1px solid $main-border;
   border-bottom: 1px solid $main-border;
+  z-index: 0;
+  background-color: $white;
 
   &-indicator {
     margin: 0;
+    z-index: 1;
     cursor: pointer;
    
     &:focus {

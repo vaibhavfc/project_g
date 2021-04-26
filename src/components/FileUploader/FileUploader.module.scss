@@ -1,0 +1,129 @@
+@import '../../sass/theme/default';
+
+.fileuploader { 
+  z-index: 1;
+  display: none;
+  width: 288px;
+  height: 114px;
+  border-radius: 1rem;
+  
+  
+  &Input {
+    border-radius: 1rem;
+    background: white;
+    border: 1px dashed $file-uploader-border-color;
+    // border-image-source: url("https://i.ibb.co/fp70j6P/file-uploader-border.png");
+    // border-image-slice: 2;
+    // border-image-repeat: round;  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    z-index: -1;
+    cursor: pointer;
+    width: 288px;
+    height: 114px;
+
+    &:hover {
+      background: $file-uploader-hover-bg;
+      transition: background 0.2s ease-in;
+    }
+
+    &Top {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      & > p {
+        @include text-button;
+        padding-top: 0.625rem;
+        color: $file-uploader-title-color;
+        margin: 0;
+        text-transform: uppercase;
+      }
+    }
+    
+    &Bottom {
+      & > p {
+        @include label-1;
+        color: $file-uploader-details-color;
+        margin: 0;
+        padding-top: 0.5rem;
+      } 
+    }
+  }
+}
+
+.uploadCard {
+  padding: 1rem;
+  width: 18rem;
+  height: 4.125rem;
+  background: $uploading-status-card-bg;
+  border: 1px solid $file-uploader-border-color;
+  box-sizing: border-box;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &:hover {
+    background: $uploading-status-card-hover-bg;
+  }
+
+  &Left {
+    display: flex;
+    flex: 0.9;
+    justify-content: start;
+
+    &Icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transform: translateX(-1px);
+      padding-right: 1rem !important;
+    }
+
+    .titles {
+      
+      & > p {
+        margin: 0;
+      }
+
+      & > p:first-child {
+        @include subheading;
+        color: $uploading-status-card-title;
+      }
+      
+      & > p:last-child {
+        @include body-3;
+        color: $uploading-status-card-filesize;
+      }
+    }
+  }
+
+  &Right {
+    flex: 0.1;
+    display: flex;
+    justify-content: flex-end;
+
+    &CloseButton {
+      width: 1rem;
+      margin-left: 0.75rem;
+      color: $cancel-icon-color;
+
+      &:hover {
+        background: none;
+      }
+    }
+  }
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}

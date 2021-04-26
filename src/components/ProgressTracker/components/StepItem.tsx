@@ -53,7 +53,7 @@ const StepItem: FC<StepItemProps> = ({
     <div className="step-item-titleWrapper">
       <h6 className="step-item-titleWrapper__text">{stepTitle}</h6>
     </div>
-    <div className={!stepStatus ? 'hidden' : ''}>
+    <div style={{ paddingRight: '0.625rem' }} className={!stepStatus ? 'hidden' : ''}>
       {(stepStatus === 'current' && isChip) ? <Chip chipType="status" label="YOU ARE HERE" type="info" /> : null}
       {(stepStatus === 'success' && isChip) ? <Chip chipType="status" label="SUCCESS" type="success" /> : null}
       {(stepStatus === 'pending' && isChip) ? <Chip chipType="status" label="PENDING" type="pending" /> : null}

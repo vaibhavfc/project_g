@@ -1,11 +1,181 @@
+@import '../../sass/theme/default';
+
 .root {
-  cursor: pointer !important;
+  background-color: $textfield--root__bg;
+  width: 18rem;
+  height: 3.5rem;
+  transform: translateY(-2px);
+  border-radius: 4px 4px 0px 0px;
+}
+
+::placeholder {
+  @include body-1;
+}
+
+.labelRoot {
+  @include body-1;
+  color: $textfield--labelRoot;
+  transform: translate(0.9375rem, 17px);
+  height: 24px;
+
+  &Focused {
+    color: $textfield--labelRoot__focused !important;
+  }
+
+  &Disabled {
+    color: $textfield--labelRoot__disabled !important;
+  }
+
+  &Error {
+    color: $textfield--labelRoot__error !important;
+  }
+}
+
+.inputRoot {
+  @include body-1;
+  color: $textfield--text;
+  background-color: $textfield--root__bg;
+  border-bottom: 2px solid $textfield--inputroot;
+
+  &Disabled {
+    background: $textfield-disabled__bg;
+    
+    & > * {
+      background: $textfield-disabled__bg;      
+    }
+
+    &:before {
+      border: none;
+    }
+  }
+
+  &:hover {
+    background: $textfield--inputroot__hover;
+
+    &:before {
+      border: none;
+    }
+  }
+
+  &:focus {
+    background: $textfield--inputroot__hover !important;
+  }
+  
+  &:before {
+    border-bottom: none;
+  }
+  
+  &:after {
+    border-bottom: none;
+  }
+}
+
+.inputAdornment {
+  @include body-1;
+  color: $textfield--inputAdornment !important;
+  // padding-left: 0.32rem !important;
+
+  &:before {
+    border: none;
+  }
+
+  &Suffix {
+    color: $textfield--labelRoot;
+    transform: translate(-4px, 9px);
+    margin-right: -5px;
+
+    & > * {
+      @include body-1;
+      color: $textfield--labelRoot;
+    }
+  }
+}
+
+.displayAdornment {
+  display: none;
+}
+
+.suffix {
+
+  & > * {
+    text-align: end;
+  }
+}
+
+.error {
+  border-bottom: 2px solid $textfield--labelRoot__error
+}
+
+.disabled {
+  background-color: $textfield-disabled__bg !important;
+  border-bottom: 2px solid $textfield--labelRoot__disabled;
+  
+
+  &:before {
+    border: none !important;
+  }
+}
+
+
+.shrink {
+  color: $textfield--labelRoot__focused;
+  transform: translate(0.9375rem, 0.5rem) scale(0.75) !important;
+  
+  &Prefix {
+    transform: translate(0.75rem, 0.5rem) scale(0.75) !important;
+  }
+  
+  &Suffix {
+    transform: translate(1rem, 0.5rem) scale(0.75) !important;
+  }
+}
+
+.inputStart {
+  transform: translate(3px, -2px);
+}
+
+.inputSuffix {
+  transform: translateY(0);
+}
+
+.helperText {
+  @include body-3;
+  color: $textfield--labelRoot;
+}
+
+.IconButton {
+
+  &:hover {
+    background-color: transparent;
+  }
+}
+
+.show {
+  display: block;
 }
 
 .hide {
   display: none;
 }
 
-.unhide {
-  display: block;
+
+//* MENU STYLES
+
+.paperRoot {
+  @include dp-4;
+}
+
+.item {
+  @include body-1;
+  color: $menuItem-color;
+  width: 18rem;
+  height: 3rem;
+
+  &:hover, &:focus {
+    background-color: $menuItem-hover !important;
+  }
+
+  & > span {
+    color: $menuItem-ripple;
+  }
 }

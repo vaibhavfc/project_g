@@ -16,15 +16,12 @@ export default {
 
 const Template: Story<DropdownProps> = (args) => <Dropdown {...args} />;
 
-export const DefaultDropdown = Template.bind({});
-DefaultDropdown.args = {
+export const Default = Template.bind({});
+Default.args = {
+  variant: 'filled',
   label: 'Label',
+  error: false,
   placeholder: 'Placeholder text',
-  helperText: 'Helper Text',
-};
-
-export const DefaultDisabled = Template.bind({});
-DefaultDisabled.args = {
-  label: 'Label',
-  disabled: true,
+  type: 'text',
+  items: ['Menu Item 1', 'Menu Item 2', 'Menu Item 3'],
 };

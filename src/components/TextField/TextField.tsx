@@ -1,4 +1,4 @@
-import React, { FC, useMemo } from 'react';
+import React, { FC, useEffect, useMemo } from 'react';
 import {
   FormControl,
   InputAdornment,
@@ -23,11 +23,22 @@ const TextField: FC<TextFieldProps> = ({
   adornmentStart,
   adornmentEnd,
   adornmentSuffix,
+  value = null,
 }) => {
   const mergedClasses = useMemo(
     () => mergeClassesObjects<TextFieldStylingProps>(classes, overrideClasses),
     [overrideClasses],
   );
+
+  const [labelActive, setLabelActive] = React.useState(false);
+  const [inputText, setInputText] = React.useState('');
+
+  useEffect(() => {
+    if (value) {
+      setLabelActive(true);
+      setInputText(value);
+    }
+  }, [value]);
 
   const handleBlur = () => {
     if (inputText === '') {
@@ -35,9 +46,6 @@ const TextField: FC<TextFieldProps> = ({
     }
     return true;
   };
-
-  const [labelActive, setLabelActive] = React.useState(false);
-  const [inputText, setInputText] = React.useState('');
 
   return (
     <FormControl className={classnames(classes.margin, classes.withoutLabel, classes.textField)}>
@@ -61,7 +69,7 @@ const TextField: FC<TextFieldProps> = ({
         }}
         FormHelperTextProps={{
           classes: {
-            root: classnames(classes.helperText),
+            root: classes.helperText,
           },
         }}
         InputLabelProps={{

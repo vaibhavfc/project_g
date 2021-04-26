@@ -1,0 +1,120 @@
+@import '../../sass/theme/default';
+
+.root {
+    width: 67px;
+}
+
+.rootBtn {
+    color: $toggle-selected;
+    width: 2.38rem;
+    height: 1.25rem;
+    z-index: 0;
+}
+
+.switchBtn {
+    width: 2.38rem;
+    height: 1.25rem;
+    padding: 0;
+    border-radius: 0.625rem;
+    margin: 0.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:$toggle-disabled-unselected;
+}
+
+.switchBtn1 {
+    width: 2.38rem;
+    height: 1.25rem;
+    padding: 0;
+    border-radius: 0.625rem;
+    margin: 0.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $toggle-selected;
+}
+
+.switchBase {
+    transform: translateY(-0.7rem);
+    background-color:$toggle-disabled-unselected;
+    &:checked {
+        transform: translateX(1.25rem);
+    }
+}
+
+.switchBase1 {
+    transform: translateY(-0.7rem);
+    background-color: $toggle-selected;
+    &:checked {
+        transform: translateX(1.25rem);
+    }
+}
+
+.checked {
+    color: $toggle-selected !important;
+    background-color: $toggle-selected !important; ;
+    opacity: 1;
+}
+
+.thumb {
+    width: 16px;
+    height: 16px;
+    background-color: #fff;
+    box-shadow: none;
+    transform: translateX(0.5rem);
+}
+
+.unselectedThumb {
+    width: 16px;
+    height: 16px;
+    background-color: #fff;
+    box-shadow: none;
+    transform: translateX(0.1rem);
+}
+
+.colorSecondary {
+    background-color: $toggle-disabled-unselected;
+    &:checked {
+        background-color:$toggle-disabled-unselected;
+    }
+    &:hover {
+        background-color:$toggle-disabled-unselected;
+    }
+}
+
+.colorSecondary1 {
+    background-color: $toggle-selected;
+    &:checked {
+        background-color: $toggle-selected;
+    }
+    &:hover {
+        background-color: $toggle-selected;
+    }
+}
+
+
+.colorPrimary {
+    background-color: $toggle-selected;
+    &:checked {
+        background-color: $toggle-selected;
+    }
+}
+.track {
+    transform: translate(0px, -0.35rem);
+    padding: 0 0 7px 0;
+    border-radius: 10px;
+    background-color: $toggle-selected;
+    opacity: 1 !important;
+}
+
+.unselectedtrack {
+    transform: translate(-3px, -0.35rem);
+    padding: 0 0 7px 0;
+    border-radius: 10px;
+    background-color:$toggle-disabled-unselected;
+}
+
+.ripple { 
+    transform: translateX(0.5rem);
+}

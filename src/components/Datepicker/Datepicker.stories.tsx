@@ -6,7 +6,7 @@ import Datepicker from '.';
 import { DatepickerProps } from './Datepicker.type';
 
 export default {
-  title: 'Components/Datepicker',
+  title: 'Components/Datepicker[WIP]',
   component: Datepicker,
   parameters: {
     controls: {
@@ -19,4 +19,7 @@ const Template: Story<DatepickerProps> = (args) => <Datepicker {...args} />;
 
 export const DefaultDatepicker = Template.bind({});
 DefaultDatepicker.args = {
+  disabled: false,
+  label: 'Label',
+  placeholder: `${new Date()}`,
 };
