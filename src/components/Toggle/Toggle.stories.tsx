@@ -19,12 +19,10 @@ const Template: Story<ToggleProps> = (args) => <Toggle {...args} />;
 
 export const Selected = Template.bind({});
 Selected.args = {
-  buttonType: 'Selected',
   checked: true,
 };
 
 export const UnSelected = Template.bind({});
 UnSelected.args = {
-  buttonType: 'Unselected',
   checked: false,
 };
