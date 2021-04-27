@@ -15,7 +15,7 @@ const ToggleWithInnerRef: FC<ToggleProps> = ({
   classes: overrideClasses = {},
 
   // props
-  // checked = false,
+  checked = false,
   // buttonType,
   // toggleCallback = () => undefined,
   // type,
@@ -26,7 +26,7 @@ const ToggleWithInnerRef: FC<ToggleProps> = ({
     [overrideClasses],
   );
 
-  const [isChecked, setIsChecked] = useState(false);
+  const [isChecked, setIsChecked] = useState(checked);
 
   const toggleHandler = () => {
     setIsChecked(!isChecked);

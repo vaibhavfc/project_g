@@ -139,6 +139,7 @@ export interface CardProps extends MuiCardProps {
   cardData: {avatar: string, content: string}[];
   link?: string;
   onIconCallback?: () => void;
+  onCardClick?: () => void;
 }
 
 export interface CardLayoutProps extends MuiCardProps {

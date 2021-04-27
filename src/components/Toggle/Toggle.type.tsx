@@ -51,6 +51,6 @@ export interface ToggleStylingProps extends Partial<Record<SwitchClassKey, strin
 
 export interface ToggleProps extends MuiSwitchProps {
     innerRef: Ref<HTMLDivElement>;
-    default: boolean;
+    checked: boolean;
     toggleCallback?: () => void;
   }

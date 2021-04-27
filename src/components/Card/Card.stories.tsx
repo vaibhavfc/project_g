@@ -179,7 +179,8 @@ ClickableAndSingle.args = {
   cardType: 'clickable',
   type: 'single',
   title: 'Header',
-  onIconCallback: () => { console.log('onIconCallback'); },
+  onIconCallback: () => { alert('Icon called'); },
+  onCardClick: () => { alert('Card Clicked'); },
 };
 
 export const ClickableAndLabel = Template.bind({});

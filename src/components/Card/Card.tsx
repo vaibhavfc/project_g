@@ -51,6 +51,7 @@ const CardWithInnerRef: FC<CardProps> = ({
   type,
   assets = 'No',
   onIconCallback = () => undefined,
+  onCardClick = () => undefined,
   // ...props
 }) => {
   const mergedClasses = useMemo(
@@ -65,6 +66,13 @@ const CardWithInnerRef: FC<CardProps> = ({
   //   }
   //   return 'small';
   // };
+
+  const handelCardClick = () => {
+    setIsSelected(!isSelected);
+    if (cardType !== 'display') {
+      onCardClick();
+    }
+  };
 
   const renderIcon = () => {
     if ((cardType === 'selectable' && !isSelected && !disabled)) {
@@ -83,7 +91,7 @@ const CardWithInnerRef: FC<CardProps> = ({
       return <Button classes={{ root: classnames(mergedClasses.textButton) }} variant="text" disableRipple> Action </Button>;
     }
     if (cardType === 'display' && buttonType === 'toggle') {
-      return <Toggle default={false} />;
+      return <Toggle checked={false} />;
     }
     if (cardType === 'display' && buttonType === 'switch') {
       return <YesNoSwitch defaultValue={switchValue} />;
@@ -96,7 +104,7 @@ const CardWithInnerRef: FC<CardProps> = ({
 
   return (
     <MuiCard
-      onClick={() => { setIsSelected(!isSelected); }}
+      onClick={handelCardClick}
       role="button"
       classes={{
         root: classnames(mergedClasses.root, {
@@ -147,7 +155,7 @@ const CardWithInnerRef: FC<CardProps> = ({
                     }),
                   }}
                   disableRipple
-                  onClick={onIconCallback}
+                  onClick={() => cardType === 'display' && onIconCallback()}
                 >
                   {renderIcon()}
                 </IconButton>
