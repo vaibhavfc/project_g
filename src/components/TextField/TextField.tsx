@@ -24,6 +24,7 @@ const TextField: FC<TextFieldProps> = ({
   adornmentStart,
   adornmentEnd,
   adornmentSuffix,
+  onValueChange = () => null,
   value = null,
 }) => {
   const mergedClasses = useMemo(
@@ -54,6 +55,7 @@ const TextField: FC<TextFieldProps> = ({
         type={type}
         value={inputText}
         onChange={(e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
+          onValueChange(e.target.value);
           setInputText(e.target.value);
         }}
         onFocus={() => setLabelActive(true)}

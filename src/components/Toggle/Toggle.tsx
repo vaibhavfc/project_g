@@ -16,6 +16,7 @@ const ToggleWithInnerRef: FC<ToggleProps> = ({
 
   // props
   checked = false,
+  name,
   // buttonType,
   // toggleCallback = () => undefined,
   // type,
@@ -52,6 +53,7 @@ const ToggleWithInnerRef: FC<ToggleProps> = ({
             root: classes.ripple,
           },
         }}
+        name={name}
         checked={isChecked}
         onClick={toggleHandler}
       />

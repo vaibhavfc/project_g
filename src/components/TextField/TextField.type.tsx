@@ -17,4 +17,5 @@ export interface TextFieldProps extends MuiTextFieldProps {
   adornmentEnd?: any ;
   adornmentSuffix?: any;
   value?: any;
+  onValueChange?: (any) => void;
 }

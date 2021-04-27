@@ -49,6 +49,7 @@ const InputHelperWithInnerRef: FC<InputHelperProps> = ({
         type="text"
         variant="filled"
         value={value}
+        onValueChange={(e) => setValue(e)}
       />
       <Box
         className={mergedClasses.inputWraper}
