@@ -22,10 +22,10 @@ Default.args = {
   list: {
     title: 'Checkbox List Heading',
     items: [
-      { label: 'Default' },
-      { label: 'Checked', checked: true },
-      { label: 'Disabled', disabled: true },
-      { label: 'Checked & Disabled', disabled: true, checked: true },
+      { label: 'checkbox-1', name: 'checkbox', value: '1' },
+      { label: 'checkbox-2', name: 'checkbox', value: '2' },
+      { label: 'checkbox-3', name: 'checkbox', value: '3' },
+      { label: 'checkbox-4', name: 'checkbox', value: '4' },
     ],
   },
 };

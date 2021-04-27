@@ -12,6 +12,7 @@ import classes from './TextField.module.scss';
 import { mergeClassesObjects } from '../../helpers/styling/mergeClassesObjects';
 
 const TextField: FC<TextFieldProps> = ({
+  children,
   classes: overrideClasses = {},
   variant,
   error,
@@ -135,7 +136,9 @@ const TextField: FC<TextFieldProps> = ({
             </>
           ),
         }}
-      />
+      >
+        {children}
+      </MuiTextField>
     </FormControl>
   );
 };

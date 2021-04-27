@@ -9,6 +9,8 @@ export interface CheckboxListProps extends MuiCheckboxProps {
   list: { title: string,
           items: {
             label: string,
+            value: any,
+            name: string,
             checked?: boolean,
             disabled?: boolean
           }[]

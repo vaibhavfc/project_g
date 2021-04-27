@@ -7,8 +7,11 @@ export interface RadioListStylingProps extends Partial<Record<RadioClassKey, str
 export interface RadioListProps extends MuiRadioProps {
   // innerRef: Ref<HTMLButtonElement>;
   list: { title: string,
+          defaultValue?: any;
           items: {
             label: string,
+            value: any,
+            name: string,
             checked?: boolean,
             disabled?: boolean
           }[]

@@ -1,4 +1,9 @@
-import React, { FC, forwardRef, useMemo } from 'react';
+import React, {
+  FC,
+  forwardRef,
+  // useEffect,
+  useMemo,
+} from 'react';
 import { Radio as MuiRadio, FormControlLabel } from '@material-ui/core';
 import classnames from 'classnames';
 import { RadioProps, RadioStylingProps } from './Radio.type';
@@ -12,7 +17,11 @@ const RadioWithInnerRef: FC<RadioProps> = ({
   classes: overrideClasses = {},
   // children = 'Radio',
   tabIndex = 0,
-  label, checked, disabled,
+  label,
+  checked = false,
+  disabled,
+  value,
+  name,
   // ...props
 }) => {
   const mergedClasses = useMemo(
@@ -20,29 +29,42 @@ const RadioWithInnerRef: FC<RadioProps> = ({
     [overrideClasses],
   );
 
-  // const [clicked, setClicked] = React.useState(false);
+  const [selectedValue, setSelectedValue] = React.useState('');
 
   // const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
   //   setClicked(event.target.checked);
   //   return clicked;
   // };
 
+  // useEffect(() => {
+  //   setSelectedValue(value);
+  // }, [checked]);
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSelectedValue(event.target.value);
+  };
+
   return (
     <FormControlLabel
       classes={{
         label: classes.label,
       }}
-      value="end"
       control={(
         <MuiRadio
+          name={name}
+          id={name}
           disabled={disabled}
-          checked={checked}
+          checked={selectedValue === value || checked}
           tabIndex={tabIndex}
+          value={value}
+          onClick={() => setSelectedValue(value)}
+          onChange={handleChange}
           classes={{
             root: mergedClasses.root,
             checked: classnames({
-              [classes.disabledChecked]: (disabled && checked),
-              [classes.checked]: (checked && !disabled),
+              [classes.disabledChecked]: (disabled && (checked || selectedValue === value)),
+              [classes.checked]: ((selectedValue === value || checked) && !disabled),
+              // [classes.checked]: (checked && !disabled),
             }),
           }}
         />

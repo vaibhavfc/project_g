@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import React, { FC, useMemo } from 'react';
 import {
   Checkbox as MuiCheckbox,
@@ -14,24 +15,14 @@ import classes from './CheckboxList.module.scss';
 import { mergeClassesObjects } from '../../helpers/styling/mergeClassesObjects';
 
 const CheckboxList: FC<CheckboxListProps> = ({
-  // innerRef = null,
   classes: overrideClasses = {},
-  // children = 'CheckboxList',
   tabIndex = 0,
   list,
-  // ...props
 }) => {
   const mergedClasses = useMemo(
     () => mergeClassesObjects<CheckboxListStylingProps>(classes, overrideClasses),
     [overrideClasses],
   );
-
-  // const [clicked, setClicked] = React.useState(false);
-
-  // const handleChange = (event: React.ChangeEvent<HTMLButtonElement>) => {
-  //   setClicked(event.target.checked);
-  //   return clicked;
-  // };
 
   return (
     <FormControl component="fieldset" className={classes.formControl}>
@@ -46,29 +37,37 @@ const CheckboxList: FC<CheckboxListProps> = ({
       </FormLabel>
       <FormGroup>
         {
-          list.items?.map((checkbox) => (
+          list.items?.map(({
+            name,
+            label,
+            value,
+            disabled,
+            checked,
+          }, index) => (
             <FormControlLabel
               classes={{
                 label: classes.label,
               }}
-              value="end"
               control={(
                 <MuiCheckbox
-                  disabled={checkbox.disabled}
-                  checked={checkbox.checked}
+                  key={index}
+                  name={name}
+                  id={name}
+                  disabled={disabled}
+                  checked={checked}
                   tabIndex={tabIndex}
+                  value={value}
                   classes={{
                     root: mergedClasses.root,
                     checked: classnames({
-                      [classes.disabledChecked]: (checkbox.disabled && checkbox.checked),
-                      [classes.checked]: (checkbox.checked && !checkbox.disabled),
+                      [classes.disabledChecked]: (disabled && checked),
+                      [classes.checked]: (checked && !disabled),
                     }),
                   }}
                 />
-                )}
-              label={checkbox.label}
+              )}
+              label={label}
               labelPlacement="end"
-              key={checkbox.label}
             />
           ))
         }
@@ -76,9 +75,5 @@ const CheckboxList: FC<CheckboxListProps> = ({
     </FormControl>
   );
 };
-
-// const CheckboxList = forwardRef<HTMLInputElement, Omit<CheckboxListProps, 'innerRef'>>(
-//   (props, ref) => <CheckboxListWithInnerRef innerRef={ref} {...props} />
-// );
 
 export default CheckboxList;

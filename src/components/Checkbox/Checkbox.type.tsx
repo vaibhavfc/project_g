@@ -7,5 +7,5 @@ export interface CheckboxStylingProps extends Partial<Record<CheckboxClassKey, s
 export interface CheckboxProps extends MuiCheckboxProps {
   innerRef: Ref<HTMLButtonElement>;
   label?: string;
-  list?: {title: string, }
+  value?: any;
 }

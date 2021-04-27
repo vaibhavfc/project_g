@@ -10,7 +10,11 @@ import { mergeClassesObjects } from '../../helpers/styling/mergeClassesObjects';
 const CheckboxWithInnerRef: FC<CheckboxProps> = ({
   classes: overrideClasses = {},
   tabIndex = 0,
-  label, checked, disabled,
+  label,
+  checked,
+  disabled,
+  value,
+  name,
   ...props
 }) => {
   const mergedClasses = useMemo(
@@ -23,12 +27,13 @@ const CheckboxWithInnerRef: FC<CheckboxProps> = ({
       classes={{
         label: classes.label,
       }}
-      value="end"
       control={(
         <MuiCheckbox
+          name={name}
           disabled={disabled}
           checked={checked}
           tabIndex={tabIndex}
+          value={value}
           classes={{
             root: mergedClasses.root,
             checked: classnames({

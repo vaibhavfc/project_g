@@ -25,16 +25,19 @@ export const DisabledAndChecked = Template.bind({});
 DisabledAndChecked.args = {
   checked: true,
   disabled: true,
+  value: 'radio',
 };
 
 export const DisabledAndUnChecked = Template.bind({});
 DisabledAndUnChecked.args = {
   disabled: true,
+  value: 'radio',
 };
 
 export const DefaultWithLabel = Template.bind({});
 DefaultWithLabel.args = {
   label: 'Radio Item',
+  value: 'radio',
 };
 
 export const DisabledAndCheckedWithLabel = Template.bind({});
@@ -42,10 +45,12 @@ DisabledAndCheckedWithLabel.args = {
   label: 'Radio Item',
   checked: true,
   disabled: true,
+  value: 'radio',
 };
 
 export const DisabledAndUnCheckedWithLabel = Template.bind({});
 DisabledAndUnCheckedWithLabel.args = {
   label: 'Radio Item',
   disabled: true,
+  value: 'radio',
 };

@@ -7,5 +7,5 @@ export interface RadioStylingProps extends Partial<Record<RadioClassKey, string>
 export interface RadioProps extends MuiRadioProps {
   innerRef: Ref<HTMLButtonElement>;
   label?: string;
-  list?: {title: string, }
+  value: any;
 }
