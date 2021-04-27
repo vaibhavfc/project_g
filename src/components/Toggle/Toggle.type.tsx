@@ -20,38 +20,37 @@ export interface ToggleStylingProps extends Partial<Record<SwitchClassKey, strin
   /**
    * switchBtn
    */
-   switchBtn?: string
-   switchBtn1?: string
-   switchBase?: string
-   switchBase1?: string
+  switchBtn?: string
+  switchBtn1?: string
+  switchBase?: string
+  switchBase1?: string
   /**
    * thumb
    */
-   thumb?: string
-   thumb1?: string
-   unselectedThumb?: string
+  thumb?: string
+  thumb1?: string
+  unselectedThumb?: string
   /**
    * colorSecondary && colorPrimary
    */
-   colorSecondary?: string
-   colorSecondary1?: string
-   colorPrimary?: string
+  colorSecondary?: string
+  colorSecondary1?: string
+  colorPrimary?: string
 
    /**
     *track && unselectedtrack
     */
-    track?: string
-    unselectedtrack?: string
+  track?: string
+  unselectedtrack?: string
   /**
    * checked1
    */
-   checked?: string
-   checked1?: string
+  checked?: string
+  checked1?: string
 }
 
 export interface ToggleProps extends MuiSwitchProps {
-    innerRef: Ref<HTMLDivElement>;
-    checked: boolean;
-    name: string;
-    toggleCallback?: () => void;
-  }
+  innerRef: Ref<HTMLDivElement>;
+  checked: boolean;
+  toggleCallback?: () => void;
+}
