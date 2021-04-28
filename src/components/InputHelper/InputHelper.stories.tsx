@@ -20,4 +20,8 @@ const Template: Story<InputHelperProps> = (args) => <InputHelper {...args} />;
 export const Default = Template.bind({});
 Default.args = {
   inputValues: [10000, 20000, 30000],
+  prefix: '₹',
+  label: 'Label',
+  placeholder: 'Placeholder',
+  onChange: (textVal:string) => console.log(textVal),
 };

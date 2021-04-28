@@ -16,7 +16,12 @@ const InputHelperWithInnerRef: FC<InputHelperProps> = ({
   // innerRef = null,
   classes: overrideClasses = {},
   inputValues,
-
+  prefix = '₹',
+  suffix,
+  label,
+  trailingIcon,
+  placeholder,
+  onChange = () => null,
 }) => {
   const mergedClasses = useMemo(
     () => mergeClassesObjects<InputHelperStylingProps>(classes, overrideClasses),
@@ -26,10 +31,6 @@ const InputHelperWithInnerRef: FC<InputHelperProps> = ({
   const [value, setValue] = useState('');
   const [helperValues, setHelperValues] = useState<string[] | null>([]);
 
-  useEffect(() => {
-    setHelperValues(arr);
-  }, []);
-
   const handleHelperValue = (str) => str.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
   const arr = () => inputValues?.map((val) => {
@@ -37,19 +38,30 @@ const InputHelperWithInnerRef: FC<InputHelperProps> = ({
     return handleHelperValue(valStr);
   });
 
+  const onValueChange = (e : any) => {
+    setValue(e);
+    onChange(e);
+  };
+
+  useEffect(() => {
+    setHelperValues(arr);
+  }, []);
+
   return (
     <Box
       className={mergedClasses.rootContainer}
       component="div"
     >
       <TextField
-        adornmentStart="₹"
-        label="Label"
-        placeholder="Placeholder text"
+        adornmentStart={prefix}
+        adornmentEnd={trailingIcon}
+        adornmentSuffix={suffix}
+        label={label}
+        placeholder={placeholder}
         type="text"
         variant="filled"
         value={value}
-        onValueChange={(e) => setValue(e)}
+        onChange={(e) => onValueChange(e)}
       />
       <Box
         className={mergedClasses.inputWraper}
@@ -62,7 +74,7 @@ const InputHelperWithInnerRef: FC<InputHelperProps> = ({
                 className={classnames(mergedClasses.valueWraper, {
                   [mergedClasses.valueWraperSelected]: (amount === value),
                 })}
-                onClick={() => setValue(amount)}
+                onClick={() => onValueChange(amount)}
               >
                 <Box
                   component="span"

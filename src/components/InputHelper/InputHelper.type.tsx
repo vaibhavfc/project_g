@@ -20,7 +20,12 @@ export interface InputHelperStylingProps extends Partial<Record<TypographyClassK
 }
 
 export interface InputHelperProps extends MuiInputHelperProps {
-  innerRef: Ref<HTMLDivElement>;
-  inputValues?: [number, number, number] ;
-  toggleCallback?: () => void;
+  innerRef: Ref<HTMLDivElement>,
+  prefix?: string,
+  suffix?: string,
+  label?: string,
+  placeholder?: string,
+  inputValues?: [number, number, number],
+  trailingIcon?: any,
+  onChange?: (any) => void,
 }
