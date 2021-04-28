@@ -52,7 +52,7 @@ const CardWithInnerRef: FC<CardProps> = ({
   assets = 'No',
   onIconCallback = () => undefined,
   onCardClick = () => undefined,
-  // ...props
+  ...props
 }) => {
   const mergedClasses = useMemo(
     () => mergeClassesObjects<CardStylingProps>(classes, overrideClasses),
@@ -105,6 +105,7 @@ const CardWithInnerRef: FC<CardProps> = ({
   return (
     <MuiCard
       onClick={handelCardClick}
+      {...props}
       role="button"
       classes={{
         root: classnames(mergedClasses.root, {
