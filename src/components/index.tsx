@@ -21,3 +21,4 @@ export { default as FileUploader } from './FileUploader';
 export { default as Card } from './Card';
 export { default as Toggle } from './Toggle';
 export { default as InputHelper } from './InputHelper';
+export { default as Grid } from './Grid';
