@@ -22,7 +22,7 @@ const Template: Story<GridProps> = (args) => <Grid {...args} />;
 export const DegaultGrid = Template.bind({});
 DegaultGrid.args = {
   children: (
-    <Grid container spacing={4} direction="row" classes={{ container: classes.container }}>
+    <Grid container spacing={1} direction="row" classes={{ container: classes.container }}>
       <Grid item xs={12} sm={6} md={4} lg={2} xl={1}>
         <div style={{ backgroundColor: 'red' }}>Grid1</div>
       </Grid>
